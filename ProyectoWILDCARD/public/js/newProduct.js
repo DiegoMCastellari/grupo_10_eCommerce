@@ -4,7 +4,20 @@ window.onload = function () {
     var formulario = document.querySelector('#formulario')
 
     var nombreProducto = document.querySelector('#nombre')
+
+    var agregarImagenes3 = document.querySelector('#img3');
+    var agregarImagenes4 = document.querySelector('#img4');
+    var agregarImagenes5 = document.querySelector('#img5');
+    var agregarImagenes6 = document.querySelector('#img6');
+    var agregarImagenes7 = document.querySelector('#img7');
+
+    var file4 = document.querySelector('#file4');
+    var file5 = document.querySelector('#file5');
+    var file6 = document.querySelector('#file6');
+    var file7 = document.querySelector('#file7');
+    var file8 = document.querySelector('#file8');
     
+    var coloresLabel = document.querySelectorAll('#coloresLabel')
 
     var calzado = document.querySelector('#calzado');
     var accesorios = document.querySelector('#accesorios');
@@ -26,6 +39,13 @@ window.onload = function () {
     var isCheckedColores = [];
 
     var selectMarca = document.querySelector('#marca')
+    for(i = 0 ; i < coloresLabel.length; i++){
+        if(coloresLabel[i].style.backgroundColor =="#000000"||coloresLabel[i].style.backgroundColor =="rgb(0, 0, 0)"){
+            coloresLabel[i].style.color = "white"; 
+        }else{
+            coloresLabel[i].style.color = "black";
+        }
+    }
 
     calzado.addEventListener('click', function (e){
         console.log("selecciono calzado");
@@ -171,6 +191,41 @@ window.onload = function () {
             var descripcionError = document.querySelector('#descripcionError');
             descripcionError.innerHTML = ""
                 
+        }
+    })
+    agregarImagenes3.addEventListener('click', function(event){
+        if(file4.style.display == "none"){
+            file4.style.display = "flex";
+            agregarImagenes3.style.display = "none";
+            agregarImagenes4.style.display = "inline-block";
+        }
+    });
+    agregarImagenes4.addEventListener('click', function(event){
+        if(file5.style.display == "none"){
+            file5.style.display = "flex";
+            agregarImagenes4.style.display = "none";
+            agregarImagenes5.style.display = "inline-block";
+        }
+    });
+    agregarImagenes5.addEventListener('click', function(event){
+        if(file6.style.display == "none"){
+            file6.style.display = "flex";
+            agregarImagenes5.style.display = "none";
+            agregarImagenes6.style.display = "inline-block";
+        }
+    });
+    agregarImagenes6.addEventListener('click', function(event){
+        if(file7.style.display == "none"){
+            file7.style.display = "flex";
+            agregarImagenes6.style.display = "none";
+            agregarImagenes7.style.display = "inline-block";
+        }
+    });
+    agregarImagenes7.addEventListener('click', function(event){
+        if(file8.style.display == "none"){
+            file8.style.display = "flex";
+            agregarImagenes7.style.display = "none";
+            agregarImagenes8.style.display = "inline-block";
         }
     })
 

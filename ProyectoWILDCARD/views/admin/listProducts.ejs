@@ -19,6 +19,7 @@
                 <form action="../admin/products" method="POST" class="formfiltro">
                 <%- include('../partials/filtroListaProductos') %>
                 </form>
+                <button class="botonFiltro" id="verFiltros">Ver Filtros</button>
             </aside>
             <section class="producto">
                 <% for ( var i =0; i < productos.length; i++){ %>
@@ -39,5 +40,6 @@
         <%- include('../partials/footer') %>
 
     </div>
+    <script src="/js/productos.js"></script> 
 </body>
 </html>

@@ -27,9 +27,10 @@
                         <input type="number" name="idSel" id="idSel"  value="<%=carrito.carrito_productos[i].id%>" style="display: none;">
                         <input type="number" name="idCarrito" id="idCarrito"  value="<%=carrito.id%>" style="display: none;">
                         <p>Precio unitario : $ <%=toThousand(productos[j].precio-(productos[j].precio*(productos[j].descuento / 100)))%></p>
+                        <% if ( productos[j].descuento != 0){ %>
                         <p id="sinDesc" style="font-size: small; text-decoration: line-through;">Precio sin descuento : $ <%=toThousand(productos[j].precio)%></p>
                         <p id="desc" style="font-size: smaller;">Descuento : % <%=productos[j].descuento%> OFF</p>
-                        
+                        <%} %>
                         
                         <p style="font-size: smaller;"><%=productos[j].descripcion%></p>
                         <% }%>

@@ -8,6 +8,7 @@ router.get('/', accesoMiddleware.userSessionLogged, indexController.home);
 router.get('/ayuda', accesoMiddleware.userSessionLogged, indexController.ayuda);
 router.get('/contactanos', accesoMiddleware.userSessionLogged, indexController.contacto);
 
+router.post('/sendEmail', indexController.sendEmail);
 /* router.get('localhost:3000', function(req, res, next) {
   res.render('home');
 });

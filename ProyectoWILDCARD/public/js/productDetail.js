@@ -5,11 +5,11 @@ window.onload = function () {
     var formulario = document.querySelector('#formulario');
 
     var precio = document.querySelector('#inputPrecio');
-    console.log(precio.value);
     var cantidad = document.querySelector('#inputCantidad');
-    console.log(cantidad.value);
     var subtotal = document.querySelector('#subtotal');
-    console.log(subtotal);
+
+    var imagenSelect = document.querySelector('#imagenSelect');
+    var listadoImagenes = document.querySelectorAll('#listadoImagenes')
 
    cantidad.addEventListener('input', function(event){
        subtotal.innerHTML ="Subtotal: $"+  toThousand (cantidad.value*precio.value)
@@ -57,6 +57,13 @@ window.onload = function () {
             console.log(isCheckedColores);
 
     })
+        //IMAGENES
+        listadoImagenes.forEach(imagen => {
+            imagen.addEventListener('click', function(event){
+                imagenSelect.setAttribute('src', imagen.src)
+            })
+            
+        });
 
 
 }

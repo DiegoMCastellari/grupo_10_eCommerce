@@ -15,6 +15,7 @@
                 <form action="../products/filtro" method="POST" class="formfiltro">
                 <%- include('../partials/filtroListaProductos') %>
                 </form>
+                <button class="botonFiltro" id="verFiltros">Ver Filtros</button>
             </aside>
             <section class="producto"  >
                 <% for ( var i =0; i < productos.length; i++){ %>
@@ -22,8 +23,10 @@
                     <div class="calzado" onclick="javascript:location.href='/products/<%= productos[i].id %>'">
                         <p class="titulo"><%=productos[i].nombre%></p>
                         <img src="/img/products/<%= productos[i].imagenes[0].path %>" alt="<%= productos[i].imagenes[0].nombre %>">
-                        <p class="precio">$ <%= toThousand(productos[i].precio) %></p> 
+                        <p class="precio">$ <%= toThousand(productos[i].precio) %></p>
+                        <%if(productos[i].descuento!=0) {%> 
                         <p class="oferta">(<%=productos[i].descuento%> % OFF)</p>
+                        <%}%>
                         <p class="envio">Envio</p> 
                     </div>
                     
@@ -37,5 +40,6 @@
         <%- include('../partials/footer') %>
 
     </div>
+    <script src="/js/productos.js"></script>
 </body>
 </html>

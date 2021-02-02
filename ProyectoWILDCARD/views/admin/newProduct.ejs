@@ -75,7 +75,7 @@
                             <ul id="coloresError" style="font-size: small; color: red;" ></ul>
                             <label class="tituloColores" for="colores">COLORES :</label>
                             <% for (let i = 0; i < colores.length; i++) {%> 
-                                <label><input type="checkbox" id="colores" name="colores"  value="<%=colores[i].id%>"><%=colores[i].nombre%></label>
+                                <label id="coloresLabel" style="background-color:#<%=colores[i].hex %>;"><input type="checkbox" id="colores" name="colores"  value="<%=colores[i].id%>"><%=colores[i].nombre%></label>
                                 <%}%>
                          </div>
 
@@ -87,12 +87,12 @@
                             <ul id="descripcionError" style="font-size: small; color: red;" ></ul></div>
                         <div><label for="Imagen1">AGREGAR IMAGEN :</label><input class="agregarImagen1" type="file" name="Imagen1" ></div>
                         <div><label for="Imagen2">AGREGAR IMAGEN :</label><input class="agregarImagen2" type="file" name="Imagen2" ></div>
-                        <div><label for="Imagen3">AGREGAR IMAGEN :</label><input class="agregarImagen3" type="file" name="Imagen3" ></div>
-                        <div><label for="Imagen4">AGREGAR IMAGEN :</label><input class="agregarImagen4" type="file" name="Imagen4" ></div>
-                        <div><label for="Imagen5">AGREGAR IMAGEN :</label><input class="agregarImagen5" type="file" name="Imagen5" ></div>
-                        <div><label for="Imagen6">AGREGAR IMAGEN :</label><input class="agregarImagen6" type="file" name="Imagen6" ></div>
-                        <div><label for="Imagen7">AGREGAR IMAGEN :</label><input class="agregarImagen7" type="file" name="Imagen7" ></div>
-                        <div><label for="Imagen8">AGREGAR IMAGEN :</label><input class="agregarImagen8" type="file" name="Imagen8" ></div>
+                        <div><label for="Imagen3">AGREGAR IMAGEN :</label><input class="agregarImagen3" type="file" name="Imagen3" ><button id="img3" class="masImagenes">Más Imágenes</button></div>
+                        <div id="file4" style="display: none;"><label for="Imagen4">AGREGAR IMAGEN :</label><input class="agregarImagen4" type="file" name="Imagen4" ><button id="img4" class="masImagenes" style="display: none;">Más Imágenes</button></div>
+                        <div id="file5" style="display: none;"><label for="Imagen5">AGREGAR IMAGEN :</label><input class="agregarImagen5" type="file" name="Imagen5" ><button id="img5" class="masImagenes" style="display: none;">Más Imágenes</button></div>
+                        <div id="file6" style="display: none;"><label for="Imagen6">AGREGAR IMAGEN :</label><input class="agregarImagen6" type="file" name="Imagen6" ><button id="img6" class="masImagenes" style="display: none;">Más Imágenes</button></div>
+                        <div id="file7" style="display: none;"><label for="Imagen7">AGREGAR IMAGEN :</label><input class="agregarImagen7" type="file" name="Imagen7" ><button id="img7" class="masImagenes" style="display: none;">Más Imágenes</button></div>
+                        <div id="file8" style="display: none;"><label for="Imagen8">AGREGAR IMAGEN :</label><input class="agregarImagen8" type="file" name="Imagen8" ></div>
                     </div>
                     <button class="reset" type="reset">Resetear Carga</button> 
                     <button class="agregarProducto" type="submit">Agregar Producto</button>

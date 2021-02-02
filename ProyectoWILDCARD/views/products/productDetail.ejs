@@ -18,11 +18,11 @@
                     <article class="imagenesProducto">
                         <div class="imagenesCarousel">
                             <% for (let i=0; i< producto.imagenes.length; i++){ %>
-                                <img src="/img/products/<%= producto.imagenes[i].path %>" alt="imagen">  
+                                <img id="listadoImagenes" src="/img/products/<%= producto.imagenes[i].path %>" alt="imagen">  
                             <% } %>
                         </div>
                         <div class="imagenesSelect">
-                            <img src="/img/products/<%= producto.imagenes[0].path %>" alt="">
+                            <img id="imagenSelect" src="/img/products/<%= producto.imagenes[0].path %>" alt="">
                         </div>
                     </article>
                     <article class="descripcionProducto">

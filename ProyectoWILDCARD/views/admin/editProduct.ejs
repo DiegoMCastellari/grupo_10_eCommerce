@@ -8,9 +8,10 @@
     <div class="container">
         <%- include('../partials/header_edit') %>  
         <main class="newProduct">
-            <form action="/admin/products/<%= producto.id %>" method="POST" enctype="multipart/form-data">
+            <form action="/admin/products/<%= producto.id %>" method="POST" enctype="multipart/form-data" id="formulario">
                 <div class="nombre">
                     <label for="nombre">NOMBRE DE NUEVO PRODUCTO</label> <input type="text" name="nombre" id="nombre" value="<%= producto.nombre %>">
+                    <ul id="nameError" style="font-size: small; color: red;" ></ul>
                 </div>
                 <div class="primerCategoria">
                     <div class="tipo">
@@ -23,6 +24,7 @@
                         <label class="uno" for="categoria">CATEGORIA DEL PRODUCTO</label>
                         <div><label for="calzado">CALZADO</label><input  class="check" type="radio" name="categoria" id="calzado" value="calzado" <%= producto.id_tipo==1 ? "checked": null %>></div>
                         <div><label for="accesorios">ACCESORIOS</label><input  class="check" type="radio" name="categoria" id="accesorios" value="accesorios" <%= producto.id_tipo==2 ? "checked": null %>></div>
+                        <ul id="categoriaError" style="font-size: small; color: red;" ></ul>
                     </div>
                     <div class="categoriasCalzado">
                         <label for="categoria">CATEGORIAS DE CALZADOS</label>
@@ -59,28 +61,35 @@
                             <% } %>
                         <%}%>
                     </select>  
-                        <div class="talles"><label class="tituloTalle" for="talle">TALLES :</label>
+                    <ul id="marcaError" style="font-size: small; color: red;" ></ul>
+                        </div>
+                    <div class="talles"><label class="tituloTalle" for="talle">TALLES :</label>
                             <% for (let i = 0; i < talles.length; i++) {%>
                                 <label><input type="checkbox" id="talles" name="talles" value="<%=talles[i].id%>" <%= tallesProducto.includes(talles[i].talle) ? "checked": null %> ><%=talles[i].talle%></label>
                                 <% } %>
-                                <div class="colores"><label class="tituloColores" for="colores">COLORES :</label>
+                                <div class="colores">
+                                    <ul id="coloresError" style="font-size: small; color: red;" ></ul>
+                                    <label class="tituloColores" for="colores">COLORES :</label>
                             <% for (let i = 0; i < colores.length; i++) {%> 
-                                <label><input type="checkbox" id="colores" name="colores"  value="<%=colores[i].id%>" <%= coloresProducto.includes(colores[i].nombre) ? "checked": null %>><%=colores[i].nombre%></label>
+                                <label id="coloresLabel" style="background-color:#<%=colores[i].hex %>;"><input type="checkbox" id="colores" name="colores"  value="<%=colores[i].id%>" <%= coloresProducto.includes(colores[i].nombre) ? "checked": null %> ><%=colores[i].nombre%></label>
                                 <%}%>
                          </div>
                         </div>
-                        <div><label for="precio">PRECIO :</label> <input type="number" name="precio" id="precio" placeholder="Precio del producto" value="<%= producto.precio %>"></div>
-                        <div><label for="descuento">DESCUENTO :</label> <input type="number" name="descuento" id="descuento" placeholder="Descuento del producto" value="<%= producto.descuento %>"></div>
-                        <div><label for="descripcion">DESCRIPCION :</label> <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion del producto" value="<%= producto.descripcion %>"></div>
-                        <div><label for="Imagen1">AGREGAR IMAGEN :</label><input class="agregarImagen1" type="file" name="Imagen1" ></div>
-                        <div><label for="Imagen2">AGREGAR IMAGEN :</label><input class="agregarImagen2" type="file" name="Imagen2" ></div>
-                        <div><label for="Imagen3">AGREGAR IMAGEN :</label><input class="agregarImagen3" type="file" name="Imagen3" ></div>
-                        <div><label for="Imagen4">AGREGAR IMAGEN :</label><input class="agregarImagen4" type="file" name="Imagen4" ></div>
-                        <div><label for="Imagen5">AGREGAR IMAGEN :</label><input class="agregarImagen5" type="file" name="Imagen5" ></div>
-                        <div><label for="Imagen6">AGREGAR IMAGEN :</label><input class="agregarImagen6" type="file" name="Imagen6" ></div>
-                        <div><label for="Imagen7">AGREGAR IMAGEN :</label><input class="agregarImagen7" type="file" name="Imagen7" ></div>
-                        <div><label for="Imagen8">AGREGAR IMAGEN :</label><input class="agregarImagen8" type="file" name="Imagen8" ></div>
-                    </div>
+                        <div><label for="precio">PRECIO :</label> <input type="number" name="precio" id="precio" placeholder="Precio del producto" value="<%= producto.precio %>">
+                            <ul id="precioError" style="font-size: small; color: red;" ></ul></div>
+                        <div><label for="descuento">DESCUENTO :</label> <input type="number" name="descuento" id="descuento" placeholder="Descuento del producto" value="<%= producto.descuento %>">
+                            <ul id="descuentoError" style="font-size: small; color: red;" ></ul></div>
+                        <div><label for="descripcion">DESCRIPCION :</label> <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion del producto" value="<%= producto.descripcion %>">
+                            <ul id="descripcionError" style="font-size: small; color: red;" ></ul></div>
+                            <div><label for="Imagen1">AGREGAR IMAGEN :</label><input class="agregarImagen1" type="file" name="Imagen1" ></div>
+                            <div><label for="Imagen2">AGREGAR IMAGEN :</label><input class="agregarImagen2" type="file" name="Imagen2" ></div>
+                            <div><label for="Imagen3">AGREGAR IMAGEN :</label><input class="agregarImagen3" type="file" name="Imagen3" ><button id="img3" class="masImagenes">Más Imágenes</button></div>
+                            <div id="file4" style="display: none;"><label for="Imagen4">AGREGAR IMAGEN :</label><input class="agregarImagen4" type="file" name="Imagen4" ><button id="img4" class="masImagenes" style="display: none;">Más Imágenes</button></div>
+                            <div id="file5" style="display: none;"><label for="Imagen5">AGREGAR IMAGEN :</label><input class="agregarImagen5" type="file" name="Imagen5" ><button id="img5" class="masImagenes" style="display: none;">Más Imágenes</button></div>
+                            <div id="file6" style="display: none;"><label for="Imagen6">AGREGAR IMAGEN :</label><input class="agregarImagen6" type="file" name="Imagen6" ><button id="img6" class="masImagenes" style="display: none;">Más Imágenes</button></div>
+                            <div id="file7" style="display: none;"><label for="Imagen7">AGREGAR IMAGEN :</label><input class="agregarImagen7" type="file" name="Imagen7" ><button id="img7" class="masImagenes" style="display: none;">Más Imágenes</button></div>
+                            <div id="file8" style="display: none;"><label for="Imagen8">AGREGAR IMAGEN :</label><input class="agregarImagen8" type="file" name="Imagen8" ></div>
+                        </div>
                     <button class="reset" type="reset">Resetear Edición</button> 
                     <button class="agregarProducto" type="submit">Editar Producto</button>
                 </div>

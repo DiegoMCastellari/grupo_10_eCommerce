@@ -309,6 +309,17 @@
             justify-content: left;
             border-radius: 5px;
             }
+.container main.newProduct form#formulario div.primerCategoria div.esp div .masImagenes{
+    width: 40%;
+    height: 8vh;
+    font-size: 1.2rem;
+    color: white;
+    background-color: cadetblue;
+    font-family: montserrat;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 
 .container main.newProduct div.primerCategoria button.agregarProducto{
     width: 40%;
@@ -331,3 +342,96 @@
     margin-top: 10px;
     margin-bottom: 10px;
   }
+  /* ------------------------Modo Tablet 768px-------------------------------------------------*/
+  @media(max-width: 768px){
+    .container main.newProduct div.primerCategoria div.esp div.talles label{
+        width: 20%;
+        height: 95px;
+        font-size: 12px;
+        }   
+    .container main.newProduct div.primerCategoria div.esp div.colores label{
+        height: 95px;
+        font-size: 18px;
+        }     
+    .container main.newProduct form#formulario div.primerCategoria div.esp div .masImagenes {
+        width: 30%;
+        height: 8vh;
+        font-size: 1rem;
+        color: white;
+        background-color: cadetblue;
+        font-family: montserrat;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+  }
+  .container main.newProduct div.primerCategoria button.agregarProducto {
+    width: 40%;
+    height: 8vh;
+    font-size: 1.1rem;
+    color: white;
+    background-color: black;
+    font-family: montserrat;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .container main.newProduct div.primerCategoria button.reset {
+    font-size: 1rem;
+  }
+  .container main.newProduct div.primerCategoria div.esp div label {
+      font-size: 12px;
+  }
+}
+/* ------------------------Modo Mobile 425px-------------------------------------------------*/
+@media(max-width: 425px){
+    .container main.newProduct form{
+        width: 100%;
+    }
+.container main.newProduct div.nombre label{
+    font-size: 10px;
+}
+.container main.newProduct div.nombre input{
+    height: 40px;
+}
+.container main.newProduct div.primerCategoria div.tipo label.uno{
+    font-size: 10px;
+}
+.container main.newProduct div.primerCategoria div.tipo select{
+    height: 40px;
+}
+.container main.newProduct div.primerCategoria div.tipo div{
+    font-size: 9px;
+}
+.container main.newProduct label{
+    font-size: 9px;
+}
+.container main.newProduct div.primerCategoria div.esp div label {
+    font-size: 10px;
+    width: 30%;
+}
+.container main.newProduct div.primerCategoria div.esp div select {
+    height: 40px;
+}
+.container main.newProduct div.primerCategoria div.esp div a {
+    font-size: 10px;
+}
+.container main.newProduct div.primerCategoria div.esp div.talles label {
+    width: 25%;
+    height: 95px;
+    font-size: 10px;
+}
+.container main.newProduct div.primerCategoria div.esp div.colores label{
+    width: 25%;
+    font-size: 10px;
+    }
+.container main.newProduct form#formulario div.primerCategoria div.esp div .masImagenes{
+    font-size: 0.7rem;
+    }
+.container main.newProduct div.primerCategoria button.agregarProducto {
+    width: 60%;
+}
+.container main.newProduct div.primerCategoria button.reset{
+    width: 60%;
+}
+
+}
