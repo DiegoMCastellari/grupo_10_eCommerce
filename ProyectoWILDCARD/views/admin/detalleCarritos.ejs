@@ -31,8 +31,10 @@
                 </select>
                 <button class="boton" type="submit">Enviar</button>
                 </form>
+                <h2 id="totalCarrito" class="totalCarrito" style="border: black 2px solid; padding: 5px; color: white; background-color: black;">Total carrito:$</h1>
                 <%}%>
             </div>
+            <div class="tabla">
             <div class= "producto">
                 <h1>Producto</h1>
                 <%for(i=0; i< carritoProducto.length; i++ ){%>
@@ -76,11 +78,30 @@
             <div class="precio">
                 <h1>Precio</h1>
                 <%for(i=0; i< carritoProducto.length; i++ ){%>
-                    <h2>$ <%=toThousand(carritoProducto[i].producto.precio)%></h2>
+                    <h2>$ <%=toThousand(carritoProducto[i].subtotal)%></h2>
                     <%}%>
             </div>
+            <div class="total">
+                <h1>Total</h1>
+                <%for(i=0; i< carritoProducto.length; i++ ){%>
+                    <h2>$ <%=toThousand(carritoProducto[i].subtotal*carritoProducto[i].cantidad)%></h2>
+                    <input type="number" id="totalInput" style="display: none;" value="<%=carritoProducto[i].subtotal*carritoProducto[i].cantidad%>" readonly>
+                    <%}%>
+            </div>
+            <div class="cantidad">
+                <h1>Stock Disponible</h1>
+                <%for(j=0; j < stocks.length; j++ ){%>
+                <%for(i=0; i < carritoProducto.length; i++ ){%>
+                <%if(carritoProducto[i].id_producto == stocks[j].id_producto && carritoProducto[i].id_color == stocks[j].id_color && carritoProducto[i].id_talle == stocks[j].id_talle){%>  
+                <h2><%=stocks[j].stock%></h2>
+                <%}%>
+                <%}%>
+                <%}%>
+            </div>
+        </div>
         </main>
         <%- include('../partials/footer') %>
     </div>
+    <script src="/js/detalleCarritos.js"></script>
 </body>
 </html>
