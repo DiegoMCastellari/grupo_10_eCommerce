@@ -61,7 +61,6 @@ window.onload = function () {
     })
     
     formulario.addEventListener('submit', function(event){
-        event.preventDefault();
         categoria1.forEach(producto => {
             if(producto.getAttribute('ckecked')){
                 console.log("esta seleccionado");

@@ -13,7 +13,7 @@ main{
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: space-around;
 }
 
 
@@ -135,11 +135,18 @@ main .producto {
     display: flex;
     flex-wrap: wrap;
     background-color: white;
+    padding: 10px;
 }
 main .producto .calzado{
     position: relative;
     background-color: white;
     width: 18%;
+}
+main .producto .calzado div.imagen{
+    position: relative;
+    background-color: white;
+    flex-grow: 1;
+    height: 50%;
 }
 main .producto .calzado:hover{
     font-size: 25px;
@@ -183,6 +190,7 @@ main .producto .calzado .envio{
 main .producto .calzado img{
     width: 100%;
     padding: 0px;
+    max-height: 100%;
 }
 
 main .producto .calzado .buttonEdit{
@@ -217,7 +225,56 @@ main .producto .calzado .buttonDelete:hover{
     background-color: white;
     border: 2px solid #FF0000;
 }
-
+div.arrows {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+width: 100%;
+justify-content: center;
+}
+.btn-arrow {
+    color: transparent;
+    display: block;
+    margin: 3rem;
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    background-color: rgba(0, 0, 0, 0.05);
+    transition: all 150ms ease-out;
+  }
+  .btn-arrow::before, .btn-arrow::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #606060;
+    transition: all 150ms ease-out;
+  }
+  .btn-arrow::before {
+    width: 75%;
+    height: 25%;
+  }
+  .btn-arrow::after {
+    width: 25%;
+    height: 75%;
+  }
+  .btn-arrow:hover, .btn-arrow:focus {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  .btn-arrow:hover::before, .btn-arrow:hover::after, .btn-arrow:focus::before, .btn-arrow:focus::after {
+    background-color: #404040;
+  }
+  .btn-arrow.btn-arrow-left::before, .btn-arrow.btn-arrow-left::after, .btn-arrow.btn-arrow-right::before, .btn-arrow.btn-arrow-right::after {
+    top: 12.5%;
+    left: 12.5%;
+  }
+  .btn-arrow.btn-arrow-left {
+    transform: rotate(-45deg);
+  }
+  .btn-arrow.btn-arrow-right {
+    transform: rotate(135deg);
+  }
 
 
 
@@ -235,7 +292,7 @@ main .producto .calzado .buttonDelete:hover{
 
     /* ----------------- || PRODUCTOS    ------------- */
     main .producto {
-        width: 78vw;
+        width: 75%;
         display: flex;
         flex-wrap: wrap;
         background-color: white;
@@ -243,9 +300,16 @@ main .producto .calzado .buttonDelete:hover{
     main .producto .calzado{
         position: relative;
         background-color: white;
-        width: 32%;
+        width: 48%;
         flex-grow: 1;
-        box-shadow: 10px 10px;
+        max-width: 48%;
+        text-align: center;
+    }
+    main .producto .calzado div.imagen{
+        position: relative;
+        background-color: white;
+        flex-grow: 1;
+        height: 50%;
     }
     
     main .aside .formfiltro .filtro{
@@ -292,7 +356,6 @@ main .producto .calzado .buttonDelete:hover{
         background-color: white;
         width: 49%;
         flex-grow: 1;
-        box-shadow: 10px 10px;
     }
     .submitbutton{
         width: 100%;
@@ -306,5 +369,8 @@ main .producto .calzado .buttonDelete:hover{
     }
     main .aside .buttonAgregar{
         width: 80%;
+    }
+    main .producto .calzado .titulo {
+        font-size: 16px;
     }
 }

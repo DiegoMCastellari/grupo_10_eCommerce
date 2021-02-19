@@ -12,7 +12,7 @@
         <%- include('../partials/header') %>
         <main>
             <aside class="aside">
-                <form action="../products/filtro" method="POST" class="formfiltro">
+                <form action="../../products/filtro" method="POST" class="formfiltro">
                 <%- include('../partials/filtroListaProductos') %>
             </form>
             <button class="botonFiltro" id="verFiltros">Ver Filtros</button>
@@ -22,17 +22,36 @@
                     
                     <div class="calzado" onclick="javascript:location.href='/products/<%= productos[i].id %>'">
                         <p class="titulo"><%=productos[i].nombre%></p>
+                        <div class="imagen">
                         <img src="/img/products/<%= productos[i].imagenes[0].path %>" alt="<%= productos[i].imagenes[0].nombre %>">
+                    </div>
                         <p class="precio">$ <%= toThousand(productos[i].precio) %></p> 
-                        <p class="oferta">(<%=productos[i].descuento%> OFF)</p>
+                        <%if(productos[i].descuento==0) {%> 
+                            <p class="oferta" style='opacity: 0;'>(<%=productos[i].descuento%> % OFF)</p>
+                            <%}else{%>
+                                <p class="oferta">(<%=productos[i].descuento%> % OFF)</p>
+
+                                <%}%>   
                         <p class="envio">Envio</p> 
                     </div>
                     
                 <%}%>
-
-             
+                <% if (typeof busqueda !== 'undefined'){ %> 
+                <div class="arrows">
+                    <% if ( page > 1 ){ %>   
+                        <a href="/products/search/<%=busqueda%>?page=<%=page -2 %>" class="btn-arrow btn-arrow-left" title="Previous">Previous</a>
+                        <% }else{ %>
+                            <a href="/products/search/<%=busqueda%>?page=<%= page == 0 ? page : page-1 %>" class="btn-arrow btn-arrow-left" title="Previous" style="opacity: 0;">Previous</a>
+                            <%}%>
+                        <% if ((contarProductos) > (page*10) && contarProductos>1 && (contarProductos/10) > 1){ %>
+                        <a href="/products/search/<%=busqueda%>?page=<%= page > 0 ? page : page+1 %>" class="btn-arrow btn-arrow-right" title="Next" >Next</a></div>
+                        <% }else{ %>
+                            <a href="/products/search/<%=busqueda%>?page=<%= page == 0 ? page : page-1%>" class="btn-arrow btn-arrow-right" title="Next" style="opacity: 0;">Next</a></div>
+                            <%}%>
+                            <%}%>
+                        
             </section>
-            
+
         </main>
 
         <%- include('../partials/footer') %>

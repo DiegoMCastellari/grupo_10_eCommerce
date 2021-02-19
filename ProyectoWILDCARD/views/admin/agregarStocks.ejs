@@ -20,12 +20,12 @@
                 <%}%>
                 </div>
                 <div class="colores">
-                <%for (i=0; i < producto[0].colores.length; i++ ){%>
-                    <%for (j=0; j < producto[0].talles.length; j++ ){%>
-                <label for="colores">Color : <%=producto[0].colores[j].nombre%>:</label><input type="text" id="colores" name="colores" class="input" value="<%=producto[0].colores[j].id%>" readonly style="display: none;">
-                <%}%>
-                <%}%>
-                </div>
+                    <%for (i=0; i < producto[0].talles.length; i++ ){%>
+                        <%for (j=0; j < producto[0].colores.length; j++ ){%>
+                    <label for="colores">Talle : <%=producto[0].colores[j].nombre%></label><input type="text" id="colores" name="colores" class="input" value="<%=producto[0].colores[j].id%>" readonly style="display: none;">
+                    <%}%>
+                    <%}%>
+                    </div>
                 <div class="stock">
                 <%for (i=0; i < producto[0].colores.length; i++ ){%>
                     <%for (j=0; j < producto[0].talles.length; j++ ){%>

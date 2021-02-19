@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href='/stylesheets/listaProductsStock.css'/>
+</head>
+<body>
+    <div class="container">
+        <%- include('../partials/header') %>
+        <div class="titulo"><h1 class="tituloStock">LISTADO DE PRODUCTOS</h1>
+        <p>(Presionar en el articulo para ver el stock del mismo)</p></div>
+        <main>
+            <div class="id">
+                <h1>Id</h1>
+                <%for(i=0; i< productos.length; i++ ){%>
+                <h2><a href="/admin/stocks/<%=productos[i].id%>"><%=productos[i].id%></a></h2>
+                <%}%>
+            </div>
+            <div class="tipo">
+                <h1>Tipo</h1>
+                <%for(i=0; i< productos.length; i++ ){%>
+                <h2><a href="/admin/stocks/<%=productos[i].id%>"><%=productos[i].id_tipo%></a></h2>
+                <%}%>
+            </div>
+            <div class="estado">
+            <h1>Estado</h1>
+            <%for(i=0; i< productos.length; i++ ){%>
+            <h2><a href="/admin/stocks/<%=productos[i].id%>"><%=productos[i].activo%></a></h2>
+            <%}%>
+        </div>
+            <div class= "usuario">
+                <h1>Usuario</h1>
+                <%for(i=0; i< productos.length; i++ ){%>
+                <h2><a href="/admin/stocks/<%=productos[i].id%>"><%=productos[i].usuario%></a></h2>
+                <%}%>
+            </div>
+            <div class= "nombreProducto">
+                <h1>Nombre Producto</h1>
+                <%for(i=0; i< productos.length; i++ ){%>
+                <h2><a href="/admin/stocks/<%=productos[i].id%>"><%=productos[i].nombre%></a></h2>
+                <%}%>
+            </div>
+            <div class= "descripcion">
+                <h1>Descripcion</h1>
+                <%for(i=0; i< productos.length; i++ ){%>
+                <h2><a href="/admin/stocks/<%=productos[i].id%>"><%=productos[i].descripcion%></a></h2>
+                <%}%>
+            </div>
+
+            <div class= "marca">
+                <h1>Marca</h1>
+                <%for(i=0; i< productos.length; i++ ){%>
+                    <%for(j=0; j< marcas.length; j++ ){%>
+                        <% if(marcas[j].id == productos[i].id_marca) {%>
+                <h2><a href="/admin/stocks/<%=productos[i].id%>"><%=marcas[j].nombre%></a></h2>
+                <%}%>
+                <%}%>
+                <%}%>
+            </div>
+            <div class= "categoria">
+                <h1>Categoria</h1>
+                <%for(i=0; i< productos.length; i++ ){%>
+                    <%for(j=0; j< categorias.length; j++ ){%>
+                        <% if(categorias[j].id == productos[i].id_categoria) {%>
+                <h2><a href="/admin/stocks/<%=productos[i].id%>"><%=categorias[j].nombre%></a></h2>
+                <%}%>
+                <%}%>
+                <%}%>
+            </div>
+            
+        </main>
+        <%- include('../partials/footer') %>
+    </div>
+</body>
+</html>
