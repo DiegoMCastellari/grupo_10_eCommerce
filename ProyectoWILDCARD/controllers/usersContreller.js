@@ -50,8 +50,6 @@ const usersController = {
             console.log(users);
             res.render('users/userlist', {users, usuario :req.usuarioLogueado})
         })
-        /*console.log(users);
-        res.render('users/userList.ejs', {users : users, usuario: req.usuarioLogueado});*/
     },
     destroy : (req, res) => {
         var idUsers = req.params.id;
@@ -61,15 +59,6 @@ const usersController = {
             }}).then(function(resultado){
                 res.redirect('/users/userList')
             })
-        /*
-		var userDestroy = users.filter(function(user){
-			return user.id!=idUsers; 
-		})
-		var userDestroyJSON = JSON.stringify(userDestroy, null, 2);
-		fs.writeFileSync(__dirname + '/../data/users.json', userDestroyJSON);
-		
-		
-		return res.redirect("/users/userList", {usuario: req.usuarioLogueado})*/
     },
     editarUsuario: (req, res, next) => {
         let userId = req.params.id;
@@ -242,6 +231,33 @@ const usersController = {
             usuario: req.usuarioLogueado
         }); */
         res.redirect('/')
+    },
+    editarUsuarioUser: (req, res, next) => {
+        let userId = req.session.usuario.id;
+        db.Usuarios.findOne({
+            where: {
+             id: userId
+             }
+            })
+        .then(function(userEdit){
+            console.log(userEdit);
+            res.render('users/userEditUser', {userEdit, usuario :req.usuarioLogueado})
+        })
+    }, 
+    editarUsuarioUserPost: (req, res) => {
+        let userId = req.session.usuario.id;
+        db.Usuarios.update({
+            nombre : req.body.fullname,
+            email : req.body.email,
+            telefono : req.body.telefono,
+            password : bcrypt.hashSync(req.body.password, 10)
+        },{
+            where : {
+                id : userId
+            }
+        }).then(function(resultado){
+            res.redirect('/')
+        })
     }
 };
 

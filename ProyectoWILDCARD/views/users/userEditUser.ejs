@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href='/stylesheets/__register.css'/>
+    <link rel='stylesheet' href='/stylesheets/header2.css' />
+
+</head>
+<body>
+    <div class="container">
+        <%- include('../partials/header') %>
+        <main>
+            <div class="subheader">
+                <p><a href="#">Inicio</a> > Editar Cuenta</p>
+            </div>
+            <div class="inputsContainer">
+                <form action="/users/userList/edit/<%= userEdit.id %>" method="post" id="formEdit">
+                    <div class="auxiliarInputsContainer">
+                        
+                        <div class="fullnameInputContainer">
+                        <label for="fullname">NOMBRE Y APELLIDO</label>
+                        <input type="text" name="fullname" id="fullname" value="<%= userEdit.nombre %>">
+                        <ul id="nameError" style="font-size: small; color: red;" ></ul>
+                        </div> <br>
+                        <label for="email">EMAIL</label>
+                        <input type="email" name="email" id="email" value="<%= userEdit.email %>" > <br>
+                        <ul style="font-size: small; color: red;"  id="emailError"></ul><br>
+                        <label for="text">TELÉFONO (OPCIONAL)</label>
+                        <input type="text" name="telefono" id="telefono" value="<%= userEdit.telefono %>"> <br>
+                        <ul style="font-size: small; color: red;"  id="telefonoError"></ul><br>
+                        <label for="password">NUEVA CONTRASEÑA</label>
+                        <input type="password" name="password" id="password"> <br>
+                        <ul style="font-size: small; color: red;"  id="passwordError"></ul><br>
+                        <label for="password">CONFIRMAR CONTRASEÑA</label>
+                        <input type="password" name="confirmpassword" id="confirmpassword"> <br>
+                        <ul style="font-size: small; color: red;"  id="confirmError"></ul><br>
+
+                        <button type="submit" id="entrar"><a href="users/userList/editar" style="color: blanchedalmond;">EDITAR CUENTA</a></button> <br>
+                        <button type="reset" id="cancelar">CANCELAR</button>
+                    
+                    </div> 
+                </form>
+            </div>
+
+            <%- include('../partials/footer') %>
+        </main>
+    </div>
+    <script src="/js/userEditUser.js"></script>
+</body>
+</html>
