@@ -51,8 +51,13 @@
                 <ul class="usuario">
                     <% if ( usuario != 'ningunUsuarioLogueado' ) { %>
                         <li >
-                            Hola <%= usuario %>!!!
+                            <a href="/users/editar">Hola <%= usuario.nombre %>!!!</a> 
                         </li>
+                        <% if ( usuario.permiso == 'admin' ) { %>
+                            <li >
+                                <a href="/admin">Admin</a> 
+                            </li>
+                        <% } %>
                         <li>
                             <a href="/users/closesession">CERRAR SESION</a>  
                         </li>

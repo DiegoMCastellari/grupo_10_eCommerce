@@ -111,8 +111,8 @@
             </div>
             <div class="botones">
                 <p id="error" style="font-size: small; color: red;"></p>
-                <button><a id='comprar' href="/users/carrito/comprar/<%=carrito.id%>">FINALIZAR PEDIDO</a></button>
-                <button class="mas"><a href="../products/">SEGUIR COMPRANDO</a></button>
+                <button onclick="javascript:location.href='/users/carrito/comprar/<%=carrito.id%>'">FINALIZAR PEDIDO</button>
+                <button class="mas" onclick="javascript:location.href='../products/'">SEGUIR COMPRANDO</button>
             </div>
             </div>
         </main>

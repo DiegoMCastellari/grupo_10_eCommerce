@@ -8,6 +8,15 @@
     <div class="container">
         <%- include('../partials/header_edit') %>  
         <main class="newProduct">
+
+            <% if ( mensaje != 'nada') { %>
+                <ul>
+                    <% for ( let m=0; m<mensaje.length; m++) { %>
+                    <li style="color: red;"><%= mensaje[m].msg %></li>
+                    <% } %>
+                </ul>
+            <% } %>
+
             <form action="/admin/products/<%= producto.id %>" method="POST" enctype="multipart/form-data" id="formulario">
                 <div class="nombre">
                     <label for="nombre">NOMBRE DE NUEVO PRODUCTO</label> <input type="text" name="nombre" id="nombre" value="<%= producto.nombre %>">
@@ -22,27 +31,27 @@
                             <option value="niño">NIÑO</option>
                         </select>                              
                         <label class="uno" for="categoria">CATEGORIA DEL PRODUCTO</label>
-                        <div><label for="calzado">CALZADO</label><input  class="check" type="radio" name="categoria" id="calzado" value="calzado" <%= producto.id_tipo==1 ? "checked": null %>></div>
-                        <div><label for="accesorios">ACCESORIOS</label><input  class="check" type="radio" name="categoria" id="accesorios" value="accesorios" <%= producto.id_tipo==2 ? "checked": null %>></div>
+                        <div><label for="calzado">CALZADO</label><input  class="check" type="radio" name="categoria" id="calzado" value="1" <%= producto.id_tipo==1 ? "checked": null %>></div>
+                        <div><label for="accesorios">ACCESORIOS</label><input  class="check" type="radio" name="categoria" id="accesorios" value="2" <%= producto.id_tipo==2 ? "checked": null %>></div>
                         <ul id="categoriaError" style="font-size: small; color: red;" ></ul>
                     </div>
                     <div class="categoriasCalzado">
                         <label for="categoria">CATEGORIAS DE CALZADOS</label>
-                        <div><label for="zapatillas">ZAPATILLAS</label><input class="check" type="radio" name="categorias" id="zapatillas" value="1" <%= producto.id_categoria=="1" ? "checked" : null %> ></div>  
-                        <div><label for="botas">BOTAS</label><input class="check" type="radio" name="categorias" id="botas" value="2" <%= producto.id_categoria=="2" ? "checked" : null %> ></div>
-                        <div><label for="zapatos">ZAPATOS</label><input class="check" type="radio" name="categorias" id="zapatos" value="3" <%= producto.id_categoria=="3" ? "checked" : null %> ></div>
-                        <div><label for="suecos">SUECOS</label><input class="check" type="radio" name="categorias" id="suecos" value="4" <%= producto.id_categoria=="4" ? "checked" : null %> ></div>
-                        <div><label for="zandalias">ZANDALIAS</label><input class="check" type="radio" name="categorias" id="zandalias" value="5" <%= producto.id_categoria=="5" ? "checked" : null %> ></div>
-                        <div><label for="chatas">CHATAS</label><input class="check" type="radio" name="categorias" id="chatas" value="6" <%= producto.id_categoria=="6" ? "checked" : null %> ></div>
-                        <div><label for="ojotas">OJOTAS</label><input class="check" type="radio" name="categorias" id="ojotas" value="7" <%= producto.id_categoria=="7" ? "checked" : null %> ></div>
+                        <div><label for="zapatillas">ZAPATILLAS</label><input class="check categoria1" type="radio" name="categorias" id="zapatillas" value="1" <%= producto.id_categoria=="1" ? "checked" : null %> ></div>  
+                        <div><label for="botas">BOTAS</label><input class="check categoria1" type="radio" name="categorias" id="botas" value="2" <%= producto.id_categoria=="2" ? "checked" : null %> ></div>
+                        <div><label for="zapatos">ZAPATOS</label><input class="check categoria1" type="radio" name="categorias" id="zapatos" value="3" <%= producto.id_categoria=="3" ? "checked" : null %> ></div>
+                        <div><label for="suecos">SUECOS</label><input class="check categoria1" type="radio" name="categorias" id="suecos" value="4" <%= producto.id_categoria=="4" ? "checked" : null %> ></div>
+                        <div><label for="zandalias">ZANDALIAS</label><input class="check categoria1" type="radio" name="categorias" id="zandalias" value="5" <%= producto.id_categoria=="5" ? "checked" : null %> ></div>
+                        <div><label for="chatas">CHATAS</label><input class="check categoria1" type="radio" name="categorias" id="chatas" value="6" <%= producto.id_categoria=="6" ? "checked" : null %> ></div>
+                        <div><label for="ojotas">OJOTAS</label><input class="check categoria1" type="radio" name="categorias" id="ojotas" value="7" <%= producto.id_categoria=="7" ? "checked" : null %> ></div>
                     </div>
                     <div class="categoriasAccesorio">
                         <label for="categoria">CATEGORIAS DE ACCESORIOS</label>
-                        <div><label for="carteras">CARTERAS</label><input class="check" type="radio" name="categorias" id="carteras" value="8" <%= producto.id_categoria=="8" ? "checked" : null %>  ></div> 
-                        <div><label for="pañuelos">PAÑUELOS</label><input class="check" type="radio" name="categorias" id="pañuelos" value="9" <%= producto.id_categoria=="9" ? "checked" : null %>  ></div>
-                        <div><label for="pulserasYCollares">PULSERAS Y COLLARES</label><input class="check" type="radio" name="categorias" id="pulserasYCollares" value="10" <%= producto.id_categoria=="10" ? "checked" : null %> ></div>
-                        <div><label for="cintos">CINTOS</label><input class="check" type="radio" name="categorias" id="cintos" value="11" <%= producto.id_categoria=="11" ? "checked" : null %> ></div>
-                        <div><label for="mochilas">MOCHILAS</label><input class="check" type="radio" name="categorias" id="mochilas" value="12" <%= producto.id_categoria=="12" ? "checked" : null %>></div>
+                        <div><label for="carteras">CARTERAS</label><input class="check categoria2" type="radio" name="categorias" id="carteras" value="8" <%= producto.id_categoria=="8" ? "checked" : null %>  ></div> 
+                        <div><label for="pañuelos">PAÑUELOS</label><input class="check categoria2" type="radio" name="categorias" id="pañuelos" value="9" <%= producto.id_categoria=="9" ? "checked" : null %>  ></div>
+                        <div><label for="pulserasYCollares">PULSERAS Y COLLARES</label><input class="check categoria2" type="radio" name="categorias" id="pulserasYCollares" value="10" <%= producto.id_categoria=="10" ? "checked" : null %> ></div>
+                        <div><label for="cintos">CINTOS</label><input class="check categoria2" type="radio" name="categorias" id="cintos" value="11" <%= producto.id_categoria=="11" ? "checked" : null %> ></div>
+                        <div><label for="mochilas">MOCHILAS</label><input class="check categoria2" type="radio" name="categorias" id="mochilas" value="12" <%= producto.id_categoria=="12" ? "checked" : null %>></div>
                     </div>
                     
                     <div class="esp">
@@ -67,6 +76,7 @@
                             <% for (let i = 0; i < talles.length; i++) {%>
                                 <label><input type="checkbox" id="talles" name="talles" value="<%=talles[i].id%>" <%= tallesProducto.includes(talles[i].talle) ? "checked": null %> ><%=talles[i].talle%></label>
                                 <% } %>
+
                                 <div class="colores">
                                     <ul id="coloresError" style="font-size: small; color: red;" ></ul>
                                     <label class="tituloColores" for="colores">COLORES :</label>
@@ -75,12 +85,16 @@
                                 <%}%>
                          </div>
                         </div>
+
                         <div><label for="precio">PRECIO :</label> <input type="number" name="precio" id="precio" placeholder="Precio del producto" value="<%= producto.precio %>">
                             <ul id="precioError" style="font-size: small; color: red;" ></ul></div>
+
                         <div><label for="descuento">DESCUENTO :</label> <input type="number" name="descuento" id="descuento" placeholder="Descuento del producto" value="<%= producto.descuento %>">
                             <ul id="descuentoError" style="font-size: small; color: red;" ></ul></div>
+                            
                         <div><label for="descripcion">DESCRIPCION :</label> <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion del producto" value="<%= producto.descripcion %>">
                             <ul id="descripcionError" style="font-size: small; color: red;" ></ul></div>
+
                             <div><label for="Imagen1">AGREGAR IMAGEN :</label><input class="agregarImagen1" type="file" name="Imagen1" ></div>
                             <div><label for="Imagen2">AGREGAR IMAGEN :</label><input class="agregarImagen2" type="file" name="Imagen2" ></div>
                             <div><label for="Imagen3">AGREGAR IMAGEN :</label><input class="agregarImagen3" type="file" name="Imagen3" ><button id="img3" class="masImagenes">Más Imágenes</button></div>

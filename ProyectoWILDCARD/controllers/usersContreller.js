@@ -30,7 +30,7 @@ const usersController = {
         })
         res.render('users/login', {
             mensaje: 'Bienvenido '+req.body.fullname,
-            usuario: req.usuarioLogueado
+            usuario: "ningunUsuarioLogueado"
         });
     },
     login: (req, res, next) => {
@@ -44,14 +44,14 @@ const usersController = {
             usuario: req.usuarioLogueado
         });
     },
-    list: (req, res, next) => {
+/*   list: (req, res, next) => {
         db.Usuarios.findAll()
         .then(function(users){
             console.log(users);
             res.render('users/userlist', {users, usuario :req.usuarioLogueado})
         })
     },
-    destroy : (req, res) => {
+     destroy : (req, res) => {
         var idUsers = req.params.id;
         db.Usuarios.destroy({
             where : {
@@ -87,7 +87,7 @@ const usersController = {
         }).then(function(resultado){
             res.redirect('/users/userList')
         })
-    },
+    }, */
     carritoVacio :(req, res, next)=>{
         let usuarioId = req.session.usuario.id;
         db.Carritos.findOne({where :{
@@ -227,22 +227,20 @@ const usersController = {
     closeSession: (req,res,next) => {
         req.usuarioLogueado = "ningunUsuarioLogueado";
         req.session.destroy();
-        /* res.render('home', {
-            usuario: req.usuarioLogueado
-        }); */
         res.redirect('/')
     },
     editarUsuarioUser: (req, res, next) => {
-        let userId = req.session.usuario.id;
+        /* let userId = req.session.usuario.id;
         db.Usuarios.findOne({
             where: {
-             id: userId
-             }
+                    id: userId
+                }
             })
         .then(function(userEdit){
-            console.log(userEdit);
-            res.render('users/userEditUser', {userEdit, usuario :req.usuarioLogueado})
-        })
+            res.render('users/userEditUser', {userEdit, usuario: req.usuarioLogueado, mensaje: 'nada'})
+        }) */
+
+        res.render('users/userEditUser', {userEdit: req.session.usuario, usuario: req.usuarioLogueado, mensaje: 'nada'})
     }, 
     editarUsuarioUserPost: (req, res) => {
         let userId = req.session.usuario.id;
@@ -256,8 +254,16 @@ const usersController = {
                 id : userId
             }
         }).then(function(resultado){
-            res.redirect('/')
+            db.Usuarios.findByPk(req.session.usuario.id)
+            .then(function(resultado){
+                req.session.loggedIn = true;
+                req.session.usuario = resultado;
+                res.redirect('/')
+            })
         })
+        
+        
+        
     }
 };
 

@@ -13,10 +13,18 @@
             <div class="subheader">
                 <p><a href="#">Inicio</a> > Editar Cuenta</p>
             </div>
+
+            <% if ( mensaje != 'nada') { %>
+                <ul>
+                    <% for ( let m=0; m<mensaje.length; m++) { %>
+                    <li><%= mensaje[m].msg %></li>
+                    <% } %>
+                </ul>
+            <% } %>
+
             <div class="inputsContainer">
-                <form action="/users/userList/edit/<%= userEdit.id %>" method="post" id="formEdit">
-                    <div class="auxiliarInputsContainer">
-                        
+                <form action="/users/editar" method="post" id="formEdit">
+                    <div class="auxiliarInputsContainer">  
                         <div class="fullnameInputContainer">
                         <label for="fullname">NOMBRE Y APELLIDO</label>
                         <input type="text" name="fullname" id="fullname" value="<%= userEdit.nombre %>">
@@ -35,7 +43,7 @@
                         <input type="password" name="confirmpassword" id="confirmpassword"> <br>
                         <ul style="font-size: small; color: red;"  id="confirmError"></ul><br>
 
-                        <button type="submit" id="entrar"><a href="users/userList/editar" style="color: blanchedalmond;">EDITAR CUENTA</a></button> <br>
+                        <button type="submit" id="entrar">EDITAR CUENTA</button> <br>
                         <button type="reset" id="cancelar">CANCELAR</button>
                     
                     </div> 

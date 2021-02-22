@@ -5,17 +5,19 @@ var APIController = {
     users: (req, res, next) => {
         db.Usuarios.findAll()
         .then( (result)=>{
-
-            let datos = {
-                url: "http://localhost:3000/api/users",
-                status: "200",
-                message: "OK",
-                response:{
-                    cantidadUsuarios: result.length                  
-                }
+            for (let i = 0; i < result.length; i++) {
+                result[i].setDataValue('endpoint', "/api/users/" + result[i].id)  
+            };
+            let respuesta = {
+                meta:{
+                    status : 200,
+                    state : "OK",
+                    total : result.length,
+                    url : "/api/users"                
+                },
+                data : result
             }
-            res.json(datos)
-
+            res.json(respuesta) 
         }).catch(function(error){
             console.log(error);
         })
@@ -24,16 +26,21 @@ var APIController = {
     productos: (req, res, next) => {
         db.Productos.findAll()
         .then( (result)=>{
-
-            let datos = {
-                url: "http://localhost:3000/api/productos",
-                status: "200",
-                message: "OK",
-                response: {
-                    cantidadProductos: result.length             
-                }
+            for (let i = 0; i < result.length; i++) {
+                result[i].setDataValue('endpoint', "/api/productos/" + result[i].id)  
+            };
+            let respuesta = {
+                meta:{
+                    status : 200,
+                    state : "OK",
+                    total : result.length,
+                    url : "/api/productos"                
+                },
+                data : result
             }
-            res.json(datos)
+            res.json(respuesta)
+        }).catch(function(error){
+            console.log(error);
         })
     },
     productosUltimo: (req, res, next) => {
@@ -41,16 +48,21 @@ var APIController = {
             order :[['createdAt', 'DESC']],
             limit: 1
         }).then( (result)=>{
-
-            let datos = {
-                url: "http://localhost:3000/api/productosUltimo",
-                status: "200",
-                message: "OK",
-                response: {
-                    ultimoProducto: result             
-                } 
+            for (let i = 0; i < result.length; i++) {
+                result[i].setDataValue('endpoint', "/api/productosUltimo/" + result[i].id)  
+            };
+            let respuesta = {
+                meta:{
+                    status : 200,
+                    state : "OK",
+                    total : result.length,
+                    url : "/api/productos"                
+                },
+                data : result
             }
-            res.json(datos)
+            res.json(respuesta)
+        }).catch(function(error){
+            console.log(error);
         })
     },
     ventas: (req, res, next) => {
@@ -58,18 +70,24 @@ var APIController = {
         db.Carritos.findAll({where : {
             estado : {[Op.substring]: "cerrado"}
         }}).then( (result)=>{
-
-            let datos = {
-                url: "http://localhost:3000/api/ventas",
-                status: "200",
-                message: "OK",
-                response: {
-                    cantidadVentas: result.length             
-                }
+            for (let i = 0; i < result.length; i++) {
+                result[i].setDataValue('endpoint', "/api/ventas/" + result[i].id)  
+            };
+            let respuesta = {
+                meta:{
+                    status : 200,
+                    state : "OK",
+                    total : result.length,
+                    url : "/api/ventas"                
+                },
+                data : result
             }
-            res.json(datos)
+            res.json(respuesta)
+        }).catch(function(error){
+            console.log(error);
         })
-    }
+    },
+
 }
 
 module.exports = APIController;

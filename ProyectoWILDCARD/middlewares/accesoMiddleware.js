@@ -24,7 +24,7 @@ const accesoMiddleware = {
             } else {
                 res.render('home',{
                     mensaje: 'nada',
-                    usuario: req.session.usuario.nombre
+                    usuario: req.session.usuario
                 })
             }
         } else {
@@ -37,40 +37,11 @@ const accesoMiddleware = {
     userSessionLogged: (req,res,next) => {
 
         if ( req.session.usuario ) {
-            req.usuarioLogueado = req.session.usuario.nombre
+            req.usuarioLogueado = req.session.usuario
         } else {
             req.usuarioLogueado = "ningunUsuarioLogueado"
         }
         next()
-    },
-    checkNewProductErrors : (req,res,next) => {
-        let errors = validationResult(req);
-        if ( req.session.usuario ) {
-            req.usuarioLogueado = req.session.usuario.nombre
-        } else {
-            req.usuarioLogueado = "ningunUsuarioLogueado"
-        }
-
-        if (!errors.isEmpty()) {
-            console.log("PASO POR VALIDACION DE ERROR ")
-            console.log(errors.errors)
-
-            let mostrarMarcas = db.Marcas.findAll();
-            let mostrarTalles = db.Talles.findAll({
-                order: [
-                    ['id', 'ASC'],
-                    ],
-            });
-            let mostrarColores = db.Colores.findAll();
-
-            Promise.all ([mostrarMarcas, mostrarTalles, mostrarColores])
-
-            .then(function([marcas, talles, colores]){
-                return res.render('admin/newProduct', {marcas, talles, colores,usuario: req.usuarioLogueado,mensaje: errors.errors})
-            })
-        } else {
-            next()  
-        }  
     }
 }
 

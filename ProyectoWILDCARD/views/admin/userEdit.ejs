@@ -13,8 +13,16 @@
             <div class="subheader">
                 <p><a href="#">Inicio</a> > Editar Cuenta</p>
             </div>
+            <% if ( mensaje != 'nada') { %>
+                <ul>
+                    <% for ( let m=0; m<mensaje.length; m++) { %>
+                    <li><%= mensaje[m].msg %></li>
+                    <% } %>
+                </ul>
+            <% } %>
+            
             <div class="inputsContainer">
-                <form action="/users/userList/edit/<%= userEdit.id %>" method="post">
+                <form action="/admin/userList/edit/<%= userEdit.id %>" method="post">
                     <div class="auxiliarInputsContainer">
                         
                         <div class="fullnameInputContainer">

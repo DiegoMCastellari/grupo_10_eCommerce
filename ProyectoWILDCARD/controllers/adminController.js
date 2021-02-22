@@ -3,12 +3,61 @@ const db = require("../database/models");
 const accesoMiddleware = require('../middlewares/accesoMiddleware');
 const { productos } = require('./productosController');
 const Op = db.Sequelize.Op;
+const bcrypt = require("bcrypt")
 
 var rawdata = fs.readFileSync(__dirname + "/../data/products.json");
 let listaProductos = JSON.parse(rawdata);
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const adminController = {
+    list: (req, res, next) => {
+        db.Usuarios.findAll()
+        .then(function(users){
+            console.log(users);
+            res.render('admin/userlist', {users, usuario :req.usuarioLogueado})
+        })
+    },
+    destroyUser : (req, res) => {
+        var idUsers = req.params.id;
+        db.Usuarios.destroy({
+            where : {
+                id : idUsers
+            }
+        }).then(function(resultado){
+            res.redirect('/admin/userList')
+        })
+    },
+    editarUsuario: (req, res, next) => {
+        let userId = req.params.id;
+        db.Usuarios.findOne({
+            where: {
+                id: userId
+            }
+        })
+        .then(function(userEdit){
+            console.log(userEdit);
+            res.render('admin/userEdit', {
+                userEdit, 
+                usuario :req.usuarioLogueado,
+                mensaje: "nada"})
+        })
+    }, 
+    editarUsuarioPost: (req, res) => {
+        let userId = req.params.id;
+        db.Usuarios.update({
+            permiso : req.body.permiso,
+            nombre : req.body.fullname,
+            email : req.body.email,
+            telefono : req.body.telefono,
+            password : bcrypt.hashSync(req.body.password, 10)
+        },{
+            where : {
+                id : userId
+            }
+        }).then(function(resultado){
+            res.redirect('/admin/userList')
+        })
+    },
     listaProducto: (req, res, next) => {
         let page = 0;
         let offsetRecibed = 0;
@@ -190,7 +239,7 @@ const adminController = {
             descuento: req.body.descuento,
             id_tipo: req.body.categoria,
             usuario: req.body.usuario,
-            id_categoria:  req.body.categorias,
+            id_categoria: req.body.categorias,
             descripcion: req.body.descripcion,
             id_marca: req.body.marca,
             activo: 1
@@ -263,7 +312,7 @@ const adminController = {
                 coloresProducto.push(producto.colores[t].nombre)
             }
          /* console.log(producto.talles[0].talle); */
-            res.render('admin/editProduct', {producto, marcas, talles, colores, tallesProducto, coloresProducto,usuario: req.usuarioLogueado})//enviamos a la vista los 4 objetos.
+            res.render('admin/editProduct', {producto, marcas, talles, colores, tallesProducto, coloresProducto,usuario: req.usuarioLogueado, mensaje: "nada"})//enviamos a la vista los 4 objetos.
         });
     },
     agregarMarca: (req, res, next) =>{

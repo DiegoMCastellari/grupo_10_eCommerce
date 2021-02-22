@@ -36,6 +36,19 @@ const userMiddleware = {
             }
         })
     },
+    checkLoginErrors: (req,res,next) => {
+        let errors = validationResult(req);
+         
+        if (!errors.isEmpty()) {
+            let usuario = 'ningunUsuarioLogueado'
+            return res.render('users/login', {
+                mensaje: errors.errors, 
+                usuario 
+            });
+        } else {
+            next()
+        }           
+    },
     checkRegisterErrors : (req,res,next) => {
         let errors = validationResult(req);
          
@@ -48,7 +61,7 @@ const userMiddleware = {
             next()
         }           
     },
-     checkUserExistance : (req,res,next) => {
+    checkUserExistance : (req,res,next) => {
 
         db.Usuarios.findOne({
             where: {
@@ -66,7 +79,6 @@ const userMiddleware = {
                 next()
             }
         })
-
     },
     checkPassConfirmation : (req,res,next) => {
             if (req.body.password == req.body.confirmpassword) {
@@ -104,6 +116,18 @@ const userMiddleware = {
                 })
             }
         })
+    },
+    checkEditUserErrors: (req,res,next) => {
+        let errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            res.render('users/userEditUser', {
+                userEdit: req.session.usuario, 
+                usuario: req.usuarioLogueado, 
+                mensaje: errors.errors,})
+        } else {
+            next()
+        }           
     }
 }
 

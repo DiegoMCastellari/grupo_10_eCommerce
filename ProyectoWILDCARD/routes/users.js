@@ -16,17 +16,27 @@ router.post('/register', [
 ], userMiddleware.checkRegisterErrors, userMiddleware.checkPassConfirmation, userMiddleware.checkUserExistance, usersController.store)
 
 router.get('/login', accesoMiddleware.userSessionLogged, usersController.login);
-router.post('/login', userMiddleware.checkUser, accesoMiddleware.userSessionLogged, usersController.loginOK);
+router.post('/login', [
+    check('email').isEmail().withMessage('Email - El formato ingresado no es válido'),
+    check('email').isLength( {min:3} ).withMessage('Email- campo obligatorio'),
+    check('password').isLength( {min:6} ).withMessage('Contraseña - campo obligatorio'),
+], userMiddleware.checkLoginErrors, userMiddleware.checkUser, accesoMiddleware.userSessionLogged, usersController.loginOK);
 
-router.get('/userList', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, usersController.list);
+/* router.get('/userList', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, usersController.list);
 
 router.get('/userList/delete/:id', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, usersController.destroy)
 
 router.get('/userList/edit/:id', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, usersController.editarUsuario);//ver
 router.post('/userList/edit/:id', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, usersController.editarUsuarioPost)
-
-router.get('/userList/editar', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, usersController.editarUsuarioUser);//ver
-router.post('/userList/editar', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, usersController.editarUsuarioUserPost)
+ */
+router.get('/editar', accesoMiddleware.userSessionLogged, usersController.editarUsuarioUser);//ver
+router.post('/editar', [
+    check('fullname').isLength( {min:3} ).withMessage('Nombre - campo obligatorio mayor a 3 letras'),
+    check('email').isEmail().withMessage('Email - El formato ingresado no es válido'),
+    check('email').isLength( {min:3} ).withMessage('Email- campo obligatorio'),
+    check('password').isLength( {min:6} ).withMessage('Contraseña - campo obligatorio mayor a 6 letras'),
+    check('confirmpassword').isLength( {min:1} ).withMessage('Confimación de contraseña - campo obligatorio'),
+], userMiddleware.checkEditUserErrors, accesoMiddleware.userSessionLogged, usersController.editarUsuarioUserPost)
 
 
 router.get('/carrito/borrar/:id', accesoMiddleware.acceso,accesoMiddleware.userSessionLogged, usersController.borraDeCarrito);

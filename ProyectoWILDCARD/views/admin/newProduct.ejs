@@ -37,21 +37,21 @@
                     </div>
                     <div class="categoriasCalzado">
                         <label for="categoria">CATEGORIAS DE CALZADOS</label>
-                        <div><label for="zapatillas">ZAPATILLAS</label><input class="check categoria1" type="radio" name="categorias" id="zapatillas" value="Zapatillas" checked></div>  
-                        <div><label for="botas">BOTAS</label><input class="check categoria1" type="radio" name="categorias" id="botas" value="Botas"></div>
-                        <div><label for="zapatos">ZAPATOS</label><input class="check categoria1" type="radio" name="categorias" id="zapatos" value="Zapatos"></div>
-                        <div><label for="suecos">SUECOS</label><input class="check categoria1" type="radio" name="categorias" id="suecos" value="Suecos"></div>
-                        <div><label for="Sandalias">SANDALIAS</label><input class="check categoria1" type="radio" name="categorias" id="Sandalias" value="Sandalias"></div>
-                        <div><label for="chatas">CHATAS</label><input class="check categoria1" type="radio" name="categorias" id="chatas" value="Chatas"></div>
-                        <div><label for="ojotas">OJOTAS</label><input class="check categoria1" type="radio" name="categorias" id="ojotas" value="Ojotas"></div>
+                        <div><label for="zapatillas">ZAPATILLAS</label><input class="check categoria1" type="radio" name="categorias" id="zapatillas" value="1" checked></div>  
+                        <div><label for="botas">BOTAS</label><input class="check categoria1" type="radio" name="categorias" id="botas" value="2"></div>
+                        <div><label for="zapatos">ZAPATOS</label><input class="check categoria1" type="radio" name="categorias" id="zapatos" value="3"></div>
+                        <div><label for="suecos">SUECOS</label><input class="check categoria1" type="radio" name="categorias" id="suecos" value="4"></div>
+                        <div><label for="Sandalias">SANDALIAS</label><input class="check categoria1" type="radio" name="categorias" id="Sandalias" value="5"></div>
+                        <div><label for="chatas">CHATAS</label><input class="check categoria1" type="radio" name="categorias" id="chatas" value="6"></div>
+                        <div><label for="ojotas">OJOTAS</label><input class="check categoria1" type="radio" name="categorias" id="ojotas" value="7"></div>
                     </div>
                     <div class="categoriasAccesorio">
                         <label for="categoria">CATEGORIAS DE ACCESORIOS</label>
-                        <div><label for="carteras">CARTERAS</label><input class="check categoria2" type="radio" name="categorias" id="carteras" value="Carteras"></div> 
-                        <div><label for="pañuelos">PAÑUELOS</label><input class="check categoria2" type="radio" name="categorias" id="pañuelos" value="Pañuelos"></div>
-                        <div><label for="pulserasYCollares">PULSERAS Y COLLARES</label><input class="check categoria2" type="radio" name="categorias" id="pulserasYCollares" value="PulserasYCollares"></div>
-                        <div><label for="cintos">CINTOS</label><input class="check categoria2" type="radio" name="categorias" id="cintos" value="Cintos"></div>
-                        <div><label for="mochilas">MOCHILAS</label><input class="check categoria2" type="radio" name="categorias" id="mochilas" value="Mochilas"></div>
+                        <div><label for="carteras">CARTERAS</label><input class="check categoria2" type="radio" name="categorias" id="carteras" value="8"></div> 
+                        <div><label for="pañuelos">PAÑUELOS</label><input class="check categoria2" type="radio" name="categorias" id="pañuelos" value="9"></div>
+                        <div><label for="pulserasYCollares">PULSERAS Y COLLARES</label><input class="check categoria2" type="radio" name="categorias" id="pulserasYCollares" value="10"></div>
+                        <div><label for="cintos">CINTOS</label><input class="check categoria2" type="radio" name="categorias" id="cintos" value="11"></div>
+                        <div><label for="mochilas">MOCHILAS</label><input class="check categoria2" type="radio" name="categorias" id="mochilas" value="12"></div>
                     </div>
                     
                     <div class="esp">
@@ -62,7 +62,8 @@
                             <%}%>
                         </select><a href="/admin/products/create/agregarMarca">(agregar marca)</a>
                         <ul id="marcaError" style="font-size: small; color: red;" ></ul>
-                        </div>      
+                        </div>  
+                            
                         <div class="talles">
                             <ul id="tallesError" style="font-size: small; color: red;" ></ul>
                             <label class="tituloTalle" for="talle">TALLES :</label>
@@ -71,6 +72,7 @@
                                 <%}%> 
                                 
                         </div>
+
                         <div class="colores">
                             <ul id="coloresError" style="font-size: small; color: red;" ></ul>
                             <label class="tituloColores" for="colores">COLORES :</label>
@@ -85,6 +87,7 @@
                             <ul id="descuentoError" style="font-size: small; color: red;" ></ul></div>
                         <div><label for="descripcion">DESCRIPCION :</label> <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion del producto">
                             <ul id="descripcionError" style="font-size: small; color: red;" ></ul></div>
+
                         <div><label for="Imagen1">AGREGAR IMAGEN :</label><input class="agregarImagen1" type="file" name="Imagen1" ></div>
                         <div><label for="Imagen2">AGREGAR IMAGEN :</label><input class="agregarImagen2" type="file" name="Imagen2" ></div>
                         <div><label for="Imagen3">AGREGAR IMAGEN :</label><input class="agregarImagen3" type="file" name="Imagen3" ><button id="img3" class="masImagenes">Más Imágenes</button></div>

@@ -15,7 +15,9 @@
             </div>
             <% if ( mensaje != 'nada') { %>
                 <ul>
-                    <li><%= mensaje %></li>
+                    <% for ( let m=0; m<mensaje.length; m++) { %>
+                    <li><%= mensaje[m].msg %></li>
+                    <% } %>
                 </ul>
             <% } %>
             <div class="inputsContainer">

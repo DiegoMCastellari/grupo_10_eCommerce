@@ -62,7 +62,7 @@ window.onload = function () {
     
     formulario.addEventListener('submit', function(event){
         categoria1.forEach(producto => {
-            if(producto.getAttribute('ckecked')){
+            if(producto.getAttribute('checked')){
                 console.log("esta seleccionado");
             }
             
@@ -85,7 +85,6 @@ window.onload = function () {
             }
 
         //CHECK CATEGORIAS
-
         for(i =0; i < categoria1.length; i++){//COMPROBAR SI ESTA SELECCIONADO EN CATEGORIA 1
             if(categoria1[i].checked){
                 console.log('esta marcado en categoria 1');
@@ -124,9 +123,7 @@ window.onload = function () {
         //TALLES
         for(i =0; i < talles.length; i++){//COMPROBAR SI ESTA SELECCIONADO EN TALLES
             if(talles[i].checked){
-                console.log('esta marcado en talles');
                 isCheckedTalles.push(1) //SI ESTA SELECCIONADO SE AGREGA A PUSH EL 1
-                console.log(isCheckedTalles);
             }
         }
         if (isCheckedTalles.length==0){
@@ -141,9 +138,7 @@ window.onload = function () {
         //COLORES
         for(i =0; i < colores.length; i++){//COMPROBAR SI ESTA SELECCIONADO EN COLORES
             if(colores[i].checked){
-                console.log('esta marcado en talles');
                 isCheckedColores.push(1) //SI ESTA SELECCIONADO SE AGREGA A PUSH EL 1
-                console.log(isCheckedColores);
             }
         }
         if (isCheckedColores.length==0){
@@ -156,15 +151,17 @@ window.onload = function () {
         }
    
         //PRECIO
-        if(precio.value ==''){
+        if(precio.value == ''){
             event.preventDefault();
-                var precioError = document.querySelector('#precioError');
-                precioError.innerHTML = "<li>" + "El campo Precio no puede estar vacio." + "</li>"
-        }else {
-            console.log('el precio esta escrito  ' + precio.value);
             var precioError = document.querySelector('#precioError');
-                precioError.innerHTML = ""
-                
+            precioError.innerHTML = "<li>" + "El campo Precio no puede estar vacio." + "</li>"
+        } else if (precio.value <= 0){
+            event.preventDefault();
+            var precioError = document.querySelector('#precioError');
+            precioError.innerHTML = "<li>" + "Mayor a cero." + "</li>"
+        } else {
+            var precioError = document.querySelector('#precioError');
+            precioError.innerHTML = ""    
         }
 
         //DESCUENTO
