@@ -5,11 +5,21 @@ var APIController = {
     users: (req, res, next) => {
         db.Usuarios.findAll()
         .then( (result)=>{
+            console.log("STATUSSSSS");
+            console.log(res.status);
 
             let datos = {
-                cantidadUsuarios: result.length
+                url: "http://localhost:3000/api/users",
+                status: "200",
+                message: "OK",
+                response:{
+                    cantidadUsuarios: result.length                  
+                }
             }
-            res.json(datos) 
+            res.json(datos)
+
+        }).catch(function(error){
+            console.log(error);
         })
 
     },
@@ -18,7 +28,12 @@ var APIController = {
         .then( (result)=>{
 
             let datos = {
-                cantidadProductos: result.length
+                url: "http://localhost:3000/api/productos",
+                status: "200",
+                message: "OK",
+                response: {
+                    cantidadProductos: result.length             
+                }
             }
             res.json(datos)
         })
@@ -30,7 +45,12 @@ var APIController = {
         }).then( (result)=>{
 
             let datos = {
-                ultimoProducto: result
+                url: "http://localhost:3000/api/productosUltimo",
+                status: "200",
+                message: "OK",
+                response: {
+                    ultimoProducto: result             
+                } 
             }
             res.json(datos)
         })
@@ -42,7 +62,12 @@ var APIController = {
         }}).then( (result)=>{
 
             let datos = {
-                cantidadVentas: result.length
+                url: "http://localhost:3000/api/ventas",
+                status: "200",
+                message: "OK",
+                response: {
+                    cantidadVentas: result.length             
+                }
             }
             res.json(datos)
         })
