@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href='/stylesheets/agregarStock.css'/>
+
+</head>
+<body>
+    <div class="container">
+        <%- include('../partials/header') %>
+        <main>
+            <form action="/admin/agregarStocks/<%=producto[0].id%>" method="post">
+                <h1>AGREGAR STOCK</h1>
+                <h1><%=producto[0].nombre%></h1>
+                <div class="talles">
+                <%for (i=0; i < producto[0].talles.length; i++ ){%>
+                    <%for (j=0; j < producto[0].colores.length; j++ ){%>
+                <label for="talle">Talle : <%=producto[0].talles[i].talle%></label><input type="number" id="talle" name="talle" class="input" value="<%=producto[0].talles[i].id%>" readonly style="display: none;">
+                <%}%>
+                <%}%>
+                </div>
+                <div class="colores">
+                    <%for (i=0; i < producto[0].talles.length; i++ ){%>
+                        <%for (j=0; j < producto[0].colores.length; j++ ){%>
+                    <label for="colores">Talle : <%=producto[0].colores[j].nombre%></label><input type="text" id="colores" name="colores" class="input" value="<%=producto[0].colores[j].id%>" readonly style="display: none;">
+                    <%}%>
+                    <%}%>
+                    </div>
+                <div class="stock">
+                <%for (i=0; i < producto[0].colores.length; i++ ){%>
+                    <%for (j=0; j < producto[0].talles.length; j++ ){%>
+                <label class="stock" for="stock">STOCK:</label><input type="number" id="stock" class="inputStock" name="stock" min="0" value="0">
+                <%}%>
+                <%}%>
+                </div>
+                <button type="submit">ENVIAR</button>
+            </form>
+        </main>
+        <%- include('../partials/footer') %>
+    </div>
+</body>
+</html>

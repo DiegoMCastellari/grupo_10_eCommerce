@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <%- include('../partials/head') %>
-    <link rel="stylesheet" href='/stylesheets/carritoLista.css'/>
+    <link rel="stylesheet" href='/stylesheets/listaStock.css'/>
 </head>
 <body>
     <div class="container">
         <%- include('../partials/header') %>
         <main>
+            <% if (Array.isArray(stocks)) {%>
             
             <div class="id">
                 <h1>Id</h1>
@@ -15,13 +16,13 @@
                 <h2><a href="/admin/carritosLista/<%=stocks[i].id%>"><%=stocks[i].id%></a></h2>
                 <%}%>
             </div>
-            <div class= "fullname">
+            <div class= "nombreProducto">
                 <h1>Nombre Producto</h1>
                 <%for(i=0; i< stocks.length; i++ ){%>
                 <h2><a href="/admin/carritosLista/<%=stocks[i].id%>"><%=stocks[i].producto.nombre%></a></h2>
                 <%}%>
             </div>
-            <div class= "fullname">
+            <div class= "marca">
                 <h1>Marca</h1>
                 <%for(i=0; i< stocks.length; i++ ){%>
                     <%for(j=0; j< marcas.length; j++ ){%>
@@ -31,27 +32,48 @@
                 <%}%>
                 <%}%>
             </div>
-            <div class="email">
+            <div class="talle">
                 <h1>Talle</h1>
                 <%for(i=0; i< stocks.length; i++ ){%>
                 <h2><a href="/admin/carritosLista/<%=stocks[i].id%>"><%=stocks[i].talle.talle%></a></h2>
                 <%}%>
             </div>
-            <div class="estado">
+            <div class="color">
                 <h1>Color</h1>
                 <%for(i=0; i< stocks.length; i++ ){%>
                     <h2><a href="/admin/carritosLista/<%=stocks[i].id%>"><%=stocks[i].color.nombre%></a></h2>
                     <%}%>
             </div>
-            <div class="formaPago">
+            <div class="stock">
                 <h1 style="font-size: medium;">Stock</h1>
                 <%for(i=0; i< stocks.length; i++ ){%>
-                    <h2><input type="text" value="<%=stocks[i].stock%>"></h2>
+                    <h2><input id="stock" type="number" value="<%=stocks[i].stock%>" readonly></h2>
+                    <%}%>
+            </div>
+            <div class="pedidos">
+                <h1 style="font-size: medium;">Pedidos</h1>
+                    <%for(i=0; i< stocks.length; i++ ){%>
+                        <%var cantidad= []%>
+                        <%for(j=0; j< carritoProducto.length; j++ ){%>
+                            <%if(carritoProducto[j].id_talle==stocks[i].id_talle && carritoProducto[j].id_color==stocks[i].id_color && carritoProducto[j].carrito.estado=="pedido"){%>
+                                <%cantidad.push(carritoProducto[j].cantidad)%>
+                        <%}%>
+                        
+                    <%}%>
+                    <h2><input id="pedido" type="number" value="<%= cantidad.length ? cantidad.reduce(function(a, b){ return a + b; }) : 0%>" readonly></h2>
+                    <%}%>
+            </div>
+            <div class="restantes">
+                <h1 style="font-size: medium;">Stock Neto</h1>
+                <%for(i=0; i< stocks.length; i++ ){%>
+                    <h2><input id="neto" type="number" readonly></h2>
                     <%}%>
             </div>
             
+            <%}%>
         </main>
         <%- include('../partials/footer') %>
     </div>
+    <script src="/js/listStock.js"></script> 
 </body>
 </html>

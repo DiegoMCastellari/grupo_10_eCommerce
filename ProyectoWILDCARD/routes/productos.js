@@ -12,7 +12,8 @@ router.get('/ofertas', accesoMiddleware.userSessionLogged, productoController.of
 router.get('/ultimos', accesoMiddleware.userSessionLogged, productoController.loNuevo);
 // post
 // post
-router.post('/search/', accesoMiddleware.userSessionLogged, productoController.busquedaProductos);//ver si se hace por GET
+router.get('/search/:producto', accesoMiddleware.userSessionLogged, productoController.busquedaProductosGet);
+router.post('/search/', accesoMiddleware.userSessionLogged, productoController.busquedaProductos);
 
 router.post('/filtro', accesoMiddleware.userSessionLogged, productoController.filtro);
 router.get('/accesorios', accesoMiddleware.userSessionLogged, productoController.accesorios);

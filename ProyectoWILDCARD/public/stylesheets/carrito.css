@@ -98,6 +98,7 @@
 
   .container main.carrito div.tarjetas div.tarjetaProducto div.imagen a img{
     height: 100%;
+    max-width: 100%;
   }
   .container main.carrito div.tarjetas div.tarjetaProducto div.descripcion{
     display: flex;
@@ -132,23 +133,29 @@
   .container main.carrito div.cantidadSubtotal div.cantidad{
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    flex-direction: column;
+    justify-content: center;
+    flex-direction: row;
     width: 50%;
     text-align: center;
   }
   .container main.carrito div.cantidadSubtotal div.cantidad h2.titulo{
     position: relative;
-    bottom: 3vh;
   }
   .container main.carrito div.cantidadSubtotal div.cantidad h2.titulo2{
     display: none;
   }
-  .container main.carrito div.cantidadSubtotal div.cantidad div{
+  .container main.carrito div.cantidadSubtotal div.cantidad div.cadaCantidad{
     display: flex;
     height: 25vh;
     text-align: center;
-    margin-bottom: 25px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .container main.carrito div.cantidadSubtotal div.cantidad div.cadaCantidad div.containerCantidad{
+    display: flex;
+    height: 20px;
+    text-align: center;
     justify-content: center;
     align-items: center;
   }
@@ -158,52 +165,10 @@
     width: 50%;
     text-align: center;
     justify-content: center;
+    font-size: 15px;
   }
   
   .container main.carrito div.cantidadSubtotal div.cantidad p.envio{
-    align-self: stretch;
-    width: 100%;
-    font-size: x-small;
-    height: 6vh;
-  }
-  .container main.carrito div.cantidadSubtotal div.cantidad h2.total{
-    margin-top: 8vh;
-    padding: 10px;
-    font-size: 2rem;
-    font-weight: 900;
-  }
-  .container main.carrito div.cantidadSubtotal div.subtotal{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 50%;
-    padding-left: 15px;
-  }
-  .container main.carrito div.cantidadSubtotal div.subtotal h2.titulo{
-    position: relative;
-    bottom: 3vh;
-  }
-  .container main.carrito div.cantidadSubtotal div.subtotal div.precio{
-    display: flex;
-    height: 25vh;
-    text-align: center;
-    margin-bottom: 20px;
-    justify-content: center;
-    align-items: center;
-  }
-  .container main.carrito div.cantidadSubtotal div.subtotal div.precio p{
-    font-size: 1.6rem;
-    font-weight: 900;
-    padding: 10px;
-  }
-  .container main.carrito div.cantidadSubtotal div.subtotal div.precio i{
-    margin-left: 10px;
-    font-size: 2rem;
-    font-weight: 900;
-    color: black;
-  }
-  .container main.carrito div.cantidadSubtotal div.subtotal div.subtotal2{
     font-size: 1rem;
     font-weight: 600;
     width: 60%;
@@ -212,21 +177,90 @@
     align-self: center;
     height: 6vh;
   }
-  .container main.carrito div.cantidadSubtotal div.subtotal h2.total{
+  .container main.carrito div.cantidadSubtotal div.cantidad h2.total{
+    padding: 10px;
+    font-size: 2rem;
+    font-weight: 900;
+  }
+  .container main.carrito div.cantidadSubtotal div.subtotal{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    width: 50%;
+    text-align: center;
+  }
+  .container main.carrito div.cantidadSubtotal div.subtotal h2.titulo{
+    position: relative;
+  }
+  .container main.carrito div.cantidadSubtotal div.subtotal div.precio{
+    display: flex;
+    height: 25vh;
+    text-align: center;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .container main.carrito div.cantidadSubtotal div.subtotal div.precio div.cadaPrecio{
+    display: flex;
+    justify-content: end;
+  }
+  .container main.carrito div.cantidadSubtotal div.subtotal div.precio div.cadaPrecio p{
+    font-size: 1.6rem;
+    font-weight: 900;
+  }
+  .container main.carrito div.cantidadSubtotal div.subtotal div.precio i{
+    margin-left: 10px;
+    font-size: 2rem;
+    font-weight: 900;
+    color: black;
+  }
+  .container main.carrito div.totalBotones{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-end;
+  }
+  .container main.carrito div.totalBotones div.subtotal2{
+    display: flex;
+    flex-direction: row;
+    width: 35%;
+    justify-content: space-around;
+  }
+  .container main.carrito div.totalBotones div.subtotal2 p{
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: black;
+  }
+  .container main.carrito div.totalBotones div.subtotal2 p#subtotal{
+
+    border: black solid 3px;
+  }
+
+  .container main.carrito div.totalBotones div.total{
+    display: flex;
+    flex-direction: row;
+    width: 35%;
+    justify-content: space-around;
+  }
+ 
+  .container main.carrito div.totalBotones div.total h2.total{
     margin-top: 8vh;
     padding: 10px;
     font-size: 2rem;
     font-weight: 900;
   }
-  .container main.carrito div.cantidadSubtotal div.botones{
+  .container main.carrito div.totalBotones div.botones{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
+    margin-top: 30px;
   }
-  .container main.carrito div.cantidadSubtotal div.botones button.mas{
+  .container main.carrito div.totalBotones div.botones button.mas{
     font-family: montserrat;
     width: 40%;
     margin-left: 0px;
@@ -234,7 +268,7 @@
     color: whitesmoke;
     font-size: 1rem;
   }
-  .container main.carrito div.cantidadSubtotal div.botones button.mas a{
+  .container main.carrito div.totalBotones div.botones button.mas a{
     font-family: montserrat;
     width: 40%;
     margin-left: 0px;
@@ -242,7 +276,7 @@
     color: whitesmoke;
     font-size: 1rem;
   }
-  .container main.carrito div.cantidadSubtotal div.botones button{
+  .container main.carrito div.totalBotones div.botones button{
     width: 50%;
     height: 8vh;
     font-size: 1.2rem;
@@ -251,7 +285,7 @@
     font-family: montserrat;
     text-align: center;
   }
-  .container main.carrito div.cantidadSubtotal div.botones button a{
+  .container main.carrito div.totalBotones div.botones button a{
     width: 50%;
     height: 8vh;
     font-size: 1.2rem;
@@ -260,7 +294,7 @@
     font-family: montserrat;
     text-align: center;
   }
-  .container main.carrito div.cantidadSubtotal div.botones button.mas a{
+  .container main.carrito div.totalBotones div.botones button.mas a{
     width: 50%;
     height: 8vh;
     font-size: 1.1rem;
@@ -269,6 +303,7 @@
     font-family: montserrat;
     text-align: center;
   }
+  
   /* ------------------------Modo Laptop mediana 1024px-------------------------------------------------*/
   @media(max-width: 1024px){
     
@@ -290,18 +325,18 @@
       width:16vw;
       height: 28vh;
   }
-    .container main.carrito div.cantidadSubtotal div.subtotal div.precio p{
+    .container main.carrito div.cantidadSubtotal div.subtotal div.precio div.cadaPrecio p{
       font-size: 1.2rem;
       font-weight: 900;
       padding: 1px;
     }
-    .container main.carrito div.cantidadSubtotal div.subtotal div.precio i{
+    .container main.carrito div.cantidadSubtotal div.subtotal div.precio div.cadaPrecio i{
       margin-left: 10px;
       font-size: 2rem;
       font-weight: 900;
       color: black;
     }
-    .container main.carrito div.cantidadSubtotal div.subtotal div.subtotal2{
+    .container main.carrito div.totalBotones div.subtotal div.subtotal2{
       font-size: 0.8rem;
       font-weight: 600;
       width: 100%;
@@ -309,32 +344,32 @@
       border: 1px black solid;
       align-self: center;
     }
-    .container main.carrito div.cantidadSubtotal div.subtotal h2.total{
+    .container main.carrito div.totalBotones div.subtotal h2.total{
       border-radius: 3%;
       margin-top: 50px;
       padding: 7px;
       font-size: 1.3rem;
       font-weight: 900;
     }
-    .container main.carrito div.cantidadSubtotal div.cantidad h2.total{
+    .container main.carrito div.totalBotones div.cantidad h2.total{
       margin-top: 50px;
       padding: 10px;
       font-size: 1.3rem;
       font-weight: 900;
     }
-    .container main.carrito div.cantidadSubtotal div.cantidad p.envio {
+    .container main.carrito div.totalBotones div.cantidad p.envio {
       align-self: stretch;
       width: 100%;
       font-size: x-small !important;
       font-style: italic;
       font-weight: 600;
   }
-  .container main.carrito div.cantidadSubtotal div.botones{
+  .container main.carrito div.totalBotones div.botones{
     margin-top: 20px;
     height: 6vh;
     margin-bottom: 20px;
   }
-  .container main.carrito div.cantidadSubtotal div.botones button.mas {
+  .container main.carrito div.totalBotones div.botones button.mas {
     width: 100%;
     color: black;
     margin-bottom: 20px;
@@ -343,7 +378,7 @@
     font-family: montserrat;
     font-size: 1rem;
 }
-.container main.carrito div.cantidadSubtotal div.botones button.mas a {
+.container main.carrito div.totalBotones div.botones button.mas a {
   width: 100%;
   color: black;
   margin-bottom: 20px;
@@ -352,7 +387,7 @@
   font-family: montserrat;
   font-size: 1rem;
 }
-  .container main.carrito div.cantidadSubtotal div.botones button {
+  .container main.carrito div.totalBotones div.botones button {
     font-family: montserrat;
     width: 100%;
     height: 5vh;
@@ -361,7 +396,7 @@
     background-color: black;
     margin-bottom: 20px;
 }
-.container main.carrito div.cantidadSubtotal div.botones button a {
+.container main.carrito  div.totalBotones div.botones button a {
   font-family: montserrat;
   width: 100%;
   height: 5vh;
@@ -370,7 +405,7 @@
   background-color: black;
   margin-bottom: 20px;
 }
-.container main.carrito div.cantidadSubtotal div.botones a button {
+.container main.carrito  div.totalBotones div.botones a button {
   font-family: montserrat;
   width: 100%;
   height: 5vh;
@@ -385,7 +420,7 @@
     
     .container main.carrito {
       width: 100%;
-      margin-top: 136px;
+      margin-top: 65px;
       margin-bottom: 0px;
     }
     .container main.carrito div.tarjetas {
@@ -393,21 +428,21 @@
       flex-wrap: wrap;
       flex-direction: row;
       justify-content: space-between;
-      width: 55%;
+      width: 54%;
       /* border: 1PX BLACK SOLID; */
   }
   .container main.carrito div.tarjetas div.tarjetaProducto div.imagen  {
-    width: 22vh;
-    height: 15vw;
+    width: 22vw;
+    height: 20vh;
 }
     .container main.carrito div.tarjetas div.tarjetaProducto div.imagen a {
-      width: 22vh;
-      height: 15vw;
+      width: 22vw;
+      height: 20vh;
   }
   .container main.carrito div.tarjetas div.tarjetaProducto div.descripcion {
     border:none;
     width: 25vw;
-    height: 15vw;
+    height: 20vh;
   }
   #sinDesc{
     font-size: 8px !important;
@@ -415,58 +450,56 @@
   .container main.carrito div.cantidadSubtotal div.cantidad{
    position: relative;
 }
-   .container main.carrito div.cantidadSubtotal div.cantidad div {
-      height: 15vw;
+   .container main.carrito div.cantidadSubtotal div.cantidad div.cadaCantidad {
+      height: 20vh;
   }
   .container main.carrito div.cantidadSubtotal {
 
     width: 45%;
   }
-  .container main.carrito div.cantidadSubtotal div.subtotal div.precio {
-    height: 15VW;
+  .container main.carrito div.cantidadSubtotal div.subtotal  div.precio {
+    height: 20Vh;
   }
-  .container main.carrito div.cantidadSubtotal div.subtotal div.precio p {
-    font-size: 0.8rem;
+  .container main.carrito div.cantidadSubtotal div.subtotal  div.precio p {
+    font-size: 0.5rem ;
+    font-weight: 900;
+  }
+  .fa-trash-alt {
+    content: "\f2ed";
+    font-size: 1rem !important;
     font-weight: 900;
     padding: 1px;
-  }
-  .container main.carrito div.cantidadSubtotal div.cantidad h2.titulo {
-      opacity: 0;
-  }
-  .container main.carrito div.cantidadSubtotal div.subtotal h2.titulo {
-    color: white;
+    align-items: flex-start;
 }
-  .container main.carrito div.cantidadSubtotal div.cantidad p.envio {
-    position: relative;
-    right: 45vw;
-    top: 2vh;
-  }
+
   .container main.carrito div.cantidadSubtotal div.cantidad h2.titulo2 {
     display: none;
     position: relative;
     right: 45vw;
     top: 1vh;
   }
-  .container main.carrito div.cantidadSubtotal div.cantidad h2.total {
-    position: relative;
-    right: 50vw;
-    margin-top: 22px;
+  .container main.carrito  div.totalBotones div.total h2.total {
+    font-size: 1.5rem;
   }
-  .container main.carrito div.cantidadSubtotal div.subtotal h2.total {
-    font-size: 1.2rem;
+  .container main.carrito  div.totalBotones div.subtotal h2.total {
+    font-size: 1rem;
   }
-  .container main.carrito div.cantidadSubtotal div.botones button {
-    font-size: 0.4rem;
+  .container main.carrito  div.totalBotones div.botones button {
+    font-size: 1rem;
   }
-  .container main.carrito div.cantidadSubtotal div.botones button a{
-    font-size: 0.4rem;
+  .container main.carrito  div.totalBotones div.botones button a{
+    font-size: 1rem;
   }
-  .container main.carrito div.cantidadSubtotal div.botones button.mas {
-    font-size: 0.4rem;
+  .container main.carrito div.totalBotones div.botones button.mas {
+    font-size: 1rem;
   }
-  .container main.carrito div.cantidadSubtotal div.botones button.mas a {
-    font-size: 0.4rem;
-  }}
+  .container main.carrito div.totalBotones div.botones button.mas a {
+    font-size: 1rem;
+  }
+  .container main.carrito div.totalBotones div.subtotal2 p#subtotal{
+    font-size: 1rem;
+  }
+}
 /* ------------------------Modo tablet chica 571px-------------------------------------------------*/
   @media(max-width: 571px){
     body{
@@ -475,7 +508,7 @@
     .container main.carrito  {
       max-width: 100%;
       margin-top: 89px;
-      padding: 30px;
+      padding: 20px;
       margin-bottom: 20px;
       width: 100%;
   }
@@ -485,16 +518,12 @@
       font-size: 1rem;
       margin-top: 0px
     }
-    .container main.carrito div.tarjetas {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-      justify-content: space-between;
-      width: 65%;
+  .container main.carrito div.tarjetas div.tarjetaProducto  {
+    width: 100%;
+    height: 40vh;
   }
   .container main.carrito div.tarjetas div.tarjetaProducto div.imagen  {
     width: 18vw;
-    height: 15vh;
   }
   .container main.carrito div.tarjetas div.tarjetaProducto div.imagen a {
     width: 18vw;
@@ -506,24 +535,27 @@
 .container main.carrito div.tarjetas div.tarjetaProducto div.descripcion {
   border: none;
   width: 30vw;
-  height: 16vh;
+
   padding-left: 5px;
 }
 
   .container main.carrito div.cantidadSubtotal {
-    width: 35%;
+    width: 40%;
     font-size: 12px;
     align-items: flex-start;
   }
-  .container main.carrito div.cantidadSubtotal div.cantidad div {
-    height: 15vh;
+  .container main.carrito div.cantidadSubtotal div.cantidad div.cadaCantidad {
+    height: 40vh;
 }
-  .container main.carrito div.cantidadSubtotal div.subtotal div.precio p {
-    font-size: 0.8rem;
+.container main.carrito div.cantidadSubtotal div.subtotal {
+  height: 40vh;
+}
+.container main.carrito div.cantidadSubtotal div.subtotal div.precio div.cadaPrecio p {
+    font-size: 0.6rem !important;
   }
-  .container main.carrito div.cantidadSubtotal div.subtotal div.precio i {
+  .container main.carrito div.cantidadSubtotal div.subtotal  div.cadaPrecio div.precio i {
     margin-left: 5px;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 .container main.carrito div.cantidadSubtotal div.cantidad {
   position: relative;
@@ -534,11 +566,14 @@
   width: 100%;
 
 }
+.container main.carrito div.cantidadSubtotal div.cantidad h2.titulo {
+  opacity: 0;
+}
 .container main.carrito div.cantidadSubtotal div.subtotal h2.titulo {
   opacity: 0;
 }
 .container main.carrito div.cantidadSubtotal div.subtotal div.precio {
-  height: 15vh;
+  height: 40vh;
   width: 100%;
 
 }
@@ -546,10 +581,7 @@
   font-size: 0.8rem;
 }
 .container main.carrito div.cantidadSubtotal div.subtotal div.subtotal2 {
-  position: relative;
   font-size: 0.8rem;
-  right: 9vw;
-  width: 20vw;
 }
 .container main.carrito div.cantidadSubtotal div.subtotal h2.total {
   font-size: 1rem;
@@ -593,6 +625,14 @@
 .container main.carrito div.cantidadSubtotal div.subtotal div.precio p {
   font-size: 0.7rem;
 }
+.container main.carrito div.totalBotones div.subtotal2 p#subtotal{
+  font-size: 0.5rem!important;
+}
+.container main.carrito div.totalBotones div.total h2.total{
+  font-size:  0.7rem!important;
+  background-color: chartreuse;
+}
+  }
 /* ------------------------Modo tablet xs 485px-------------------------------------------------*/
 @media(max-width: 485px){
   .container main.carrito div.tarjetas div.tarjetaProducto div.descripcion {
@@ -606,7 +646,7 @@
   width: 100%;
 }
 .container main.carrito div.cantidadSubtotal div.subtotal div.precio {
-  height: 25vh;
+  height: 40vh;
   width: 100%;
 }
 .container main.carrito div.cantidadSubtotal div.subtotal div.precio p {
@@ -615,6 +655,5 @@
 .container main.carrito div.cantidadSubtotal div.subtotal {
   padding-left: 0px;
 }
-
 }
-  }
+  

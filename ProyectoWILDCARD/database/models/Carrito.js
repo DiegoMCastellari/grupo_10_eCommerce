@@ -50,7 +50,7 @@ module.exports = (sequelize, DataTypes) => {
         });
         Carritos.hasMany(modelos.Carrito_producto, {
             as: "carrito_productos",
-            foreignKey: "id_carrito"
+            foreignKey: "id"
         });
     } 
     return Carritos;

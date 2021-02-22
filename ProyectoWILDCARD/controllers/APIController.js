@@ -5,8 +5,6 @@ var APIController = {
     users: (req, res, next) => {
         db.Usuarios.findAll()
         .then( (result)=>{
-            console.log("STATUSSSSS");
-            console.log(res.status);
 
             let datos = {
                 url: "http://localhost:3000/api/users",

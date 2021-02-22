@@ -4,6 +4,7 @@
     <%- include('../partials/head') %>
     <link rel="stylesheet" href='/stylesheets/__register.css'/>
     <link rel='stylesheet' href='/stylesheets/header2.css' />
+    <link rel='stylesheet' href='/stylesheets/compraFinalizada.css' />
 
 </head>
 <body>
@@ -16,12 +17,15 @@
                 </ul>
             <% } %>
             <div class="inputsContainer">
-                <h2><a href="/">COMPRA FINALIZADA, PRESIONE AQUI PARA VOLVER A LA PAGINA PRINCIPAL</a></h2>
+                <h2 id="tituloFinal"><a href="/">COMPRA FINALIZADA, PRESIONE AQUI PARA VOLVER A LA PAGINA PRINCIPAL</a></h2>
+            </div>
+            <div id="gift">
+
             </div>
             <%- include('../partials/footer') %>
         </main>
         
     </div>
-    
+    <script src="/js/apiGift.js"></script>
 </body>
 </html>

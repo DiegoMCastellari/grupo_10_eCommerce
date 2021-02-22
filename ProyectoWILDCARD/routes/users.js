@@ -25,6 +25,10 @@ router.get('/userList/delete/:id', accesoMiddleware.accesoAdmin, accesoMiddlewar
 router.get('/userList/edit/:id', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, usersController.editarUsuario);//ver
 router.post('/userList/edit/:id', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, usersController.editarUsuarioPost)
 
+router.get('/userList/editar', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, usersController.editarUsuarioUser);//ver
+router.post('/userList/editar', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, usersController.editarUsuarioUserPost)
+
+
 router.get('/carrito/borrar/:id', accesoMiddleware.acceso,accesoMiddleware.userSessionLogged, usersController.borraDeCarrito);
 router.get('/carrito/cantidad/:idBuscado/:cantidadBuscada/', accesoMiddleware.acceso,accesoMiddleware.userSessionLogged, usersController.cambiarCantidad);
 router.get('/carrito/comprar/:id', accesoMiddleware.acceso,accesoMiddleware.userSessionLogged, usersController.finalizarCompra);

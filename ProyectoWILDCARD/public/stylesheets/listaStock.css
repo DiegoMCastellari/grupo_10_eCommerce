@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    padding: 0px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    margin: 0px;
+    display: flex;
+  }
+  
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  .container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    justify-content: space-between;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  h1{
+    display: flex;
+      text-align: center;
+      height: 40px;
+      align-items: center;
+      justify-content: center;
+      background-color: black;
+      color: whitesmoke;
+  }
+  h2{
+      display: flex;
+      height: 40px;
+      text-align: center;
+      justify-content: center;
+      align-items: center;  
+  }
+
+  .container div.titulo {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .container main{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    max-width: 100%;
+    justify-content: space-between;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0px;
+    padding: 30px;
+  }
+
+
+.container main .id{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 2.5%;
+    max-width: 100%;
+    border-right: solid 5px black;
+    
+}
+
+.container main .nombreProducto{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 18%;
+    border-right: solid 5px black;
+}
+.container main .descripcion{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 32%;
+  border-right: solid 5px black;
+}
+.container main .marca{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 15%;
+    border-right: solid 5px black;
+}
+.container main .talle{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 15%;
+  border-right: solid 5px black;
+}
+.container main .color{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 15%;
+  border-right: solid 5px black;
+}
+.container main .stock{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 10%;
+  border-right: solid 5px black;
+}
+.container main .stock input{
+text-align: center;
+font-size: 16px;
+width: 80%;
+}
+.container main .pedidos{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 10%;
+  border-right: solid 5px black;
+}
+.container main .pedidos input{
+  text-align: center;
+  font-size: 16px;
+  width: 80%;
+  }
+
+.container main .restantes{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 10%;
+  border-right: solid 5px black;
+}
+.container main .restantes input{
+  text-align: center;
+  font-size: 16px;
+  width: 80%;
+  }
+h2:nth-child(2n+0) {
+    font-size: 20px;
+    color: #FFFFFF;
+    background-color: #6b6b6b;
+    
+  }
+
+
+
