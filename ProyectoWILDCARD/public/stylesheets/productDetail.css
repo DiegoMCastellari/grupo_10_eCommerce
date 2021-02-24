@@ -47,7 +47,7 @@ main{
 }
 .producto .datosProducto .descripcionProducto {
     width: 100%;
-    padding: 10px;
+    padding: 30px 10px 50px 10px;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 28px;
     display: flex;
@@ -85,6 +85,7 @@ main .relacionados{
 }
 .imagenesProducto .imagenesSelect{
     width: 70%;
+    padding: 10px;
     flex-grow: 1;
     display: flex;
     flex-wrap: wrap;
@@ -222,7 +223,13 @@ main .relacionados .relacionadosProductos article p{
 /* ----------------- || TABLET      ------------- */
 
 @media(max-width: 770px){
-    
+    .producto {
+        justify-content: flex-start;
+    }
+    .producto .datosProducto {
+        width: 75%;
+    }
+
     .producto .datosProducto .imagenesProducto {
         width: 100%;
         flex-direction: column-reverse;
@@ -257,12 +264,20 @@ main .relacionados .relacionadosProductos article p{
         width: 35px;
     }
 
+    .formularioCompra #oferta{
+        align-self: flex-start;
+        font-size: 12px;
+        padding: 10px 30px
+    }
+
     /* ----------------- || PRODUCTOS RELACIONADOS    ------------- */
     main .relacionados .relacionadosProductos{
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
     }
 }
  
+
+
 
 /* ---------------------------------------------- */
 /* ----------------- || CELULAR      ------------- */
@@ -272,10 +287,9 @@ main .relacionados .relacionadosProductos article p{
         flex-direction: column-reverse;
         justify-content: flex-start;
     }
-   /*  .producto .datosProducto{
-        align-items: ;
-
-    } */
+    .producto .datosProducto{
+        width: 100%;
+    }
     .producto .formularioCompra {
         width: 100%;
         padding: 10px;
@@ -285,31 +299,6 @@ main .relacionados .relacionadosProductos article p{
         align-items: flex-start;
         justify-content: flex-start;
     }
-    /* .producto .datosProducto .imagenesProducto {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: center;
-    }
-    .producto .datosProducto .descripcionProducto {
-        width: 100%;
-        padding: 10px;
-        font-family: 'Josefin Sans', sans-serif;
-        font-size: 28px;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        justify-content: flex-start;
-    } */
-
-
-
-
-
-
 
     .producto .datosProducto .imagenesProducto {
         width: 100%;
@@ -345,10 +334,25 @@ main .relacionados .relacionadosProductos article p{
         width: 35px;
     }
 
+    /* ----------------- || DESCRIPCION    ------------- */
+
+    .producto .datosProducto .descripcionProducto {
+        width: 100%;
+        font-size: 25px;
+    }
+    .descripcionProducto p{
+        font-size: 15px;
+    }
+
     /* ----------------- || PRODUCTOS RELACIONADOS    ------------- */
 
     main .relacionados .relacionadosProductos{
-        flex-wrap: wrap;
+        /* display: inline-block; */
+        flex-wrap: nowrap;
+        flex-direction: row;
+    }
+    main .relacionados title{
+        font-size: 25px;
     }
 
     main .relacionados .relacionadosProductos article{
@@ -358,6 +362,10 @@ main .relacionados .relacionadosProductos article p{
         width: 150px;
         flex-grow: 1;
         padding: 10px;
-        border: 1px solid coral;
+        border: 0px;
+    }
+    main .relacionados .relacionadosProductos article img{
+        height: 150px;
+        width: 150px;
     }
 }

@@ -78,8 +78,8 @@
                             <label class="tituloColores" for="colores">COLORES :</label>
                             <% for (let i = 0; i < colores.length; i++) {%> 
                                 <label id="coloresLabel" style="background-color:#<%=colores[i].hex %>;"><input type="checkbox" id="colores" name="colores"  value="<%=colores[i].id%>"><%=colores[i].nombre%></label>
-                                <%}%>
-                         </div>
+                            <%}%>
+                        </div>
 
                         <div><label for="precio">PRECIO :</label> <input type="number" name="precio" id="precio" placeholder="Precio del producto">
                             <ul id="precioError" style="font-size: small; color: red;" ></ul></div>

@@ -87,17 +87,15 @@ window.onload = function () {
         //CHECK CATEGORIAS
         for(i =0; i < categoria1.length; i++){//COMPROBAR SI ESTA SELECCIONADO EN CATEGORIA 1
             if(categoria1[i].checked){
-                console.log('esta marcado en categoria 1');
                 isChecked.push(1) //SI ESTA SELECCIONADO SE AGREGA A PUSH EL 1
             }
         }
-        for(i =0; i < categoria2.length; i++){//COMPROBAR SI ESTA SELECCIONADO EN CATEGORIA 2
+        for(i =0; i < categoria2.length; i++){ //COMPROBAR SI ESTA SELECCIONADO EN CATEGORIA 2
             if(categoria2[i].checked){
-                console.log('esta marcado en categoria 2');
                 isChecked.push(1) //SI ESTA SELECCIONADO SE AGREGA A PUSH EL 1
             }
         }
-        if(isChecked.length==0){//SE PREGUNTA SI EL LARGO ES IGUAL A CERO
+        if(isChecked.length==0){ //SE PREGUNTA SI EL LARGO ES IGUAL A CERO
             event.preventDefault();
             var categoriaError = document.querySelector('#categoriaError');
             categoriaError.innerHTML = "<li>" + "Seleccione una categoria." + "</li>";

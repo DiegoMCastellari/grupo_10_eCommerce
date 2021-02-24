@@ -54,7 +54,7 @@ h2{
     position: relative;
     font-family: 'Montserrat', sans-serif;
     margin: 0px;
-    padding: 30px;
+    padding: 10px;
   }
 .container main .id{
     display: flex;
@@ -143,18 +143,31 @@ h2:nth-child(2n+0) {
   }
 
   }
-  @media(max-width: 425px){
-    h1{
-      font-size: 8px;
-    }
-    h2:nth-child(2n+0) {
-      font-size: 8px;
-      color: #FFFFFF;
-      background-color: #6b6b6b;
-      
-    }
-    h2{
-      font-size: 7px;
-    }
-  
-    }
+
+@media(max-width: 425px){
+  h1{
+    height: 15px;
+    font-size: 8px;
+  }
+  h2:nth-child(2n+0) {
+    font-size: 8px;
+    color: #FFFFFF;
+    background-color: #6b6b6b;
+    
+  }
+  h2{
+    font-size: 7px;
+  }
+  .container main .fullname{
+    width: 30%;
+  }
+  .container main .email{
+      width: 35%;
+  }
+  .container main .telefono{
+    display: none
+  }
+  .container main .permiso{
+    width: 13%;
+  }
+}
