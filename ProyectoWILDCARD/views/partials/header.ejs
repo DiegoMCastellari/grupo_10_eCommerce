@@ -14,7 +14,7 @@
             <a href="/ayuda">AYUDA</a>
             <a href="/contactanos">CONTACTANOS</a>
             <% if ( usuario != 'ningunUsuarioLogueado' ) { %>
-            <a href="/users/userList/editar">Hola <%= usuario %>!!!</a>            <a href="/users/closesession">Cerrar Sesion</a>
+            <a href="/users/editar"">Hola <%= usuario.nombre %>!!!</a>            <a href="/users/closesession">Cerrar Sesion</a>
             <%} else { %>
             <a href="/users/login">INICIAR SESION</a>
             <a href="/users/register">CREAR CUENTA</a> 

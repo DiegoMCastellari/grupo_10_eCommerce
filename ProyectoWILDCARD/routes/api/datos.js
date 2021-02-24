@@ -7,5 +7,6 @@ router.get('/productos', APIController.productos);
 router.get('/productosUltimo', APIController.productosUltimo);
 router.get('/ventas', APIController.ventas);
 router.get('/ventas/:id', APIController.ventas);
+router.get('/categories', APIController.categories);
 
 module.exports = router;

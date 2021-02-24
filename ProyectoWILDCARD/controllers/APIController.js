@@ -24,7 +24,15 @@ var APIController = {
 
     },
     productos: (req, res, next) => {
-        db.Productos.findAll()
+        db.Productos.findAll({ include :[ 
+            {association : "marcas"}, 
+            {association : "talles"},
+            {association : "colores"},
+            {association : "categorias"},
+            {association : "imagenes"}],
+        where : {
+            activo : 1
+        }})
         .then( (result)=>{
             for (let i = 0; i < result.length; i++) {
                 result[i].setDataValue('endpoint', "/api/productos/" + result[i].id)  
@@ -34,7 +42,28 @@ var APIController = {
                     status : 200,
                     state : "OK",
                     total : result.length,
-                    url : "/api/productos"                
+                    url : "/api/productos",
+                    totalPrice : (result.map((products)=>products.precio)).reduce(function(a, b){ return a + b; })                
+                },
+                data : result
+            }
+            res.json(respuesta)
+        }).catch(function(error){
+            console.log(error);
+        })
+    },
+    categories: (req, res, next) => {
+        db.Categorias.findAll()
+        .then( (result)=>{
+            for (let i = 0; i < result.length; i++) {
+                result[i].setDataValue('endpoint', "/api/categories/" + result[i].id)  
+            };
+            let respuesta = {
+                meta:{
+                    status : 200,
+                    state : "OK",
+                    total : result.length,
+                    url : "/api/categories"                
                 },
                 data : result
             }
@@ -46,7 +75,9 @@ var APIController = {
     productosUltimo: (req, res, next) => {
         db.Productos.findAll({
             order :[['createdAt', 'DESC']],
-            limit: 1
+            limit: 1,
+            include :[ 
+                {association : "imagenes"}]
         }).then( (result)=>{
             for (let i = 0; i < result.length; i++) {
                 result[i].setDataValue('endpoint', "/api/productosUltimo/" + result[i].id)  
