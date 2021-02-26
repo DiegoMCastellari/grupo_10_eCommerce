@@ -4,6 +4,10 @@
     padding: 0;
     font-family: 'PT Sans', sans-serif;
 }
+
+body{
+    position: relative;
+}
 .howToBuy {
     width: 100%;
     display: flex;
@@ -14,7 +18,7 @@
     height: 400px;
 }
 
- .howToBuySection {
+.howToBuySection {
     position: relative;
     justify-content: center;
     align-items: center;
@@ -27,19 +31,17 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    top: 80px;
+    margin-top: 80px;
 }
 
 .howToBuy .howToBuySection .hTBTitle h1 {
     display: block;
     justify-content: center;
     position: relative;
-    top: -70px;
 }
 
 .howToBuy .howToBuySection .hTBTitle .hTBSubtitle {
     position: relative;
-    top: -40px;
 }
 
 .howToBuy .howToBuySteps .steps {
@@ -48,7 +50,6 @@
     width: 250px;
     padding: 20px;
     position: relative;
-    top: -50px;
 }
 
 .howToBuySteps .steps .step-text {
@@ -61,25 +62,35 @@
 }
 
 .questions {
-    display: block;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 500px;
 }
 
 .questions h2 {
     position: relative;
-    top: 40px;
+    margin-top: 40px;
 }
 
 .questions .list {
     position: relative;
-    top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 5px 0 70px 0; 
 }
 
 .questions .list .item {
-    height: 85px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
 }
 
 .questions .list .item h3 {
@@ -88,8 +99,34 @@
 
 .questions .list .item .answer {
     position: relative;
-    top: 20px;
+    margin-top: 20px; 
     color: #686666;
     font-size: small;
     font-weight: lighter;
+}
+
+
+
+/* ------------------------Modo tablet xs 425px-------------------------------------------------*/
+@media(max-width: 425px){
+    
+    .howToBuy {
+
+        height: auto;
+    }
+    .howToBuy .howToBuySection {
+        margin-top: 50px;
+    }
+    .howToBuy .howToBuySection .hTBTitle .hTBSubtitle {
+        margin: 0 10%;
+        width: 80%;
+    }
+    .howToBuySteps {
+        flex-direction: column;
+        margin: 30px 0;
+    }
+    .questions .list {
+        margin: 20px 40px; 
+    }
+
 }

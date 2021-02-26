@@ -383,6 +383,8 @@
   }
 }
 /* ------------------------Modo Mobile 425px-------------------------------------------------*/
+
+/* agregarImagen2 */
 @media(max-width: 425px){
     .container main.newProduct form{
         width: 100%;
@@ -407,7 +409,8 @@
 }
 .container main.newProduct div.primerCategoria div.esp div label {
     font-size: 10px;
-    width: 30%;
+    margin: 0;
+    width: 80%;
 }
 .container main.newProduct div.primerCategoria div.esp div select {
     height: 40px;
@@ -434,4 +437,46 @@
     width: 60%;
 }
 
-}
+
+
+.container main.newProduct div.primerCategoria div.categoriasCalzado{
+    padding: 5px;
+    }
+.container main.newProduct div.primerCategoria div.categoriasCalzado div{
+    width: 70%;
+    padding: 5px;
+
+    }
+.container main.newProduct div.primerCategoria div.categoriasAccesorio{
+    width: 45%;
+    padding: 5px;
+    }
+    .container main.newProduct div.primerCategoria div.categoriasAccesorio div{
+    width: 70%;
+    padding: 5px;
+    }
+
+    .container main.newProduct div.primerCategoria div.esp div{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        }
+    
+    .container main.newProduct div.primerCategoria div.esp div input {
+        margin: 0;
+        width: 95%;
+    }
+
+    /* .container main.newProduct div.primerCategoria div.esp div input{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-end;
+        width: 60%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 10px;
+        justify-content: left;
+        border-radius: 5px;
+        }
+} */
