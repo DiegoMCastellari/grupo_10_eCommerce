@@ -88,16 +88,6 @@
                     <input type="number" id="totalInput" style="display: none;" value="<%=carritoProducto[i].subtotal*carritoProducto[i].cantidad%>" readonly>
                     <%}%>
             </div>
-            <div class="cantidad">
-                <h1>Stock Disponible</h1>
-                <%for(j=0; j < stocks.length; j++ ){%>
-                <%for(i=0; i < carritoProducto.length; i++ ){%>
-                <%if(carritoProducto[i].id_producto == stocks[j].id_producto && carritoProducto[i].id_color == stocks[j].id_color && carritoProducto[i].id_talle == stocks[j].id_talle){%>  
-                <h2><%=stocks[j].stock%></h2>
-                <%}%>
-                <%}%>
-                <%}%>
-            </div>
         </div>
         </main>
         <%- include('../partials/footer') %>

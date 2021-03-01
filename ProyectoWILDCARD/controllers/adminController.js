@@ -775,11 +775,10 @@ const adminController = {
         let mostrarColores = db.Colores.findAll();
         let mostrarUsuarios = db.Usuarios.findAll();
         let mostrarProductos = db.Productos.findAll({include : [{association:"imagenes"}, {association:"marcas"}]});
-        let mostrarStocks = db.Stocks.findAll();
         
-        Promise.all ([mostrarCarritos, mostrarCarritoProducto, mostrarMarcas, mostrarTalles, mostrarColores, mostrarUsuarios, mostrarProductos, mostrarStocks])
-        .then(function([carritos, carritoProducto, marcas, talles, colores, usuarios, productos, stocks]){
-            res.render('admin/detalleCarritos', {carritos, carritoProducto, marcas, talles, colores, usuarios, productos, stocks, toThousand,
+        Promise.all ([mostrarCarritos, mostrarCarritoProducto, mostrarMarcas, mostrarTalles, mostrarColores, mostrarUsuarios, mostrarProductos])
+        .then(function([carritos, carritoProducto, marcas, talles, colores, usuarios, productos]){
+            res.render('admin/detalleCarritos', {carritos, carritoProducto, marcas, talles, colores, usuarios, productos, toThousand,
                 usuario: req.usuarioLogueado
             });
         })
@@ -788,85 +787,6 @@ const adminController = {
         })
 
     },
-    agregarStocksId: (req, res, next) =>{
-        db.Productos.findAll({include: [{association:"marcas"}, {association:"talles"}, {association:"colores"}],
-       where: {
-           id : req.params.id
-       },
-        limit: 1
-       }).then(function (producto){
-           console.log(producto);
-           res.render('admin/agregarStocks', {producto, usuario:req.usuarioLogueado})
-       }).catch(function(error){
-           console.log(error);
-       })
-       },
-    agregarStocks: (req, res, next) =>{
-     db.Productos.findAll({include: [{association:"marcas"}, {association:"talles"}, {association:"colores"}],
-    order :[['createdAt', 'DESC']],
-     limit: 1
-    }).then(function (producto){
-        console.log(producto);
-        res.render('admin/agregarStocks', {producto, usuario:req.usuarioLogueado})
-    }).catch(function(error){
-        console.log(error);
-    })
-    },  
-    agregarStocksPost: (req, res, next) =>{
-        console.log(req.params.id);
-        console.log(req.body);
-        for (let i = 0; i < req.body.talle.length; i++) {
-            db.Stocks.create({
-                id_talle : req.body.talle[i],
-                id_color : req.body.colores[i],
-                stock : req.body.stock[i],
-                id_producto : req.params.id
-            }).catch(function(error){
-                console.log(error);
-            })
-           .then(function(result){res.redirect('../../admin/products');
-            ;(console.log("el talle " + req.body.talle[i]+" de color "+req.body.colores[i]+" tiene un stock de: " + req.body.stock[i]));}) 
-            
-        }
-    },
-    editarStocks: (req, res, next) =>{
-        console.log(req.params.id);
-        console.log(req.body);
-        for (let i = 0; i < req.body.talle.length; i++) {
-            db.Stocks.create({
-                id_talle : req.body.talle[i],
-                id_color : req.body.colores[i],
-                stock : req.body.stock[i],
-                id_producto : req.params.id
-            }).catch(function(error){
-                console.log(error);
-            })
-           .then(function(result){res.redirect('../../admin/products');
-            ;(console.log("el talle " + req.body.talle[i]+" de color "+req.body.colores[i]+" tiene un stock de: " + req.body.stock[i]));}) 
-            
-        }
-    },
-    verStocks: (req, res, next) =>{
-            let mostrarStocks = db.Stocks.findAll({
-            include : [{association:"producto"}, {association:"talle"},
-            {association:"color"}],
-            where : {
-                id_producto: req.params.id,
-            },})
-            let mostrarMarcas = db.Marcas.findAll();
-            let mostrarCarritoProducto = db.Carrito_producto.findAll({
-                include : [{association:"carrito"}],
-                where : {
-                    id_producto : req.params.id
-                }
-            })
-            Promise.all([mostrarStocks, mostrarMarcas, mostrarCarritoProducto])
-            .then(function([stocks, marcas, carritoProducto]){
-                console.log(stocks);
-                res.render('admin/listStocks.ejs', {stocks, marcas, carritoProducto, toThousand,
-                    usuario: req.usuarioLogueado
-                })
-    })},
     panelAdmin: (req, res, next) =>{
         res.render('admin/panelAdmin', {usuario:req.usuarioLogueado})
     }

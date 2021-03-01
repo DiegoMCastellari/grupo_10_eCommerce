@@ -20,20 +20,36 @@ var total = document.querySelector('#total')
 
 
 for (let i = 0; i < cantidad.length; i++) {
+    if(cantidad[i].value <1){
+        btnConfirmar[i].style.color = "red";
+        confirmarCambio[i].href = "#"
+        btnComprar.href = "#";
+        error.innerHTML = "(*)El pedido no puede ser menor a una unidad"
+    }else{
     confirmarCambio[i].href = "/users/carrito/cantidad" + "/" + id[i].value + "/" + cantidad[i].value + "/";
-    
+    }
 
 }
 for (let i = 0; i < precioUnitario.length; i++) {
     cantidad[i].addEventListener('input', function(event){
+        if(cantidad[i].value <1){
+            btnConfirmar[i].style.color = "red";
+            confirmarCambio[i].href = "#"
+            btnComprar.href = "#";
+            error.innerHTML = "(*)El pedido no puede ser menor a una unidad"
+        }else{
     precio[i].innerHTML = "$ " +toThousand((precioUnitario[i].value) * (cantidad[i].value));
     precioXCantidad[i].value =( (precioUnitario[i].value) * (cantidad[i].value))
-    confirmarCambio[i].href = "/users/carrito/cantidad" + "/" + id[i].value + "/" + cantidad[i].value;
+    confirmarCambio[i].href = "/users/carrito/cantidad" + "/" + id[i].value + "/" + cantidad[i].value;}
     
     if (cantidad[i].value != cantidadInicial[i].value){
         btnConfirmar[i].style.color = "red";
-    }else{
+        btnComprar.href = "#";
+        error.innerHTML = "(*)Confirmar o cancelar los cambios para finalizar pedido"
+    }
+    else{
             btnConfirmar[i].style.color = "black";
+            btnComprar.href = "/users/carrito/comprar/" + idCarrito.value
         }
 
 })
@@ -45,16 +61,6 @@ for (let i = 0; i < descartarCambio.length; i++) {
     })
 }
 
-    btnComprar.addEventListener('click', function(event){
-        for (let i = 0; i < cantidad.length ; i++){
-            if (cantidad[i].value != cantidadInicial[i].value){
-                btnComprar.href = "#";
-                error.innerHTML = "Confirmar o cancelar los cambios para finalizar pedido"
-        }else{
-            btnComprar.href = "/users/carrito/comprar/" + idCarrito.value;
-        }}
-
-    })
     
     for (let i = 0; i < cantidad.length; i++) {
         cantidad[i].addEventListener('change', function(event){

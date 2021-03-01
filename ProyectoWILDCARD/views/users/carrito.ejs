@@ -76,45 +76,6 @@
                 </div>                
             <% }%>
             </div>
-
-
-            <!-- <div class="cantidadSubtotal">
-                <div class="cantidad">
-                    <h2 class="titulo">Cantidad</h2>
-                    <% for ( var i =0; i < carritoProducto.length; i++){ %>
-                    <div class="cadaCantidad">
-                    <input id="cantidadInicial" class= "cantidad" type="number" value="<%= carritoProducto[i].cantidad %>" style="display: none;" readonly>
-                    <div class="containerCantidad"><input id="cantidad" class= "cantidad" type="number" value="<%= carritoProducto[i].cantidad %>" min="1">
-                    <a title="Confirmar cambio" id="confirmarCambio" href="/users/carrito/cantidad/"><i class="fas fa-check-circle" id="confirmar" style="color: black;"></i></a><a id="descartarCambio" title="Descartar cambio" href=""><i class="fas fa-window-close"></i></a></div>
-                    </div>
-                    <% }%>
-  
-                    <br>
-                    <br>
-                    <br>
-                    
-
-                    
-
-                </div>
-
-
-
-
-                <div class="subtotal">
-                    <h2 class="titulo">Subtotal</h2>
-                    <% for ( var i =0; i < carritoProducto.length; i++){ %>
-                        <% for ( var j =0; j < productos.length; j++){ %>
-                            <% if ( productos[j].id == carritoProducto[i].id_producto){ %>
-                                <div class="precio">
-                                <input type="number" name="precioUnitario" id="precioUnitario" value="<%=(productos[j].precio-(productos[j].precio*(productos[j].descuento / 100)))%>" style="display: none;">
-                                <input type="number" name="precioxCantidad" id="precioXCantidad" value="<%=(productos[j].precio-(productos[j].precio*(productos[j].descuento / 100))) * carritoProducto[i].cantidad %>" style="display: none;">
-                                <div class="cadaPrecio"><p class="precio" id="precio">$ <%= toThousand((productos[j].precio-(productos[j].precio*(productos[j].descuento / 100))) * carritoProducto[i].cantidad)%></p>
-                        <a href="/users/carrito/borrar/<%=carritoProducto[i].id%>"><i class="fas fa-trash-alt"></i></a></div>
-                    </div>
-                            <% }%>
-                        <% }%>
-                    <% }%> -->
                     <% var precio = [0] %>
                     <% for ( var i =0; i < carritoProducto.length; i++){ %>
                         <% for ( var j =0; j < productos.length; j++){ %>
@@ -123,12 +84,6 @@
                             <% }%>
                         <% }%>
                     <% }%>
-<!--                     <br>
-                    <br>
-                    <br>
-                    
-                </div>
-            </div> -->
 
 
 
@@ -143,9 +98,10 @@
                 <h2 class="totalPrecio" id="total">$ <%=toThousand(precio.reduce(function(a, b){ return a + b; }))%></h2>
                 </div>
                 <div class="botones">
-                    <p id="error" style="font-size: small; color: red;"></p>
-                    <button onclick="javascript:location.href='/users/carrito/comprar/<%=carrito.id%>'">FINALIZAR PEDIDO</button>
+                    
+                    <button><a id='comprar' href="/users/carrito/comprar/<%=carrito.id%>">FINALIZAR PEDIDO</a></button>
                     <button class="mas" onclick="javascript:location.href='../products/'">SEGUIR COMPRANDO</button>
+                    <p id="error" style="font-size: small; color: red;"></p>
                 </div>
             </div>
         </main>

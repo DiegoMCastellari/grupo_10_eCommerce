@@ -41,12 +41,6 @@ router.get('/carritosLista/:id', accesoMiddleware.accesoAdmin, accesoMiddleware.
 router.post('/carritosLista/estado/:id', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.cambioEstado);
 
 
-router.get('/agregarStocks', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.agregarStocks);
-router.get('/agregarStocks/:id', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.agregarStocksId);
-router.post('/agregarStocks/:id', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.agregarStocksPost);
-
-router.get('/productStocks', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.listaProductoStock);
-router.get('/stocks/:id', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.verStocks);
 
 router.get('/products', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.listaProducto);
 router.post('/products', accesoMiddleware.accesoAdmin, accesoMiddleware.userSessionLogged, adminController.listaProductoFiltrados);
