@@ -9,7 +9,8 @@ const userMiddleware = {
 
         db.Usuarios.findOne({
             where: {
-                email: req.body.email
+                email: req.body.email,
+                estado: 1
             }
         })
         .then((resultado) => {
@@ -21,16 +22,18 @@ const userMiddleware = {
                 } else {
                     req.session.loggedIn = false;
                     var usuario = 'ningunUsuarioLogueado' 
+                    mensaje=[{msg: 'Usuario y/o contraseña incorrectos.'}]
                     res.render('users/login', { // si contraseña no es correcta, vuelve al login
-                        mensaje: 'Usuario y/o contraseña incorrectos.',
+                        mensaje,
                         usuario
                     })
                 }
             } else { // si no existe usuario vuelve al login
                 req.session.loggedIn = false;
-                var usuario = 'ningunUsuarioLogueado'
+                var usuario = 'ningunUsuarioLogueado';
+                mensaje=[{msg: 'Usuario y/o contraseña incorrectos.'}]
                 res.render('users/login', {
-                    mensaje: 'Usuario y/o contraseña incorrectos.',
+                    mensaje,
                     usuario
                 })
             }
@@ -65,16 +68,26 @@ const userMiddleware = {
 
         db.Usuarios.findOne({
             where: {
-                email: req.body.email
+                email: req.body.email,
+
             }
         })
         .then((resultado) => {
             if (resultado) {
-                var usuario = 'ningunUsuarioLogueado';
+                if(resultado.estado!=1){
+                    var usuario = 'ningunUsuarioLogueado';
+                    mensaje=[{msg:'Usuario dado de baja, registrarse con otro mail'}]
                 return res.render('users/register', {
-                    mensaje: 'Usuario ya existente.',
+                    mensaje,
                     usuario
                 })
+                }else{
+                var usuario = 'ningunUsuarioLogueado';
+                mensaje=[{msg: 'Usuario ya existente.'}]
+                return res.render('users/register', {
+                    mensaje,
+                    usuario
+                })}       
             } else {
                 next()
             }
@@ -85,8 +98,9 @@ const userMiddleware = {
                 next()
             } else {
                 var usuario = 'ningunUsuarioLogueado';
+                mensaje=[{msg: 'Contraseña y confirmación no coinciden.'}]
                 res.render('users/register', {
-                    mensaje: 'Contraseña y confirmación no coinciden.',
+                    mensaje,
                     usuario
                 })
             }

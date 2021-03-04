@@ -56,11 +56,16 @@ a {
 }
 .container main.home div.imagenes{
   position: relative;
-  width: 100%;
+  width: 90%;
   background-color:white;
     padding:10px 10px 50px 10px;
     border:1px solid #BFBFBF;
     box-shadow:10px 10px 30px rgba(0, 0, 0, 0.8);
+    margin: 15px;
+}
+.container main.home div.imagenes:hover{
+  background-color: grey;
+  border: 3px solid red;
 }
 .container main.home div.imagenes div.contenedorSecciones{
   display: flex;
@@ -78,6 +83,10 @@ a {
   border: 1px solid black;
   border-radius: 50%;
 }  
+.container main.home div.imagenes p:hover{
+  scale: 1.5;
+  border: 3px solid red;
+}
 
 /* FOOTER*/
 .container footer{
@@ -187,10 +196,16 @@ a {
     flex-direction: row;
     justify-content: space-between;
     position: relative;
-    width: 33%;
+    width: 30%;
     height: 360px;
+    padding: 20px;
+    margin: 15px;
 
   }
+  .container main.home div.imagenes:hover{
+    background-color: grey;
+    border: 3px solid red;
+}
 
   .container main.home div.slider img {
       height: 70vh;
@@ -209,6 +224,10 @@ a {
     color: white;
     padding: 5px;
   }  
+  .container main.home div.imagenes p:hover{
+    scale: 1.5;
+    border: 3px solid red;
+}
 
   .container main.home div.imagenes img {
     border: 2px solid gray;

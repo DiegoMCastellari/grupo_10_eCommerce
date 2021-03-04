@@ -14,44 +14,58 @@
             <div class="id">
                 <h1>Id</h1>
                 <%for(i=0; i< users.length; i++ ){%>
+                    <%if(users[i].nombre!="admin"){%>
                 <h2><%=users[i].id%></h2>
+                <%}%>
                 <%}%>
             </div>
             <div class= "fullname">
                 <h1>Nombre completo</h1>
                 <%for(i=0; i< users.length; i++ ){%>
+                    <%if(users[i].nombre!="admin"){%>
                 <h2><%=users[i].nombre%></h2>
+                <%}%>
                 <%}%>
             </div>
             <div class="email">
                 <h1>Email</h1>
                 <%for(i=0; i< users.length; i++ ){%>
+                    <%if(users[i].nombre!="admin"){%>
                 <h2><%=users[i].email%></h2>
+                <%}%>
                 <%}%>
             </div>
             <div class="telefono">
                 <h1>Telefono</h1>
                 <%for(i=0; i< users.length; i++ ){%>
+                    <%if(users[i].nombre!="admin"){%>
                 <h2><%=users[i].telefono%></h2>
+                <%}%>
                 <%}%>
             </div>
             <div class="permiso">
                 <h1>Permiso</h1>
                 <%for(i=0; i< users.length; i++ ){%>
-                <h2><%=users[i].permiso%></h2>
+                    <%if(users[i].nombre!="admin"){%>
+                    <h2><%=users[i].permiso%></h2>
+                <%}%>
                 <%}%>
             </div>
             
             <div class="editar">
                 <h1>Editar</h1>
                 <%for(i=0; i< users.length; i++ ){%>
+                <%if(users[i].nombre!="admin"){%>
                 <h2><a href="/admin/userList/edit/<%=users[i].id%>">Editar</a></h2>
+                <%}%>
                 <%}%>
             </div>
             <div class="borrar">
                 <h1>Borrar</h1>
                 <%for(i=0; i< users.length; i++ ){%>
-                <h2><a href="/admin/userList/delete/<%=users[i].id%>">Borrar</a></h2>
+                    <%if(users[i].nombre!="admin"){%> 
+                    <h2><a href="/admin/userList/delete/<%=users[i].id%>">Borrar</a></h2>
+                <%}%>
                 <%}%>
             </div>
             

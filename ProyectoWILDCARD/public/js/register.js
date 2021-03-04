@@ -38,8 +38,7 @@ window.onload = function (e) {
     //TELEFONO BLUR 
 
     telefono.addEventListener('blur', function(event){
-        if (isNaN(telefono.value)|| telefono.value == "" ){
-            event.preventDefault();
+        if (isNaN(telefono.value)){
             var telefonoError = document.querySelector('#telefonoError');
             telefonoError.innerHTML = "<li>" + "El campo Telefono se debe completar con valores numericos" + "</li>";
         }

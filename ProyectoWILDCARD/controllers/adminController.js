@@ -11,21 +11,33 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const adminController = {
     list: (req, res, next) => {
-        db.Usuarios.findAll()
+        db.Usuarios.findAll({where:{
+            estado : 1
+        }})
         .then(function(users){
             console.log(users);
             res.render('admin/userlist', {users, usuario :req.usuarioLogueado})
         })
     },
     destroyUser : (req, res) => {
-        var idUsers = req.params.id;
+        let userId = req.params.id;
+        db.Usuarios.update({
+            estado : 0,
+        },{
+            where : {
+                id : userId
+            }
+        }).then(function(resultado){
+            res.redirect('/admin/userList')
+        })
+        /*var idUsers = req.params.id;
         db.Usuarios.destroy({
             where : {
                 id : idUsers
             }
         }).then(function(resultado){
             res.redirect('/admin/userList')
-        })
+        })*/
     },
     editarUsuario: (req, res, next) => {
         let userId = req.params.id;

@@ -26,12 +26,14 @@ const usersController = {
             email: req.body.email,
             telefono: req.body.telefono,
             password:  bcrypt.hashSync(req.body.password, 10), //encripto la contraseña
-            permiso: "externo"
-        })
+            permiso: "externo",
+            estado: 1
+        }) .then(function(resultado){ console.log(resultado)
+            mensaje=[{msg: 'Bienvenido '+req.body.fullname+'. Ingresa tu usuario y contraseña.'}]
         res.render('users/login', {
-            mensaje: 'Bienvenido '+req.body.fullname,
+            mensaje,
             usuario: "ningunUsuarioLogueado"
-        });
+        })});
     },
     login: (req, res, next) => {
         res.render('users/login.ejs', {
@@ -44,50 +46,6 @@ const usersController = {
             usuario: req.usuarioLogueado
         });
     },
-/*   list: (req, res, next) => {
-        db.Usuarios.findAll()
-        .then(function(users){
-            console.log(users);
-            res.render('users/userlist', {users, usuario :req.usuarioLogueado})
-        })
-    },
-     destroy : (req, res) => {
-        var idUsers = req.params.id;
-        db.Usuarios.destroy({
-            where : {
-                id : req.params.id
-            }}).then(function(resultado){
-                res.redirect('/users/userList')
-            })
-    },
-    editarUsuario: (req, res, next) => {
-        let userId = req.params.id;
-        db.Usuarios.findOne({
-            where: {
-             id: userId
-             }
-            })
-        .then(function(userEdit){
-            console.log(userEdit);
-            res.render('users/userEdit', {userEdit, usuario :req.usuarioLogueado})
-        })
-    }, 
-    editarUsuarioPost: (req, res) => {
-        let userId = req.params.id;
-        db.Usuarios.update({
-            permiso : req.body.permiso,
-            nombre : req.body.fullname,
-            email : req.body.email,
-            telefono : req.body.telefono,
-            password : bcrypt.hashSync(req.body.password, 10)
-        },{
-            where : {
-                id : userId
-            }
-        }).then(function(resultado){
-            res.redirect('/users/userList')
-        })
-    }, */
     carritoVacio :(req, res, next)=>{
         let usuarioId = req.session.usuario.id;
         db.Carritos.findOne({where :{
@@ -230,15 +188,6 @@ const usersController = {
         res.redirect('/')
     },
     editarUsuarioUser: (req, res, next) => {
-        /* let userId = req.session.usuario.id;
-        db.Usuarios.findOne({
-            where: {
-                    id: userId
-                }
-            })
-        .then(function(userEdit){
-            res.render('users/userEditUser', {userEdit, usuario: req.usuarioLogueado, mensaje: 'nada'})
-        }) */
 
         res.render('users/userEditUser', {userEdit: req.session.usuario, usuario: req.usuarioLogueado, mensaje: 'nada'})
     }, 

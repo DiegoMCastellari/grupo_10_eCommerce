@@ -23,6 +23,10 @@ module.exports = (sequelize, DataTypes) => {
         permiso: {
             type: DataTypes.STRING(50)
         },
+        estado: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
         createdAt: {
             type: DataTypes.DATE
         },
