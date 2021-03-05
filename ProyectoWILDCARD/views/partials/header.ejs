@@ -5,7 +5,7 @@
     <menu class="contenedor">
         <i class="fas fa-bars botonMenu"></i>
         <div class="desplegable">
-            <form action="products/search" method="POST">
+            <form action="/../../products/search" method="POST">
                 <input type="text" name="search" id="barraDeBusqueda" placeholder="Buscar productos">
                 <Button type="submit"><i class="fas fa-search"></i></Button>
                 </form>
@@ -14,7 +14,13 @@
             <a href="/ayuda">AYUDA</a>
             <a href="/contactanos">CONTACTANOS</a>
             <% if ( usuario != 'ningunUsuarioLogueado' ) { %>
-            <a href="/users/editar"">Hola <%= usuario.nombre %>!!!</a>            <a href="/users/closesession">Cerrar Sesion</a>
+            <a href="/users/editar"">Hola <%= usuario.nombre %>!!!</a> 
+            <% if ( usuario.permiso == 'admin' ) { %>
+                <li >
+                    <a href="/admin">Admin</a> 
+                </li>
+            <% } %>           
+            <a href="/users/closesession">Cerrar Sesion</a>
             <%} else { %>
             <a href="/users/login">INICIAR SESION</a>
             <a href="/users/register">CREAR CUENTA</a> 
@@ -31,7 +37,7 @@
     </div>
     <div class="barraYCarrito">
         <div class="barraDeBusqueda"> 
-        <form action="../products/search" method="POST">
+        <form action="/../../products/search" method="POST">
         <input type="text" name="search" id="barraDeBusqueda" placeholder="Buscar productos">
         <Button type="submit"><i class="fas fa-search"></i></Button>
         </form>
@@ -78,6 +84,6 @@
                 <% } %>
         </ul>
     </nav>
-    <div class="logoWsapp"><i class="fab fa-whatsapp"></i></div>
+    <div class="logoWsapp" style="display: none;"><i class="fab fa-whatsapp"></i></div>
     
 </header>

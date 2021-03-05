@@ -4,6 +4,7 @@
   margin-left: 0;
   margin-right: 0;
   padding: 0;
+  
 }
 body {
   padding: 0px;
@@ -67,6 +68,9 @@ a {
   background-color: grey;
   border: 3px solid red;
 }
+.container main.home div.imagenes:hover{
+  transition: color 5s linear 0.2s;
+  }
 .container main.home div.imagenes div.contenedorSecciones{
   display: flex;
   width: 100%;
@@ -74,6 +78,9 @@ a {
   text-align: center;
   top: 80%;
   justify-content: center;
+}
+.container main.home div.imagenes div.contenedorSecciones a {
+  text-decoration: none;
 }
 .container main.home div.imagenes p{
   background-color: black;
@@ -200,13 +207,17 @@ a {
     height: 360px;
     padding: 20px;
     margin: 15px;
+    border-radius: 2%;
+    cursor: pointer;
 
   }
   .container main.home div.imagenes:hover{
     background-color: grey;
     border: 3px solid red;
 }
-
+.container main.home div.imagenes:hover{
+transition: color 5s;
+}
   .container main.home div.slider img {
       height: 70vh;
       width: 70vw!important;
@@ -218,6 +229,9 @@ a {
     text-align: center;
     top: 80%;
     justify-content: center;
+  }
+  .container main.home div.imagenes div.contenedorSecciones a {
+    text-decoration: none;
   }
   .container main.home div.imagenes p{
     background-color: black;

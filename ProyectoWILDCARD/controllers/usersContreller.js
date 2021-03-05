@@ -107,9 +107,8 @@ const usersController = {
     },
     cambiarCantidad: (req,res,next) =>{
         var cantidadNueva = req.params.cantidadBuscada;
-        if (cantidadNueva <0){
-            cantidadNueva = 1;
-        
+        if (cantidadNueva >0||Number.isInteger(cantidadNueva)){
+            var cantidadNueva = req.params.cantidadBuscada;
         var idBuscado = req.params.idBuscado;
         db.Carrito_producto.update({
             cantidad : cantidadNueva
@@ -121,18 +120,8 @@ const usersController = {
             console.log(error);
         })
     }else{
-        var cantidadNueva = req.params.cantidadBuscada;
-        var idBuscado = req.params.idBuscado;
-        db.Carrito_producto.update({
-            cantidad : cantidadNueva
-        },{
-        where : {
-            id : idBuscado
-        }}).then(function(){ console.log('modificado'); res.redirect ('/users/carrito')})
-        .catch(function(error){
-            console.log(error);
-        })
-    }},
+        
+        res.redirect('/users/carrito')}},
     finalizarCompra: (req, res, next) =>{
         console.log(req.params.id);
         var arrayPrecios = [];
@@ -156,7 +145,7 @@ const usersController = {
                     id :resultado[i].id_producto
                 }
             }).then(function(producto){
-                producto.forEach(productos => {
+                producto.forEach(productos => { 
                     arrayPrecios.push(productos.precio);
                     arrayIdProductos.push(productos.id);
                     db.Carrito_producto.update({
@@ -177,7 +166,7 @@ const usersController = {
         })
         Promise.all ([cambiarEstado, buscarCarritoProducto])
         
-        .then(function(){ console.log('Compra Finalizada'); res.render('users/comprado', {usuario :req.session.usuario.nombre,  mensaje: 'nada'})})
+        .then(function(){ console.log('Compra Finalizada'); res.render('users/comprado', {usuario: req.usuarioLogueado,  mensaje: 'nada'})})
         .catch(function(error){
             console.log(error);
         })
@@ -192,12 +181,14 @@ const usersController = {
         res.render('users/userEditUser', {userEdit: req.session.usuario, usuario: req.usuarioLogueado, mensaje: 'nada'})
     }, 
     editarUsuarioUserPost: (req, res) => {
+        console.log("llego hasta aca");
         let userId = req.session.usuario.id;
+        if(req.body.password == ""){
         db.Usuarios.update({
             nombre : req.body.fullname,
             email : req.body.email,
             telefono : req.body.telefono,
-            password : bcrypt.hashSync(req.body.password, 10)
+            password : bcrypt.hashSync(req.body.oldpassword, 10)
         },{
             where : {
                 id : userId
@@ -209,7 +200,25 @@ const usersController = {
                 req.session.usuario = resultado;
                 res.redirect('/')
             })
-        })
+        })}else{
+            db.Usuarios.update({
+                nombre : req.body.fullname,
+                email : req.body.email,
+                telefono : req.body.telefono,
+                password : bcrypt.hashSync(req.body.password, 10)
+            },{
+                where : {
+                    id : userId
+                }
+            }).then(function(resultado){
+                db.Usuarios.findByPk(req.session.usuario.id)
+                .then(function(resultado){
+                    req.session.loggedIn = true;
+                    req.session.usuario = resultado;
+                    res.redirect('/')
+                })
+            })
+        }
         
         
         

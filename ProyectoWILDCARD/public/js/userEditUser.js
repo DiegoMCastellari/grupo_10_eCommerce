@@ -46,14 +46,14 @@ window.onload = function (e) {
 
     //CONTRASEÑA BLUR 
 
-    password.addEventListener('blur', function(event){
-        if(password.value == ""){
+    oldpassword.addEventListener('blur', function(event){
+        if(oldpassword.value == ""){
             event.preventDefault();
-                var passwordError = document.querySelector('#passwordError');
-                passwordError.innerHTML = "<li>" + "El campo Contraseña no puede estar vacio." + "</li>"
-            }else if(password.value.length<6){
-                var passwordError = document.querySelector('#passwordError');
-                passwordError.innerHTML = "<li>" + "La contraseña debe tener un minimo de 6 caracteres." + "</li>"
+                var oldpasswordError = document.querySelector('#oldpasswordError');
+                oldpasswordError.innerHTML = "<li>" + "El campo Contraseña no puede estar vacio." + "</li>"
+            }else if(oldpassword.value.length<6){
+                var oldpasswordError = document.querySelector('#oldpasswordError');
+                oldpasswordError.innerHTML = "<li>" + "La contraseña debe tener un minimo de 6 caracteres." + "</li>"
    
             }
     })
@@ -61,11 +61,7 @@ window.onload = function (e) {
     //CONFIRMAR CONTRASEÑA BLUR
 
     confirmPassword.addEventListener('blur', function(event){
-        if(confirmPassword.value == ""){
-            event.preventDefault();
-                var confirmError = document.querySelector('#confirmError');
-                confirmError.innerHTML = "<li>" + "El campo Confrimar Contraseña no puede estar vacio." + "</li>"
-            }else if (confirmPassword.value != password.value){
+       if (confirmPassword.value != password.value){
                 event.preventDefault();
                 var confirmError = document.querySelector('#confirmError');
                 confirmError.innerHTML = "<li>" + "El campo Confrimar Contraseña debe coincidir con la contraseña." + "</li>"
@@ -74,7 +70,12 @@ window.onload = function (e) {
 
 
 
-
+    onchange
+    password.addEventListener('change', function(event){
+        if(password.value!="")
+        {password.style.backgroundColor = "#FFF";
+        confirmPassword.style.backgroundColor = "#FFF"}
+    });
     formulario.addEventListener('submit', function(event){
         //NOMBRE
         if(fullName.value == ""){
@@ -107,23 +108,19 @@ window.onload = function (e) {
 
         
         //CONTRASEÑA
-        if(password.value == ""){
+        if(oldpassword.value == ""){
             event.preventDefault();
-                var passwordError = document.querySelector('#passwordError');
+                var oldpasswordError = document.querySelector('#oldpasswordError');
                 passwordError.innerHTML = "<li>" + "El campo Contraseña no puede estar vacio." + "</li>"
-            }else if(password.value.length<6){
-                var passwordError = document.querySelector('#passwordError');
-                passwordError.innerHTML = "<li>" + "La contraseña debe tener un minimo de 6 caracteres." + "</li>"
+            }else if(oldpassword.value.length<6){
+                var oldpasswordError = document.querySelector('#oldpasswordError');
+                oldpasswordError.innerHTML = "<li>" + "La contraseña debe tener un minimo de 6 caracteres." + "</li>"
    
             }
 
 
         //CONFIRMAR CONTRASEÑA
-        if(confirmPassword.value == ""){
-            event.preventDefault();
-                var confirmError = document.querySelector('#confirmError');
-                confirmError.innerHTML = "<li>" + "El campo Confrimar Contraseña no puede estar vacio." + "</li>"
-            }else if (confirmPassword.value != password.value){
+        if (confirmPassword.value != password.value){
                 event.preventDefault();
                 var confirmError = document.querySelector('#confirmError');
                 confirmError.innerHTML = "<li>" + "El campo Confrimar Contraseña debe coincidir con la contraseña." + "</li>"

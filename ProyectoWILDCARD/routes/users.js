@@ -34,9 +34,8 @@ router.post('/editar', [
     check('fullname').isLength( {min:3} ).withMessage('Nombre - campo obligatorio mayor a 3 letras'),
     check('email').isEmail().withMessage('Email - El formato ingresado no es válido'),
     check('email').isLength( {min:3} ).withMessage('Email- campo obligatorio'),
-    check('password').isLength( {min:6} ).withMessage('Contraseña - campo obligatorio mayor a 6 letras'),
-    check('confirmpassword').isLength( {min:1} ).withMessage('Confimación de contraseña - campo obligatorio'),
-], userMiddleware.checkEditUserErrors, accesoMiddleware.userSessionLogged, usersController.editarUsuarioUserPost)
+    check('oldpassword').isLength( {min:6} ).withMessage('Contraseña - campo obligatorio mayor a 6 letras'),
+], userMiddleware.checkEditUserErrors, accesoMiddleware.userSessionLogged, userMiddleware.checkPassConfirmationEdit, userMiddleware.checkUserEdit, usersController.editarUsuarioUserPost)
 
 
 router.get('/carrito/borrar/:id', accesoMiddleware.acceso,accesoMiddleware.userSessionLogged, usersController.borraDeCarrito);

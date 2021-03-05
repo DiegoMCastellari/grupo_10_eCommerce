@@ -24,29 +24,27 @@
             <% } %>
             
             <div class="inputsContainer">
-                <form action="/users/register" method="post" id="formRegister">
+                <form action="/users/register" method="post" id="formRegister" class="login">
+                    <h2>Registar Usuario</h2>
                     <div class="auxiliarInputsContainer">
-                        
-                        <div class="fullnameInputContainer">
                         <label for="fullname">NOMBRE Y APELLIDO</label>
                         <input type="text" name="fullname" id="fullname">
                         <ul id="nameError" style="font-size: small; color: red;" ></ul>
-                        </div> <br>
                         <label for="email">EMAIL</label>
                         <input type="email" name="email" id="email"> 
-                        <ul style="font-size: small; color: red;"  id="emailError"></ul><br>
+                        <ul style="font-size: small; color: red;"  id="emailError"></ul>
                         <label for="text">TELÉFONO</label>
                         <input type="text" name="telefono" id="telefono"> 
-                        <ul style="font-size: small; color: red;"  id="telefonoError"></ul><br>
+                        <ul style="font-size: small; color: red;"  id="telefonoError"></ul>
                         <label for="password">CONTRASEÑA</label>
                         <input type="password" name="password" id="password"> 
-                        <ul style="font-size: small; color: red;"  id="passwordError"></ul><br>
+                        <ul style="font-size: small; color: red;"  id="passwordError"></ul>
                         <label for="password">CONFIRMAR CONTRASEÑA</label>
                         <input type="password" name="confirmpassword" id="confirmpassword"> 
-                        <ul style="font-size: small; color: red;"  id="confirmError"></ul><br>
+                        <ul style="font-size: small; color: red;"  id="confirmError"></ul>
 
-                        <button type="submit" id="entrar">CREAR CUENTA</button> <br>
-                        <button type="reset" id="cancelar"><a href="/">CANCELAR</a></button>
+                        <button type="submit" id="entrar" class="primary_action" >CREAR CUENTA</button>
+                        <button type="reset" id="cancelar" class="reset_action"><a href="/">CANCELAR</a></button>
                     
                     </div> 
                 </form>

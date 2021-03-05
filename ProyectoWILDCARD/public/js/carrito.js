@@ -12,6 +12,7 @@ var descartarCambio = document.querySelectorAll('#descartarCambio');//ENLACE
 var btnConfirmar = document.querySelectorAll('i#confirmar');//BOTON
 var btnComprar = document.querySelector('#comprar');//ENLACE
 var error = document.querySelector('p#error')
+var error1 = document.querySelector('p#error1')
 var id =document.querySelectorAll('#idSel');
 var idCarrito =document.querySelector('#idCarrito');
 
@@ -24,7 +25,7 @@ for (let i = 0; i < cantidad.length; i++) {
         btnConfirmar[i].style.color = "red";
         confirmarCambio[i].href = "#"
         btnComprar.href = "#";
-        error.innerHTML = "(*)El pedido no puede ser menor a una unidad"
+        error1.innerHTML = "(*)El pedido no puede ser menor a una unidad"
     }else{
     confirmarCambio[i].href = "/users/carrito/cantidad" + "/" + id[i].value + "/" + cantidad[i].value + "/";
     }

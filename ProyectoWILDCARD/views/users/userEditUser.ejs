@@ -10,12 +10,12 @@
     <div class="container">
         <%- include('../partials/header') %>
         <main>
-            <div class="subheader">
+            <div class="subheader" style="margin-top: 15px;">
                 <p><a href="#">Inicio</a> > Editar Cuenta</p>
             </div>
 
             <% if ( mensaje != 'nada') { %>
-                <ul>
+                <ul style="margin-top: 10px;">
                     <% for ( let m=0; m<mensaje.length; m++) { %>
                     <li><%= mensaje[m].msg %></li>
                     <% } %>
@@ -23,33 +23,35 @@
             <% } %>
 
             <div class="inputsContainer">
-                <form action="/users/editar" method="post" id="formEdit">
+                <form action="/users/editar" method="post" id="formEdit" class="login">
+                    <h2>Editar Usuario</h2>
                     <div class="auxiliarInputsContainer">  
-                        <div class="fullnameInputContainer">
                         <label for="fullname">NOMBRE Y APELLIDO</label>
                         <input type="text" name="fullname" id="fullname" value="<%= userEdit.nombre %>">
                         <ul id="nameError" style="font-size: small; color: red;" ></ul>
-                        </div> <br>
                         <label for="email">EMAIL</label>
-                        <input type="email" name="email" id="email" value="<%= userEdit.email %>" > <br>
-                        <ul style="font-size: small; color: red;"  id="emailError"></ul><br>
-                        <label for="text">TELÉFONO (OPCIONAL)</label>
-                        <input type="text" name="telefono" id="telefono" value="<%= userEdit.telefono %>"> <br>
-                        <ul style="font-size: small; color: red;"  id="telefonoError"></ul><br>
+                        <input type="email" name="email" id="email" value="<%= userEdit.email %>" > 
+                        <ul style="font-size: small; color: red;"  id="emailError"></ul>
+                        <label for="text">TELÉFONO</label>
+                        <input type="text" name="telefono" id="telefono" value="<%= userEdit.telefono %>"> 
+                        <ul style="font-size: small; color: red;"  id="telefonoError"></ul>
+                        <label for="oldpassword">CONTRASEÑA</label>
+                        <input type="password" name="oldpassword" id="oldpassword"> 
+                        <ul style="font-size: small; color: red;"  id="oldError"></ul>
                         <label for="password">NUEVA CONTRASEÑA</label>
-                        <input type="password" name="password" id="password"> <br>
-                        <ul style="font-size: small; color: red;"  id="passwordError"></ul><br>
+                        <input type="password" name="password" id="password" class="newPass"> 
+                        <ul style="font-size: small; color: red;"  id="passwordError"></ul>
                         <label for="password">CONFIRMAR CONTRASEÑA</label>
-                        <input type="password" name="confirmpassword" id="confirmpassword"> <br>
-                        <ul style="font-size: small; color: red;"  id="confirmError"></ul><br>
+                        <input type="password" name="confirmpassword" id="confirmpassword"  class="newPass"> 
+                        <ul style="font-size: small; color: red;"  id="confirmError"></ul>
 
-                        <button type="submit" id="entrar">EDITAR CUENTA</button> <br>
-                        <button type="reset" id="cancelar">CANCELAR</button>
+
+                        <button type="submit" id="entrar" class="primary_action">EDITAR CUENTA</button> 
+                        <button type="reset" id="cancelar" class="reset_action">CANCELAR</button>
                     
                     </div> 
                 </form>
             </div>
-
             <%- include('../partials/footer') %>
         </main>
     </div>

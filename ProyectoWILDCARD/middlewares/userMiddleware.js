@@ -38,6 +38,35 @@ const userMiddleware = {
                 })
             }
         })
+    },  checkUserEdit : (req,res,next) => {
+        console.log("estoy en CheckUserEdit")
+        let userId = req.session.usuario.id;
+        db.Usuarios.findOne({
+            where: {
+                id : userId,
+                estado: 1
+            }
+        })
+        .then((resultado) => {
+            if (resultado) { // si existe usuario chequea contraseña
+                if ( bcrypt.compareSync(req.body.oldpassword, resultado.password) ) {
+                    console.log("Contraseña correcta") // si contraseña es correcta, que pase
+                    next()
+                } else {
+                    mensaje=[{msg: 'Contraseña incorrecta.'}]//si no pasa que la escriba de nuevo.
+                    res.render('users/userEditUser', {userEdit: req.session.usuario, usuario: req.usuarioLogueado, mensaje})
+                    
+                }
+            } else { // si no existe usuario vuelve al login por algo raro vuelve al login.
+                req.session.loggedIn = false;
+                var usuario =  req.usuarioLogueado;
+                mensaje=[{msg: 'Usuario y/o contraseña incorrectos.'}]
+                res.render('users/login', {
+                    mensaje,
+                    usuario
+                })
+            }
+        })
     },
     checkLoginErrors: (req,res,next) => {
         let errors = validationResult(req);
@@ -107,6 +136,21 @@ const userMiddleware = {
 
          
     },
+    checkPassConfirmationEdit : (req,res,next) => {
+        if (req.body.password == req.body.confirmpassword) {
+            next()
+        } else {
+            var usuario =  req.usuarioLogueado;
+            mensaje=[{msg: 'Contraseña y confirmación no coinciden.'}]
+            res.render('users/userEditUser', {
+                mensaje,
+                usuario
+            })
+        }
+
+     
+},
+
     checkCarrito : (req,res,next) => {
         let usuarioId = req.session.usuario.id
         db.Carritos.findOne({where : {
@@ -137,7 +181,7 @@ const userMiddleware = {
         if (!errors.isEmpty()) {
             res.render('users/userEditUser', {
                 userEdit: req.session.usuario, 
-                usuario: req.usuarioLogueado, 
+                usuario: req.session.usuario, 
                 mensaje: errors.errors,})
         } else {
             next()

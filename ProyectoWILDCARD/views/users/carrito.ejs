@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         
-        <%- include('../partials/header_carrito') %>
+        <%- include('../partials/header') %>
         <main class="carrito">
             <h1>Carrito de compras      (<%=carritoProducto.length%>)</h1>
             <div class="tarjetas">
@@ -102,6 +102,8 @@
                     <button><a id='comprar' href="/users/carrito/comprar/<%=carrito.id%>">FINALIZAR PEDIDO</a></button>
                     <button class="mas" onclick="javascript:location.href='../products/'">SEGUIR COMPRANDO</button>
                     <p id="error" style="font-size: small; color: red;"></p>
+                    <p id="error1" style="font-size: small; color: red;"></p>
+
                 </div>
             </div>
         </main>

@@ -1,436 +1,707 @@
-*{
-    box-sizing: border-box;
-    margin-top: 0px;
-    margin-left: 0%;
-    margin-right: 0%;
-    padding: 0px;
-  }
-  body {
-    padding: 0px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-    margin: 0px;
-    display: flex;
-  }
-  
-  a {
-    color: black;
-    text-decoration: none;
-  }
-  .container{
-    max-width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
-    position: relative;
-    font-family: 'Montserrat', sans-serif;
-    margin: 0px;
-    padding: 0px;
-  }
-  /*HEADER*/
-  .container header{
-    background-color: black;
-    width: 99.6%;
-    height: 90px;
-    display: flex;
-    justify-content: space-between;
-    position: fixed;
-    top: 0%;
-    z-index: 1;
-  }
-  
-  .container header .tituloh2
-  {
-    background-color: white;
-    position: absolute;
-    top: 0%;
-    border: 3px black solid;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 0%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 20px;
-  }
-  .container header .tituloh2 h2{
-    font-family: 'Josefin Sans', sans-serif;
-    background-color: white;
-    font-size: 12px;
-    font-weight: 600;
-    width: 100%;
-    text-align: center;
-    position: relative;
-    top: 5px;
-  
-  }
-  .container header menu{
-    color:white;
-    font-size: 50px;
-    margin-top: 20px;
-    display: inline-block;
-    padding: 5px;
-    margin-left: 5px;
-  }
-  .container header .logoArlequin{
-    display: none;
-  }
-  .container header .barraDeBusqueda{
-    display: none;
-  }
-  .container header nav{
-    display: none;
-  }
-  .container header .logo{
-    font-family: 'Josefin Sans', sans-serif;
-    color: white;  
-    display: inline-block;
-    font-size: 25px;
-    align-items: center;
-    margin-top: 30px;
-    font-weight: 500;
-  }
-  h1{
-    font-weight: 500;
-  }
-  .container header .carrito{
-    color:white;
-    font-size: 50px;
-    margin-top: 20px;
-    display: inline-block;
-    padding: 5px;
-    margin-right: 5px;
-  }
-
-    /* MAIN */
-
-  .container main {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    top: 120px;
-  }
-  .container main p {
-    font-weight: bold;
-  }
-  .container main label {
-      text-align: center;
-      position: relative;
-      color: black;
-  }
-  .container main input {
-    width: 30%;
-    height: 5vh;
-    position: relative;
-  }
-
-  #entrar {
-    color: white;
-    background-color: black;
-    width: 30%;
-    height: 5vh;
-    position: relative;
-  }
-/*footer */
-  .container footer{
-    background-color: black;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    color: white;
-    border: 2px solid white;
-  }
-  .container footer div{
-    background-color: black;
-  }
-  .container footer div.aboutUs{
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  }
-  .container footer div.aboutUs img{
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-  
-  }
-  .container footer div.redesSociales{
-    display: none;
-  }
-  .container footer .formasDePago{
-    background-color: black;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    border-top: 2px solid white;
-    border-bottom: 2px solid white;
-  
-  }
-  .container footer .formasDePago img{
-    width: 50%;
-  }
-  .container footer div.copyright{
-    color: white;
-    text-align: center;
-  }
-  
-  .container footer div.copyright i{
-    color: white;
-    text-align: center;
-    font-size: 25px;
-    margin-top: 5px;
-  }
-
-  /*footer*/
-  .container footer{
-    background-color: black;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    color: white;
-    border: 2px solid white;
-  }
-  .container footer div{
-    background-color: black;
-  }
-  .container footer div.aboutUs{
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  }
-  .container footer div.aboutUs img{
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-  
-  }
-  .container footer div.redesSociales{
-    display: none;
-  }
-  .container footer .formasDePago{
-    background-color: black;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    border-top: 2px solid white;
-    border-bottom: 2px solid white;
-  
-  }
-  .container footer .formasDePago img{
-    width: 50%;
-  }
-  .container footer div.copyright{
-    color: white;
-    text-align: center;
-  }
-  
-  .container footer div.copyright i{
-    color: white;
-    text-align: center;
-    font-size: 25px;
-    margin-top: 5px;
-  }
-
-  /* TABLET*/
-@media(min-width: 426px){
-  .container{
-    max-width: 100%;
-  }
-  /*FOOTER*/
-  .container footer {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    width: 100%;
-  }
-  .container footer div.aboutUs{
-    width: 50%;
-    order: 1;
-  }
-  .container footer div.redesSociales{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 50%;
-    order: 2;
-  }
-  .container footer div.redesSociales p{
-    padding-top: 5px;
-  }
-  
-  .container footer div.redesSociales i{
-    font-size: 30px;
-    align-self: center;
-    padding-bottom: 3px;
-  }
-  
-  .container footer div.formasDePago{
-    border: none;
-    width: 50%;
-    order: 3;
-  }
-  .container footer div.copyright{
-    width: 50%;
-    order: 4;
-  }
-  .container footer div.copyright i{
-    display: none;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/*Modo Escritorio*/
+body {
+  padding: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0px;
+  display: flex;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  justify-content: space-between;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.container header{
+  background-color: black;
+  width: 100%;
+  height: 90px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0%;
+  z-index: 1;
+  text-align: center;
+}
+.container header .tituloh2
+{
+background-color: white;
+border: 3px black solid;
+width: 100%;
+display: flex;
+justify-content: center;
+margin: 0%;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+height: 15px;
+}
+.container header .tituloh2 h2{
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: white;
+  font-size: 12px;
+  font-weight: 600;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  top: 5px;
+
+}
+
+.container header menu{
+  color:white;
+  font-size: 40px;
+  display: flex;
+  padding: 10px;
+  margin-left: 5px;
+  text-align: center;
+  align-items: center;
+  margin: 0 0 0 0;
+}
+.container header .logoArlequin{
+  display: none;
+  transition: .6s all;
+}
+.container header .barraDeBusqueda{
+  display: none;
+}
+.container header nav{
+  display: none;
+}
+.container header .logo{
+  font-family: 'Josefin Sans', sans-serif;
+  color: white;  
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  text-align: center;
+}
+.container header div.logo  a{
+  font-family: 'Josefin Sans', sans-serif;
+  color: white;  
+  display: inline-block;
+  font-size: 3rem;
+  align-items: center;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 10px;
+}
+.container header .carrito{
+  color:white;
+  font-size: 30px;
+  display: flex;
+  padding: 5px;
+  margin-right: 5px;
+  transition: .6s all;
+}
+.container header .carrito{
+  transform: rotate(360deg)
+}
+.container header div.logoWsapp{
+  position: fixed;
+  right: 7px;
+  bottom: 285px;
+  font-size: 30px;
+  color: #25D366;
+  transition: .6s all;
+}
+.container header div.logoWsapp:hover{
+  transform: rotate(360deg)
+}
+/*----------------------Modo Escritorio 769px---------------------*/
 @media(min-width: 769px){
   /*header*/
-  .container{
-    width: 100%;
-    max-width: 100%;
+  body {
+      padding: 0px;
+      font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
+      margin: 0px;
+      display: flex;
+    }
+  .container header{
+      height: 100px;
+      align-items: center;
+    }
+    .container header .tituloh2 h2{
+      font-size: 10px;
+      font-weight: 600;
+    }
+    .container header menu{
+      display: none;
+    }
+    .container header .logoArlequin{
+      color:white;
+      height: 60px;
+      display: flex;
+      padding: 5px;
+      margin-left: 5px;
+      width: 30%;
+    }
+    .container header .logo{
+        height: 80px;
+        text-align: center;
+      font-size: 18px;
+    }
+    .container header .logo a{
+        color: white;
+      margin: 0 0 0 0;
+      text-align: center;
+      font-size: 50px;
   }
-  .container header menu{
-    display: none;
-  }
-  .container header .logoArlequin{
-    color:white;
-    height: 50px;
-    margin-top: 20px;
-    display: inline-block;
-    padding: 5px;
-    margin-left: 5px;
-    width: 100px;
-  }
-
-  .container header .barraDeBusqueda{
-    display: inline-block;
-    position: absolute;
-    right: 50px;
-    top: 43px;
-    background-color: black;
-    border: 2px black solid;
-    border-radius: 5%;
-    color: white;
-  }
-  .container header .barraDeBusqueda input{
-    background-color: black;
-    color: white;
-  }
-
-  .container header .barraDeBusqueda input:hover{
-    background-color: white;
-    color: black;
-  }
-
-  .container header .carrito{
-    text-align: end;
-    width: 100px;
-    font-size: 25px;
-    margin-top: 35px;
-  }
-  .container header nav{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    align-items: center;
-    margin-top: 90px;
-    background-color: white;
-    width: 100%;
-    border: 2px solid black;
-    position: absolute;
-  }
-  .container header nav ul{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .container header nav ul.menu{
-    width: 50%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .container header nav ul.usuario{
-    width: 25%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0%;
-  }
-  .container header nav ul li{
-    list-style: none;
-  }
-
-  /* FOOTER */
-  .container footer {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    width: 100%;
-  }
-  .container footer div.aboutUs{
-    width: 25%;
-    order: 3;
-  }
-  .container footer div.redesSociales{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 25%;
-    order: 2;
-  }
-  .container footer div.redesSociales p{
-    padding-top: 5px;
-  }
+    .container header .barraYCarrito{
+      display: flex;
+      width: 30%;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      text-align: center;
+    }
+    .container header .barraDeBusqueda{
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      background-color: black;
+      border: 2px black solid;
+      border-radius: 5%;
+      color: white;
+      height: 5vh;
+      align-content: center;
+    }
+    .container header .barraDeBusqueda input{
+      background-color: black;
+      color: white;
+      width: 160px;
+      font-size: 17px;
+    }
+    .container header .barraDeBusqueda input:hover{
+      background-color: white;
+      color: black;
+    }
+    .container header .barraDeBusqueda input{
+      transition: color 2s linear 0.2s;
+    }
+    .container header .carrito{
+      text-align: end;
+      font-size: 30px;
+      align-self: center;
+    }
+    .container header nav{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding-left: 10px;
+      padding-right: 10px;
+      align-items: center;
+      background-color: white;
+      width: 100%;
+      border: 2px solid black;
+      font-size: 12px;
+      height: 26px;
+      text-align: center;
+      align-items: center;
+    }
+    .container header nav ul{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+    }
+    .container header nav ul.menu{
+      width: 50%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+    }
+    .container header nav ul.usuario{
+      width: 25%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0%;
+      text-align: center;
+    }
+    .container header nav ul li{
+      list-style: none;
+    }
+    .container header div.logoWsapp{
+      font-size: 40px;
+    }
   
-  .container footer div.redesSociales i{
-    font-size: 30px;
-    align-self: center;
-    padding-bottom: 3px;
-  }
-  .container footer div.formasDePago{
-    border: none;
-    width: 25%;
-    order: 1;
-  }
-  .container footer div.copyright{
-    width: 25%;
-    order: 4;
-  }
-  .container footer div.copyright i{
-    display: none;
-  }
+}
+/*--------------------Modo Escritorio 1025px-------------------------*/
+@media(min-width: 769px){ 
+  .container header .carrito{
+  text-align: end;
+  font-size: 43px;
+  align-self: center;
+}
+.container header .barraDeBusqueda input{
+  background-color: black;
+  color: white;
+  width: 160px;
+  font-size: 16px;
+}
+
+}
+
+  /* MAIN */
+
+.container main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container main .subheader {
+  height: 20%;
+  display: flex;
+  align-items: flex-end;
+  padding-left: 100px;
+  padding-top: 125px;
+}
+
+.container main .inputsContainer {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container main .inputsContainer .auxiliarInputsContainer {
+  width: 400px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.auxiliarInputsContainer div {
+  display: flex;
+  flex-direction: column;
+}
+
+.emailInputContainer {
+  margin-bottom: 15px;
+}
+
+.passwordInputContainer {
+  margin-bottom: 25px;
+}
+
+.fullnameInputContainer {
+  margin-top: 10px;
+}
+
+.container main label {
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.container main input {
+  height: 35px;
+}
+.container main select {
+  height: 35px;
+}
+
+.forgotPassword {
+  font-size: 12px;
+}
+
+
+/* footer */
+
+.container footer{
+  background-color: black;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: white;
+  border: 2px solid white;
+}
+.container footer div{
+  background-color: black;
+}
+.container footer div.aboutUs{
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.container footer div.aboutUs img{
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+}
+.container footer div.redesSociales{
+  display: none;
+}
+.container footer .formasDePago{
+  background-color: black;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+
+}
+.container footer .formasDePago img{
+  width: 50%;
+}
+.container footer div.copyright{
+  color: white;
+  text-align: center;
+}
+
+.container footer div.copyright i{
+  color: white;
+  text-align: center;
+  font-size: 25px;
+  margin-top: 5px;
+}
+@media(min-width: 426px){
+  .container{
+      max-width: 100%;
+    }
+    /*FOOTER*/
+.container footer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  border: 1px black solid;
+}
+.container footer div.aboutUs{
+  width: 50%;
+  order: 1;
+}
+.container footer div.redesSociales{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+  order: 2;
+}
+.container footer div.redesSociales p{
+  padding-top: 5px;
+}
+
+.container footer div.redesSociales i{
+  font-size: 30px;
+  align-self: center;
+  padding-bottom: 3px;
+}
+
+.container footer div.formasDePago{
+  border: none;
+  width: 50%;
+  order: 3;
+}
+.container footer div.copyright{
+  width: 50%;
+  order: 4;
+}
+.container footer div.copyright i{
+  display: none;
+}
+}
+/*----------------------Modo Escritorio 769px---------------------*/
+@media(min-width: 769px){
+  /* FOOTER */
+.container footer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+}
+.container footer div.aboutUs{
+  width: 25%;
+  order: 3;
+}
+.container footer div.redesSociales{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25%;
+  order: 2;
+}
+.container footer div.redesSociales p{
+  padding-top: 5px;
+}
+
+.container footer div.redesSociales i{
+  font-size: 30px;
+  align-self: center;
+  padding-bottom: 3px;
+}
+.container footer div.formasDePago{
+  border: none;
+  width: 25%;
+  order: 1;
+}
+.container footer div.copyright{
+  width: 25%;
+  order: 4;
+}
+.container footer div.copyright i{
+  display: none;
+}
+}  
+
+@media(max-width: 425px) {
+.container main .inputsContainer .auxiliarInputsContainer {
+  width: 300px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.auxiliarInputsContainer div {
+  display: flex;
+  flex-direction: column;
+}
+
+.emailInputContainer {
+  margin-bottom: 15px;
+}
+
+.passwordInputContainer {
+  margin-bottom: 25px;
+}
+
+.fullnameInputContainer {
+  margin-top: 10px;
+}
+
+.container main label {
+  margin-bottom: 5px;
+  font-weight: 400;
+}
+
+.container main input {
+  height: 25px;
+}
+
+.forgotPassword {
+  font-size: 12px;
+}
+
+#entrar {
+  height: 25px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  font-weight: 400;
+}
+
+#cancelar {
+  height: 25px;
+  font-weight: 400;
+  background-color: white;
+  margin-bottom: 30px;
+}
+}
+* {
+margin: 0;
+padding: 0;
+}
+
+body {
+background: #bebebe;
+font-size: 75.5%;
+font-family: 'Open Sans', Arial, 'Helvetica Neue', Sans-serif, Verdana;
+}
+
+
+.container .main .inputsContainer {
+margin: 60px auto;
+max-width: 450px;
+width: 80%;
+}
+
+.login {
+overflow: hidden;
+background: #FFF;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+box-shadow: 0 0 100px rgba(255,255,255,0.15);
+margin-bottom: 20px;
+}
+
+.inputsContainer h2 {
+display: block;
+padding: 15px 0;
+margin-bottom: 40px;
+border-bottom: 1px solid #696c6e;
+color: #FFF;
+font: 400 3em 'Roboto Condensed', 'Open Sans', Arial, 'Helvetica Neue', Sans-serif, Verdana;
+text-align: center;
+text-shadow: 0 2px 0 rgba(0,0,0, 0.15);
+background: #6f7172;
+background: -webkit-linear-gradient(#3a3a3a, #747474);
+background: -moz-linear-gradient(#3a3a3a, #747474);
+background: -o-linear-gradient(#3a3a3a, #747474);
+background: linear-gradient(#3a3a3a, #747474);
+-webkit-box-shadow: inset 0 1px 1px rgba(255,255,255, 0.4);
+-moz-box-shadow: inset 0 1px 1px rgba(255,255,255, 0.4);
+box-shadow: inset 0 1px 1px rgba(255,255,255, 0.4);
+}
+
+.auxiliarInputsContainer {
+padding: 0 30px 30px;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+.auxiliarInputsContainer input[type="text"], .auxiliarInputsContainer input[type="password"], .auxiliarInputsContainer input[type="email"]  {
+height: 46px;
+width: 100%;
+display: block;
+padding: 0 10px;
+font-size: 1.6em;
+background: #FFF;
+border: 1px solid #CCC;
+color: #4d4d4d;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+-webkit-transition: border-color 0.4s ease;
+-o-transition: border-color 0.4s ease;
+transition: border-color 0.4s ease;
+}
+
+.auxiliarInputsContainer input[type="text"]:focus, .auxiliarInputsContainer input[type="email"]:focus, .auxiliarInputsContainer input[type="password"]:focus {
+outline: 0;
+border-color: #747474;
+}
+
+.auxiliarInputsContainer label {
+display: block;
+margin-bottom: 12px;
+color: #353942;
+font-weight: 700;
+font-size: 1.6em;
+}
+
+.auxiliarInputsContainer input + label {
+margin-top: 25px;
+}
+
+.primary_action {
+width: 100%;
+height: 54px;
+margin-top: 30px;
+display: inline-block;
+border: 0;
+color: #FFF;
+text-shadow: 0 -1px 1px rgba(0,0,0,0.2);
+font-size: 1.6em;
+font-weight: 700;
+text-align: center;
+cursor: pointer;
+background: #747474;
+-webkit-box-shadow: 0 2px 0 #3a3a3a;
+-moz-box-shadow: 0 2px 0 #3a3a3a;
+box-shadow: 0 2px 0 #3a3a3a;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+-webkit-transition: background 0.3s ease;
+-o-transition: background 0.3s ease;
+transition: background 0.3s ease;
+}
+
+.primary_action:focus {
+outline: 0;
+}
+
+.primary_action:hover {
+opacity: 1;
+background: #55b186;
+}
+.reset_action {
+width: 100%;
+height: 54px;
+margin-top: 30px;
+display: inline-block;
+border: 0;
+color: #FFF;
+text-shadow: 0 -1px 1px rgba(0,0,0,0.2);
+font-size: 1.6em;
+font-weight: 700;
+text-align: center;
+cursor: pointer;
+background: #cfd3a8;
+-webkit-box-shadow: 0 2px 0 #7a7e5a;
+-moz-box-shadow: 0 2px 0 #7a7e5a;
+box-shadow: 0 2px 0 #7a7e5a;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+-webkit-transition: background 0.3s ease;
+-o-transition: background 0.3s ease;
+transition: background 0.3s ease;
+}
+
+.reset_action:focus {
+outline: 0;
+}
+
+.reset_action:hover {
+opacity: 1;
+background: #b18155;
 }

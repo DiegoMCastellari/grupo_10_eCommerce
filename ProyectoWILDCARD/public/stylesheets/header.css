@@ -85,6 +85,7 @@ a {
     font-weight: 500;
     text-align: center;
     margin-top: 10px;
+    text-decoration: none;
   }
   .container header .carrito{
     color:white;
@@ -146,7 +147,14 @@ a {
         margin: 0 0 0 0;
         text-align: center;
         font-size: 50px;
+        text-decoration: none;
     }
+    .container header .logo a:hover{
+      color: rgb(170, 36, 36);
+}
+.container header .logo a{
+  transition: color 5s;
+}
       .container header .barraYCarrito{
         display: flex;
         width: 30%;
@@ -166,6 +174,10 @@ a {
         color: white;
         height: 5vh;
         align-content: center;
+        cursor: pointer;
+      }
+      .container header .barraDeBusqueda form button:hover{
+        cursor: pointer;
       }
       .container header .barraDeBusqueda input{
         background-color: black;
@@ -216,8 +228,9 @@ a {
         align-items: center;
         text-align: center;
       }
+      
       .container header nav ul.usuario{
-        width: 25%;
+        width: 35%;
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
@@ -228,6 +241,14 @@ a {
       }
       .container header nav ul li{
         list-style: none;
+      }
+      .container header nav ul li a{
+        text-decoration: none;
+        font-weight: 700;
+        color: rgb(77, 77, 77);
+      }.container header nav ul li a:hover{
+        color: black;
+        font-weight: 700;
       }
       .container header div.logoWsapp{
         font-size: 40px;
@@ -240,6 +261,9 @@ a {
     text-align: end;
     font-size: 43px;
     align-self: center;
+  }
+  .container header .carrito:hover{
+    cursor: pointer;
   }
   .container header .barraDeBusqueda input{
     background-color: black;

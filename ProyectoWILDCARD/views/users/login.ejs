@@ -10,30 +10,31 @@
     <div class="container">
         <%- include('../partials/header') %>
         <main>
-            <div class="subheader">
+            <div class="subheader" style="margin-top: 15px;">
                 <p><a href="#">Inicio</a> > Iniciar sesión</p>
             </div>
             <% if ( mensaje != 'nada') { %>
-                <ul>
+                <ul style="margin-top: 15px;">
                     <% for ( let m=0; m<mensaje.length; m++) { %>
                     <li><%= mensaje[m].msg %></li>
                     <% } %>
                 </ul>
             <% } %>
             <div class="inputsContainer">
-                <form class="auxiliarInputsContainer" action="/users/login" method="post">
-                    <div class="emailInputContainer">
+                <form action="/users/login" method="post" id="formEdit" class="login">
+                    <h2>Login</h2>
+                    <div class="auxiliarInputsContainer">  
                         <label for="email">EMAIL</label>
-                        <input type="email" name="email" id="email">
-                        <ul style="font-size: small; color: red;" id="emailError"></ul>
-                    </div>
-                    <div class="passwordInputContainer">
+                        <input type="email" name="email" id="email"> 
+                        <ul style="font-size: small; color: red;"  id="emailError"></ul>
                         <label for="password">CONTRASEÑA</label>
-                        <input type="password" name="password" id="password">
-                        <ul style="font-size: small; color: red;" id="passwordError"></ul>
-                        <a class="forgotPassword" href="#">¿Olvidaste tu contraseña?</a>
-                    </div>
-                    <button id="entrar" type="submit">INCIAR SESIÓN</button>
+                        <input type="password" name="password" id="password"> 
+                        <ul style="font-size: small; color: red;"  id="oldError"></ul>
+
+
+                        <button type="submit" id="entrar" class="primary_action">INGRESAR</button> 
+                    
+                    </div> 
                 </form>
             </div>
             <%- include('../partials/footer') %>

@@ -10,8 +10,9 @@ const accesoMiddleware = {
             next()
         } else {
             // req.session.error = 'Access denied!';
+            mensaje=[{msg: 'Acceso denegado! Por favor, logueese'}]
             res.render('users/login', {
-                mensaje: 'Acceso denegado! Por favor, logueese',
+                mensaje,
                 usuario: "ningunUsuarioLogueado"
             })
         }
@@ -28,8 +29,9 @@ const accesoMiddleware = {
                 })
             }
         } else {
-            res.render('users/login', {
-                mensaje: 'Acceso denegado! Por favor, logueese',
+            mensaje=[{msg: 'Acceso denegado! Por favor, logueese'}]
+            res.redirect('users/login', {
+                mensaje,
                 usuario: "ningunUsuarioLogueado"
             })
         }

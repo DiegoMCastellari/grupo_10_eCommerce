@@ -22,29 +22,27 @@
             <% } %>
             
             <div class="inputsContainer">
-                <form action="/admin/userList/edit/<%= userEdit.id %>" method="post">
+                <form action="/admin/userList/edit/<%= userEdit.id %>" method="post" class="login">
+                    <h2>Editar Usuario</h2>
                     <div class="auxiliarInputsContainer">
-                        
-                        <div class="fullnameInputContainer">
                         <label for="Id">ID</label>
                         <input type="number" name="id" id="id" value="<%= userEdit.id%>" readonly>
                         <label for="permiso">Permiso</label>
                         <select name="permiso" id="permiso">
                             <option value="admin" <%= userEdit.permiso=="admin" ? "selected": null %>>Administrador</option>
                             <option value="externo" <%= userEdit.permiso=="externo" ? "selected": null %> >Externo</option>
-                        </select>        
+                        </select><br>        
                         <label for="fullname">NOMBRE Y APELLIDO</label>
-                        <input type="text" name="fullname" id="fullname" value="<%= userEdit.nombre %>">
-                        </div> <br>
+                        <input type="text" name="fullname" id="fullname" value="<%=userEdit.nombre %>">
                         <label for="email">EMAIL</label>
-                        <input type="email" name="email" id="email" value="<%= userEdit.email %>" > <br>
-                        <label for="text">TELÉFONO (OPCIONAL)</label>
-                        <input type="text" name="telefono" id="telefono" value="<%= userEdit.telefono %>"> <br>
+                        <input type="email" name="email" id="email" value="<%= userEdit.email %>" >
+                        <label for="text">TELÉFONO</label>
+                        <input type="text" name="telefono" id="telefono" value="<%= userEdit.telefono %>">
                         <label for="password">CONTRASEÑA</label>
-                        <input type="password" name="password" id="password" value="<%= userEdit.password %>"> <br>
+                        <input type="password" name="password" id="password" value="<%= userEdit.password %>">
 
-                        <button type="submit" id="entrar">EDITAR Cuenta</button> <br>
-                        <button type="reset" id="cancelar"><a href="users/userList">CANCELAR</a></button>
+                        <button type="submit" id="entrar" class="primary_action">Editar Cuenta</button>
+                        <button type="reset" id="cancelar" class="reset_action"><a href="users/userList">Cancelar</a></button>
                     
                     </div> 
                 </form>
