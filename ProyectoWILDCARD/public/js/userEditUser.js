@@ -70,11 +70,15 @@ window.onload = function (e) {
 
 
 
-    onchange
-    password.addEventListener('change', function(event){
+
+    password.addEventListener('blur', function(event){
         if(password.value!="")
         {password.style.backgroundColor = "#FFF";
         confirmPassword.style.backgroundColor = "#FFF"}
+        else{
+            password.style.backgroundColor = "#929090";
+        confirmPassword.style.backgroundColor = "#929090"
+        }
     });
     formulario.addEventListener('submit', function(event){
         //NOMBRE
