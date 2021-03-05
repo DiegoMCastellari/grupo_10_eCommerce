@@ -648,7 +648,7 @@ body {
 
 .auxiliarInputsContainer input[type="text"]:focus, .auxiliarInputsContainer input[type="number"]:focus, .auxiliarInputsContainer input[type="email"]:focus, .auxiliarInputsContainer input[type="password"]:focus {
 	outline: 0;
-	border-color: #747474;
+	border-color: #929090;
 }
 
 .auxiliarInputsContainer label {
