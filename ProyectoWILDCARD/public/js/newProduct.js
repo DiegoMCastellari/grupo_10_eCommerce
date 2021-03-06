@@ -48,13 +48,11 @@ window.onload = function () {
     }
 
     calzado.addEventListener('click', function (e){
-        console.log("selecciono calzado");
         categoriasAccesorio.style.display = "none";
         categoriaCalzado.style.display = "flex";
 
     })
     accesorios.addEventListener('click', function (e){
-        console.log("selecciono accesorios");
         categoriasAccesorio.style.display = "flex";
         categoriaCalzado.style.display = "none";
 

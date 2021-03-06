@@ -15,7 +15,7 @@ const productoController = {
         let accesorio = 0;
         if(req.query.page){
             page = Number(req.query.page)
-            offsetRecibed = page*10;
+            offsetRecibed = page*20;
             page=Number(req.query.page)+1;
         let contarProductos = db.Productos.count({
             where:{
@@ -27,7 +27,7 @@ const productoController = {
                 activo: 1
             },
             offset : offsetRecibed,
-            limit : 10,
+            limit : 20,
             include :[ 
             {association : "imagenes"}]}, {
             order: [
@@ -69,7 +69,7 @@ const productoController = {
             activo: 1
         },
         offset : offsetRecibed,
-        limit : 10,
+        limit : 20,
         include :[ 
         {association : "imagenes"}]}, {
         order: [

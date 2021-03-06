@@ -36,6 +36,7 @@
                     <tittle id="nombre"> Marca : <%= producto.marcas.nombre %> </tittle>
                     <p id="precio"> $ <%= toThousand(producto.precio) %> </p>
                     <p id="oferta">3 Cuotas SIN INTERÉS</p>
+                    
                     <div class="talles">
                         <div class="categoria">
                             <p id="tituloTalles">Talles</p>
@@ -43,22 +44,25 @@
                             <ul id="tallesError" style="font-size: small; color: red;" ></ul>
                         </div>
                         <div class="botontesSelect">
-                            <% for ( let i= 0; i< producto.talles.length; i++ ){ %>
-                                <label for="talle" id="talle"><button type="button" id="talle" name="talle" value="<%= producto.talles[i].talle %>"><input type="radio" id="talle" name="talle" value="<%=producto.talles[i].id%>"><%=producto.talles[i].talle%></button></label> 
-                            
-                            <% } %>
+                            <% for (let i = 0; i < producto.talles.length; i++) {%>
+                            <label id="talleLabel">
+                                <input type="radio" id="talle" name="talle" value="<%=producto.talles[i].id%>"><%=producto.talles[i].talle%>
+                            </label>
+                            <%}%> 
                         </div>
-                        <div class="colores">
+                    </div>
+                    <div class="colores">
                         <p class="categoria">Colores: <b></b></p>
                         <ul id="coloresError" style="font-size: small; color: red;" ></ul>
                         <div class="botontesSelect">
-                            <% for ( let i= 0; i< producto.colores.length; i++ ){ %>
-                            <button type="button" id="color" name="color" value="<%= producto.colores[i].id %>" style="background-color: #<%= producto.colores[i].hex %> ;"><input type="radio" id="color" name="color" value="<%=producto.colores[i].id%>"><%=producto.colores[i].talle%></button></label>
-                            
-                            <% } %>
+                            <% for (let i = 0; i < producto.colores.length; i++) {%>
+                            <label id="colorLabel" style="background-color: #<%= producto.colores[i].hex %> ;">
+                                <input type="radio" id="color" name="color" value="<%=producto.colores[i].id%>">
+                            </label>
+                            <%}%> 
                         </div>
                     </div>
-                    </div>
+                    
                     <div class="cantidad">
                         <p class="categoria">Cantidad: <input name= "cantidad" id="inputCantidad" type="number" value="1" min="1"></p>
                         
@@ -70,19 +74,45 @@
                     <div class="mediosPago">
                         <p class="categoria">Medio de Pago: </p>
                         <div class="botontesSelect">
-                            <button id="mediosPago" name="mediosPago" type="button" value="1" ><input type="radio" name="mediosPago" id="mediosPago" value="1" checked>1</button>
+                            <label id="pagoLabel">
+                                <input type="radio" id="mediosPago" name="mediosPago" value="1">1
+                            </label>
+                            <label id="pagoLabel">
+                                <input type="radio" id="mediosPago" name="mediosPago" value="2">2
+                            </label>
+                            <label id="pagoLabel">
+                                <input type="radio" id="mediosPago" name="mediosPago" value="3">3
+                            </label>
+                            <label id="pagoLabel">
+                                <input type="radio" id="mediosPago" name="mediosPago" value="4">4
+                            </label>
+
+                            <!-- <button id="mediosPago" name="mediosPago" type="button" value="1" ><input type="radio" name="mediosPago" id="mediosPago" value="1" checked>1</button>
                             <button id="mediosPago" name="mediosPago" type="button" value="2"><input type="radio" name="mediosPago" id="mediosPago" value="2">2</button>
                             <button id="mediosPago" name="mediosPago" type="button" value="3"><input type="radio" name="mediosPago" id="mediosPago" value="3">3</button>
-                            <button id="mediosPago" name="mediosPago" type="button" value="1"><input type="radio" name="mediosPago" id="mediosPago" value="4">4</button>
+                            <button id="mediosPago" name="mediosPago" type="button" value="1"><input type="radio" name="mediosPago" id="mediosPago" value="4">4</button> -->
                         </div>
                     </div>
                     <div class="mediosEnvio">
                         <p class="categoria">Medio de envío: </p>
                         <div class="botontesSelect">
-                            <button id="mediosEnvio" name="envio" type="button" value="1"><input type="radio" name="mediosEnvio" id="mediosEnvio" value="1" checked>1</button>
+                            <label id="envioLabel">
+                                <input type="radio" name="mediosEnvio" value="1">1
+                            </label>
+                            <label id="envioLabel">
+                                <input type="radio" name="mediosEnvio" value="2">2
+                            </label>
+                            <label id="envioLabel">
+                                <input type="radio" name="mediosEnvio" value="3">3
+                            </label>
+                            <label id="envioLabel">
+                                <input type="radio" id="mediosEnvio" name="mediosEnvio" value="4">4
+                            </label>
+
+                            <!-- <button id="mediosEnvio" name="envio" type="button" value="1"><input type="radio" name="mediosEnvio" id="mediosEnvio" value="1" checked>1</button>
                             <button id="mediosEnvio"  name="envio" type="button" value="2"><input type="radio" name="mediosEnvio" id="mediosEnvio" value="2">2</button>
                             <button id="mediosEnvio"  name="envio" type="button" value="3"><input type="radio" name="mediosEnvio" id="mediosEnvio" value="3">3</button>
-                            <button id="mediosEnvio"  name="envio" type="button" value="4"><input type="radio" name="mediosEnvio" id="mediosEnvio" value="4">4</button>
+                            <button id="mediosEnvio"  name="envio" type="button" value="4"><input type="radio" name="mediosEnvio" id="mediosEnvio" value="4">4</button> -->
                         </div>
                     </div>
 
@@ -98,7 +128,7 @@
                 <title>Productos relacionados</title>
                 <div class="relacionadosProductos">
                     <% for(i=0; i< productos.length; i++){ %>
-                        <article>
+                        <article onclick="javascript:location.href='/products/<%= productos[i].id %>'">
                             <img src=" /img/products/<%= productos[i].imagenes[0].path %> " alt="">
                             <p><%= productos[i].nombre %></p>
                             <p>$ <%= toThousand(productos[i].precio) %></p>

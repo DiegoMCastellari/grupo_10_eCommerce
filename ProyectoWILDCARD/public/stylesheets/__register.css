@@ -11,17 +11,17 @@
     display: flex;
   }
   
-  a {
+/*   a {
     color: black;
     text-decoration: none;
-  }
+  } */
   .container{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     min-height: 100vh;
     width: 100%;
-    max-width: 100%;
+
     justify-content: space-between;
     position: relative;
     font-family: 'Montserrat', sans-serif;
@@ -29,275 +29,28 @@
     padding: 0px;
   }
 
-  a {
-    color: black;
-    text-decoration: none;
-  }
-
-  .container header{
-    background-color: black;
-    width: 100%;
-    height: 90px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0%;
-    z-index: 1;
-    text-align: center;
-  }
-  .container header .tituloh2
-{
-  background-color: white;
-  border: 3px black solid;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin: 0%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 15px;
-}
-.container header .tituloh2 h2{
-    font-family: 'Josefin Sans', sans-serif;
-    background-color: white;
-    font-size: 12px;
-    font-weight: 600;
-    width: 100%;
-    text-align: center;
-    position: relative;
-    top: 5px;
-  
-  }
-
-  .container header menu{
-    color:white;
-    font-size: 40px;
-    display: flex;
-    padding: 10px;
-    margin-left: 5px;
-    text-align: center;
-    align-items: center;
-    margin: 0 0 0 0;
-  }
-  .container header .logoArlequin{
-    display: none;
-    transition: .6s all;
-  }
-  .container header .barraDeBusqueda{
-    display: none;
-  }
-  .container header nav{
-    display: none;
-  }
-  .container header .logo{
-    font-family: 'Josefin Sans', sans-serif;
-    color: white;  
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-weight: 500;
-    text-align: center;
-  }
-  .container header div.logo  a{
-    font-family: 'Josefin Sans', sans-serif;
-    color: white;  
-    display: inline-block;
-    font-size: 3rem;
-    align-items: center;
-    font-weight: 500;
-    text-align: center;
-    margin-top: 10px;
-  }
-  .container header .carrito{
-    color:white;
-    font-size: 30px;
-    display: flex;
-    padding: 5px;
-    margin-right: 5px;
-    transition: .6s all;
-  }
-  .container header .carrito{
-    transform: rotate(360deg)
-  }
-  .container header div.logoWsapp{
-    position: fixed;
-    right: 7px;
-    bottom: 285px;
-    font-size: 30px;
-    color: #25D366;
-    transition: .6s all;
-  }
-  .container header div.logoWsapp:hover{
-    transform: rotate(360deg)
-  }
-  /*----------------------Modo Escritorio 769px---------------------*/
-  @media(min-width: 769px){
-    /*header*/
-    body {
-        padding: 0px;
-        font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
-        margin: 0px;
-        display: flex;
-      }
-    .container header{
-        height: 100px;
-        align-items: center;
-      }
-      .container header .tituloh2 h2{
-        font-size: 10px;
-        font-weight: 600;
-      }
-      .container header menu{
-        display: none;
-      }
-      .container header .logoArlequin{
-        color:white;
-        height: 60px;
-        display: flex;
-        padding: 5px;
-        margin-left: 5px;
-        width: 30%;
-      }
-      .container header .logo{
-          height: 80px;
-          text-align: center;
-        font-size: 18px;
-      }
-      .container header .logo a{
-          color: white;
-        margin: 0 0 0 0;
-        text-align: center;
-        font-size: 50px;
-    }
-      .container header .barraYCarrito{
-        display: flex;
-        width: 30%;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: center;
-        text-align: center;
-      }
-      .container header .barraDeBusqueda{
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        background-color: black;
-        border: 2px black solid;
-        border-radius: 5%;
-        color: white;
-        height: 5vh;
-        align-content: center;
-      }
-      .container header .barraDeBusqueda input{
-        background-color: black;
-        color: white;
-        width: 160px;
-        font-size: 17px;
-      }
-      .container header .barraDeBusqueda input:hover{
-        background-color: white;
-        color: black;
-      }
-      .container header .barraDeBusqueda input{
-        transition: color 2s linear 0.2s;
-      }
-      .container header .carrito{
-        text-align: end;
-        font-size: 30px;
-        align-self: center;
-      }
-      .container header nav{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding-left: 10px;
-        padding-right: 10px;
-        align-items: center;
-        background-color: white;
-        width: 100%;
-        border: 2px solid black;
-        font-size: 12px;
-        height: 26px;
-        text-align: center;
-        align-items: center;
-      }
-      .container header nav ul{
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        text-align: center;
-      }
-      .container header nav ul.menu{
-        width: 50%;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        text-align: center;
-      }
-      .container header nav ul.usuario{
-        width: 25%;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0%;
-        text-align: center;
-      }
-      .container header nav ul li{
-        list-style: none;
-      }
-      .container header div.logoWsapp{
-        font-size: 40px;
-      }
-    
-  }
-  /*--------------------Modo Escritorio 1025px-------------------------*/
-  @media(min-width: 769px){ 
-    .container header .carrito{
-    text-align: end;
-    font-size: 43px;
-    align-self: center;
-  }
-  .container header .barraDeBusqueda input{
-    background-color: black;
-    color: white;
-    width: 160px;
-    font-size: 16px;
-  }
-  
-}
 
     /* MAIN */
 
   .container main {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    
   }
   
   .container main .subheader {
-    height: 20%;
-    display: flex;
-    align-items: flex-end;
+    /* height: 5%; */
+    /* display: flex;
+    align-items: flex-end; */
     padding-left: 100px;
-    padding-top: 125px;
+    padding-top: 25px;
   }
 
   .container main .inputsContainer {
-    height: 80%;
+    /* height: 80%; */
     width: 100%;
     display: flex;
     justify-content: center;

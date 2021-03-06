@@ -58,19 +58,22 @@ main .aside .formfiltro .filtroPersona{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-around;
+
 }
 main .aside .formfiltro .filtroCategoria{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-}
-main .aside .formfiltro .filtroPrecio{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: flex-start;
+}
+main .aside .formfiltro .filtroPrecio{
+    padding: 30px 0 7px 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 main .aside .formfiltro .filtroTalle{
     display: flex;
@@ -79,6 +82,7 @@ main .aside .formfiltro .filtroTalle{
     justify-content: flex-start;
 }
 main .aside .formfiltro .labels{
+    padding: 30px 0 7px 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -92,21 +96,25 @@ main .aside .formfiltro .filtroTalle div{
 }
 main .aside .formfiltro .filtroColor{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: flex-start;
 }
 main .aside .formfiltro .filtroMarca{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: flex-start;
 }
+
 main .aside .formfiltro .filtro div{
     padding-bottom: 2px;
 }
 
 main .aside .formfiltro div .persona{
+    margin-left: 0px;
+}
+main .aside .formfiltro div .boxoption{
     margin-left: 15px;
 }
 
@@ -134,6 +142,7 @@ main .producto {
     width: 78vw;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     background-color: white;
     padding: 10px;
 }
@@ -146,12 +155,13 @@ main .producto .calzado{
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    padding-bottom: 50px;
 }
 main .producto .calzado div.imagen{
     position: relative;
-    background-color: white;
+    background-color: transparent;
     flex-grow: 1;
-    height: 50%;
+    /* height: 50%; */
 }
 main .producto .calzado:hover{
     font-size: 25px;
@@ -161,41 +171,58 @@ main .producto .calzado:hover{
     /* text-shadow: 0 0 3px goldenrod, 0px 0px 5px yellow; */
     /* text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF; */
 }
+
 main .producto .calzado p{
     padding: 5px;
     line-height: 10px;
 }
 main .producto .calzado .titulo{
-    font-size: 20px;
+    font-size: 18px;
     font-family: 'Josefin Sans', sans-serif;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 5px;
     text-align: center;
+}
+main .producto .calzado:hover .titulo{
+    font-size: 23px;
+    font-weight: bold;
+    color: tomato;
 }
 
 main .producto .calzado .precio{
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
-    font-size: 35px; 
-    margin: 15px 0px 15px 10px;
-
+    font-size: 30px; 
+    margin: 5px 0px 5px 0px;
 }
+main .producto .calzado:hover .precio{
+    font-size: 35px; 
+    font-weight: bold;
+}
+
 main .producto .calzado .oferta{
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold; 
-    margin: 15px 0px 15px 25px;
+    margin: 5px 0px 5px 0px;
     font-style: italic;
 }
+main .producto .calzado:hover .oferta{
+    font-size: 18px;
+    font-weight: bold;
+    color: tomato;
+}
+
 main .producto .calzado .envio{
     font-family: 'Josefin Sans', sans-serif;
     font-size: 15px;
-    margin: 15px 0px 15px 10px;
-
+    margin: 15px 0px 15px 0px;
 }
 main .producto .calzado img{
     width: 100%;
+    height: 100%;
     padding: 0px;
-    max-height: 100%;
+    /* max-height: 100%; */
+    background-color: transparent;
 }
 
 main .producto .calzado .buttonEdit{

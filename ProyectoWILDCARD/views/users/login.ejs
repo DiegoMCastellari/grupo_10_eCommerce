@@ -16,7 +16,7 @@
             <% if ( mensaje != 'nada') { %>
                 <ul style="margin-top: 15px;">
                     <% for ( let m=0; m<mensaje.length; m++) { %>
-                    <li><%= mensaje[m].msg %></li>
+                    <li style="color: red; font-size: 14px; font-weight: bold; padding-left: 15px;"><%= mensaje[m].msg %></li>
                     <% } %>
                 </ul>
             <% } %>
@@ -37,9 +37,9 @@
                     </div> 
                 </form>
             </div>
-            <%- include('../partials/footer') %>
+            
         </main>
-        
+        <%- include('../partials/footer') %>
     </div>
     <script src="/js/login.js"></script>
 </body>

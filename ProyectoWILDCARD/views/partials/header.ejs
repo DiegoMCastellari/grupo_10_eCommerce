@@ -37,14 +37,39 @@
     </div>
     <div class="barraYCarrito">
         <div class="barraDeBusqueda"> 
-        <form action="/../../products/search" method="POST">
-        <input type="text" name="search" id="barraDeBusqueda" placeholder="Buscar productos">
-        <Button type="submit"><i class="fas fa-search"></i></Button>
-        </form>
-    </div>
+            <form action="/../../products/search" method="POST">
+            <input type="text" name="search" id="barraDeBusqueda" placeholder="Buscar productos">
+            <Button type="submit"><i class="fas fa-search"></i></Button>
+            </form>
+        </div>
         <div class="carrito">
             <i class="fas fa-shopping-cart" onclick="javascript:location.href='/users/carrito/verCarrito/'"></i>
         </div>
+        
+    </div>
+    <div class="navuser">
+        <ul class="usuario">
+            <% if ( usuario != 'ningunUsuarioLogueado' ) { %>
+                <li >
+                    <a href="/users/editar">HOLA <%= usuario.nombre %>!!!</a> 
+                </li>
+                <% if ( usuario.permiso == 'admin' ) { %>
+                    <li >
+                        <a href="/admin">Admin</a> 
+                    </li>
+                <% } %>
+                <li>
+                    <a href="/users/closesession">Cerrar Sesión</a>  
+                </li>
+                <% } else { %>
+                <li>
+                    <a href="/users/login">INICIAR SESION</a>  
+                </li>
+                <li>
+                    <a href="/users/register">CREAR CUENTA</a>  
+                </li>
+                <% } %>
+        </ul>
     </div>
     <nav>
         <ul class="menu">
@@ -60,28 +85,6 @@
             <li>
                 <a href="/contactanos">CONTACTANOS</a> 
             </li>
-            </ul>
-        <ul class="usuario">
-            <% if ( usuario != 'ningunUsuarioLogueado' ) { %>
-                <li >
-                    <a href="/users/editar">Hola <%= usuario.nombre %>!!!</a> 
-                </li>
-                <% if ( usuario.permiso == 'admin' ) { %>
-                    <li >
-                        <a href="/admin">Admin</a> 
-                    </li>
-                <% } %>
-                <li>
-                    <a href="/users/closesession">CERRAR SESION</a>  
-                </li>
-                <% } else { %>
-                <li>
-                    <a href="/users/login">INICIAR SESION</a>  
-                </li>
-                <li>
-                    <a href="/users/register">CREAR CUENTA</a>  
-                </li>
-                <% } %>
         </ul>
     </nav>
     <div class="logoWsapp" style="display: none;"><i class="fab fa-whatsapp"></i></div>

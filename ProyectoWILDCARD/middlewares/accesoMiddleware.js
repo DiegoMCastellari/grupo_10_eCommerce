@@ -30,8 +30,8 @@ const accesoMiddleware = {
             }
         } else {
             mensaje=[{msg: 'Acceso denegado! Por favor, logueese'}]
-            res.redirect('users/login', {
-                mensaje,
+            res.render('users/login', {
+                mensaje: 'nada',
                 usuario: "ningunUsuarioLogueado"
             })
         }

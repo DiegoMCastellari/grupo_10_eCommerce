@@ -95,18 +95,26 @@
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
+    align-items: flex-end;
     width: 50%;
     order: 2;
   }
   .container footer div.redesSociales p{
     padding-top: 5px;
+    align-self: flex-start;
+  }
+  .container footer div.redesSociales a{
+    font-size: 15px;
+    color: white;
+  }
+  .container footer div.redesSociales a i{
+    font-size: 30px;
+    padding-left: 10px;
+    padding-bottom: 3px;
+    padding-right: 10px;
   }
   
-  .container footer div.redesSociales i{
-    font-size: 30px;
-    align-self: center;
-    padding-bottom: 3px;
-  }
+  
   
   .container footer div.formasDePago{
     border: none;
@@ -139,17 +147,18 @@
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
+    align-items: flex-end;
     width: 25%;
     order: 2;
   }
   .container footer div.redesSociales p{
     padding-top: 5px;
+    align-self: flex-start;
   }
   
   .container footer div.redesSociales i{
-    font-size: 30px;
-    align-self: center;
     padding-bottom: 3px;
+    padding-left: 10px;
   }
   .container footer div.formasDePago{
     border: none;

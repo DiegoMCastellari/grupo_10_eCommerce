@@ -38,7 +38,7 @@ main{
     justify-content: flex-start;
 }
 .producto .datosProducto .imagenesProducto {
-    width: 70%/* 100%; */;
+    width: 100%/* 100%; */;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -132,6 +132,23 @@ main .relacionados{
     border-radius: 2px;
     font-family: 'Josefin Sans', sans-serif;
     margin-bottom: 30px;
+}
+
+#talleLabel {
+    padding: 15px;
+    border: 1px solid gray;
+}
+#colorLabel {
+    padding: 15px;
+    border: 1px solid gray;
+}
+#pagoLabel {
+    padding: 15px;
+    border: 1px solid gray;
+}
+#envioLabel {
+    padding: 15px;
+    border: 1px solid gray;
 }
 
 .talles, .colores, .cantidad, .mediosPago, .mediosEnvio{

@@ -75,7 +75,7 @@ const adminController = {
         let offsetRecibed = 0;
         if(req.query.page){
             page = Number(req.query.page)
-            offsetRecibed = page*10;
+            offsetRecibed = page*20;
             page=Number(req.query.page)+1;
         let contarProductos = db.Productos.count({
             where:{
@@ -87,7 +87,7 @@ const adminController = {
                 activo: 1
             },
             offset : offsetRecibed,
-            limit : 10,
+            limit : 20,
             include :[ 
             {association : "imagenes"}]}, {
             order: [
@@ -128,7 +128,7 @@ const adminController = {
             activo: 1
         },
         offset : offsetRecibed,
-        limit : 10,
+        limit : 20,
         include :[ 
         {association : "imagenes"}]}, {
         order: [
@@ -537,7 +537,7 @@ const adminController = {
     }
     if(req.query.page){
         page = Number(req.query.page)
-        offsetRecibed = page*2;
+        offsetRecibed = page*20;
         page=Number(req.query.page)+1;
     let contarProductos = db.Productos.count({include :[ 
         {association : "imagenes"},
@@ -574,7 +574,7 @@ const adminController = {
 
     let mostrarProductos = db.Productos.findAll({
         offset : offsetRecibed,
-        limit : 10,
+        limit : 20,
         include :[ 
         {association : "imagenes"},
         {association : "colores",
@@ -670,7 +670,7 @@ const adminController = {
 
     let mostrarProductos = db.Productos.findAll({
         offset : offsetRecibed,
-        limit : 10,
+        limit : 20,
         include :[ 
         {association : "imagenes"},
         {association : "colores",

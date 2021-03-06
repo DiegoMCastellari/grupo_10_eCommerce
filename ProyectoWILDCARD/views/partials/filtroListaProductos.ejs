@@ -4,52 +4,46 @@
     <div><input class="persona" type="radio" name="persona" value="hombre" id="Hombre" <%= filtros.usuario=='hombre' ? "checked": null %>><label for="Hombre">Hombre</label> </div>
     <div><input class="persona" type="radio" name="persona" value="nino" id="Nino" <%= filtros.usuario=='nino' ? "checked": null %>><label for="Nino">Niño</label></div>
 </div>
-<br><br>
 
-<label for="">Categorías</label>
-<br>
+<label class="labels" for="">Categorías</label>
 <div>
     <div class="filtro filtroCategoria">
         <% for (let i = 0; i < categorias.length; i++) {%>
-            <div><input class="persona" type="checkbox" name="categoria" value="<%=categorias[i].nombre%>" id="<%=categorias[i].id%>" <%= filtros.categoria.includes(categorias[i].nombre) ? "checked": null %> ><label for="<%=categorias[i].nombre%>"> <%=categorias[i].nombre%></label></div>
+            <div><input class="boxoption" type="checkbox" name="categoria" value="<%=categorias[i].nombre%>" id="<%=categorias[i].id%>" <%= filtros.categoria.includes(categorias[i].nombre) ? "checked": null %> ><label for="<%=categorias[i].nombre%>"> <%=categorias[i].nombre%></label></div>
         <%}%> 
     </div>
 </div>
-<br><br>
+
 <div class="filtro filtroPrecio">
-    <div><label for="preciomin">Precio Mínimo</label> / <label for="preciomax">Precio Máximo</label></div>
+    <div ><label for="preciomin">Precio Mínimo</label> / <label for="preciomax">Precio Máximo</label></div>
     <div><input type="number" name="preciomin" id="preciomin" value="<%=filtros.precio[0]%>" size="10" min="0" style="width:100px"> / <input type="number" name="preciomax" id="preciomax" value="<%=filtros.precio[1]%>" size="10" min="0" style="width:100px"></div>
 </div>                   
-<br><br>
 
 <div class="labels">
     <label for="">Talle</label>
     <p id="guiaTalles" onclick="javascript:location.href='/ayuda'">Ver guía de talles</p>
 </div>
-<br>
 <div class="filtro filtroTalle">
 
-    <div><% for (let i = 0; i < talles.length; i++) {%>
-        <div><input class="persona" type="checkbox" name="talles" value="<%=talles[i].talle%>" id="<%=talles[i].id%>" <%= filtros.talle.includes(talles[i].talle) ? "checked": null %>><label for="<%=talles[i].talle%>"> <%=talles[i].talle%> </label></div>
-        <%}%> 
-    </div>
+    <% for (let i = 0; i < talles.length; i++) {%>
+    <div><input class="boxoption" type="checkbox" name="talles" value="<%=talles[i].talle%>" id="<%=talles[i].id%>" <%= filtros.talle.includes(talles[i].talle) ? "checked": null %>><label for="<%=talles[i].talle%>"> <%=talles[i].talle%> </label></div>
+    <%}%> 
 </div>
-<br><br>
 
-<label for="">Color</label><br>
+<label  class="labels" for="">Color</label>
 <div class="filtro filtroColor">
     <% for (let i = 0; i < colores.length; i++) {%>
-        <div><input class="persona" type="checkbox" name="color" value="<%=colores[i].nombre%>" id="<%=colores[i].id%>" <%= filtros.color.includes(colores[i].nombre) ? "checked": null %>><label for="<%=colores[i].nombre%>"><%=colores[i].nombre%></label></div>
-        <%}%>
+    <div><input class="boxoption" type="checkbox" name="color" value="<%=colores[i].nombre%>" id="<%=colores[i].id%>" <%= filtros.color.includes(colores[i].nombre) ? "checked": null %>><label for="<%=colores[i].nombre%>"><%=colores[i].nombre%></label></div>
+    <%}%>
 </div>
-<br><br>
 
-<label for="">Marca</label><br>
+<label class="labels" for="">Marca</label>
 <div class="filtro filtroMarca">
     <% for (let i = 0; i < marcas.length; i++) {%>
-        <input class="persona" type="checkbox" name="marcas" value="<%=marcas[i].nombre%>" id="<%=marcas[i].id%>" <%= filtros.marcas.includes(marcas[i].nombre) ? "checked": null %>><label for="<%=marcas[i].nombre%>"><%=marcas[i].nombre%></label>
+        <div><input class="boxoption" type="checkbox" name="marcas" value="<%=marcas[i].nombre%>" id="<%=marcas[i].id%>" <%= filtros.marcas.includes(marcas[i].nombre) ? "checked": null %>><label for="<%=marcas[i].nombre%>"><%=marcas[i].nombre%></label></div>
         <%}%>
 </div>
+
 <br><br>
 <button class="submitbutton" style="background-color: white; color: black;" type="reset">Limpiar campos</button><br>
 <button class="submitbutton" type="submit">Aplicar</button>

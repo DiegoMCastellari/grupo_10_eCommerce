@@ -24,13 +24,18 @@
             <section class="producto">
                 <% for ( var i =0; i < productos.length; i++){ %>
                     <div class="calzado" onclick="javascript:location.href='../../products/<%= productos[i].id %>'">
-                        <p class="titulo"><%= productos[i].nombre %></p>
+                        
                         <div class="imagen">
-                        <img src="/img/products/<%= productos[i].imagenes[0].path %>" alt="">
+                            <img src="/img/products/<%= productos[i].imagenes[0].path %>" alt="">
                         </div> 
+                        <p class="titulo"><%= productos[i].nombre %></p>
                         <p class="precio">$ <%= toThousand(productos[i].precio) %></p> 
-                        <p class="oferta">(<%= productos[i].descuento %> % OFF)</p>
-                        <p class="envio">Envio</p> 
+                        <%if (productos[i].descuento == 0) { %>
+                            <p class="oferta"> <br> </p>
+                        <% } else { %>
+                            <p class="oferta">(<%= productos[i].descuento %> % OFF)</p>
+                        <% } %>
+                        <!-- <p class="envio">Envio</p>  -->
                         <a href="/admin/products/<%= productos[i].id %>/edit"><button class="buttonEdit">Editar</button></a><a href="/admin/products/delete/<%= productos[i].id %>">
                         <button class="buttonDelete">Borrar</button></a>
                     </div>

@@ -55,13 +55,14 @@
                     </div>
                     
                     <div class="esp">
-                        <div><label for="marca">MARCA :</label>
+                        <div>
+                            <label for="marca">MARCA :</label>
                             <select name="marca" id="marca">
                             <% for (let i = 0; i < marcas.length; i++) {%>
                             <option value="<%=marcas[i].id%>" selected><%=marcas[i].nombre%></option>
                             <%}%>
-                        </select><a href="/admin/products/create/agregarMarca">(agregar marca)</a>
-                        <ul id="marcaError" style="font-size: small; color: red;" ></ul>
+                            </select><a href="/admin/products/create/agregarMarca">(agregar marca)</a>
+                            <ul id="marcaError" style="font-size: small; color: red;" ></ul>
                         </div>  
                             
                         <div class="talles">
@@ -69,7 +70,7 @@
                             <label class="tituloTalle" for="talle">TALLES :</label>
                             <% for (let i = 0; i < talles.length; i++) {%>
                                 <label><input type="checkbox" id="talles" name="talles" value="<%=talles[i].id%>"><%=talles[i].talle%></label>
-                                <%}%> 
+                            <%}%> 
                                 
                         </div>
 
