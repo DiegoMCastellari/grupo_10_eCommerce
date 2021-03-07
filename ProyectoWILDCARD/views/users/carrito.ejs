@@ -13,6 +13,25 @@
         <%- include('../partials/header') %>
         <main class="carrito">
             <h1>Carrito de compras      (<%=carritoProducto.length%>)</h1>
+            <div class="formaEnvioPago">
+                <p>Forma de envío: <% if ( carrito.forma_envio == 1 ){ %>
+                    Retiro por local
+                <% } else if ( carrito.forma_envio == 2 ) { %>
+                    Envío a domicilio
+                <% } else if ( carrito.forma_envio == 3 ) { %>
+                    Envío a punto fijo
+                <% }%>
+                </p>
+                <p>Forma de pago: <% if ( carrito.forma_pago == 1 ){ %>
+                    Efectivo
+                <% } else if ( carrito.forma_pago == 2 ) { %>
+                    Débito
+                <% } else if ( carrito.forma_pago == 3 ) { %>
+                    Crédito
+                <% }%> 
+            </p>
+                <br>
+            </div>
             <div class="tarjetas">
                 <h2 class="titulo">Listado de Productos</h2>
                 <% for ( var i =0; i < carritoProducto.length; i++){ %>

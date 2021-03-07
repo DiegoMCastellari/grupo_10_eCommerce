@@ -26,25 +26,30 @@
                 <form action="/users/editar" method="post" id="formEdit" class="login">
                     <h2>Editar Usuario</h2>
                     <div class="auxiliarInputsContainer">  
+
                         <label for="fullname">NOMBRE Y APELLIDO</label>
                         <input type="text" name="fullname" id="fullname" value="<%= userEdit.nombre %>">
                         <ul id="nameError" style="font-size: small; color: red;" ></ul>
+
                         <label for="email">EMAIL</label>
                         <input type="email" name="email" id="email" value="<%= userEdit.email %>" > 
                         <ul style="font-size: small; color: red;"  id="emailError"></ul>
+
                         <label for="text">TELÉFONO</label>
                         <input type="text" name="telefono" id="telefono" value="<%= userEdit.telefono %>"> 
                         <ul style="font-size: small; color: red;"  id="telefonoError"></ul>
+
                         <label for="oldpassword">CONTRASEÑA</label>
                         <input type="password" name="oldpassword" id="oldpassword"> 
-                        <ul style="font-size: small; color: red;"  id="oldError"></ul>
+                        <ul style="font-size: small; color: red;"  id="oldpasswordError"></ul>
+
                         <label for="password">NUEVA CONTRASEÑA</label>
                         <input type="password" name="password" id="password" class="newPass"> 
                         <ul style="font-size: small; color: red;"  id="passwordError"></ul>
+
                         <label for="password">CONFIRMAR CONTRASEÑA</label>
                         <input type="password" name="confirmpassword" id="confirmpassword"  class="newPass"> 
                         <ul style="font-size: small; color: red;"  id="confirmError"></ul>
-
 
                         <button type="submit" id="entrar" class="primary_action">EDITAR CUENTA</button> 
                         <button type="reset" id="cancelar" class="reset_action">CANCELAR</button>
@@ -54,7 +59,7 @@
             </div>
             
         </main>
-        <%- include('../partials/footer') %>
+        <%- include('../partials/footer') %> 
     </div>
     <script src="/js/userEditUser.js"></script>
 </body>

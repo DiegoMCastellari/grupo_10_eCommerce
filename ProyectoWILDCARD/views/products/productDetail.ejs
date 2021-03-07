@@ -69,50 +69,37 @@
                     </div>
                     <div class="cantidad">
                         <input name= "cantidad" id="inputPrecio" type="number" value="<%=producto.precio %>" readonly style="display: none;">
-                        <p class="categoria" id="subtotal">Subtotal: $ <%=toThousand(producto.precio) %> </p>
+                        <p class="categoria" id="subtotal">Subtotal: <b style="font-size: 25px;">$ <%=toThousand(producto.precio) %></b>  </p>
+                        <br>
                     </div>
+
                     <div class="mediosPago">
                         <p class="categoria">Medio de Pago: </p>
-                        <div class="botontesSelect">
+                        <div class="botontesSelect formaEnvioPago">
                             <label id="pagoLabel">
-                                <input type="radio" id="mediosPago" name="mediosPago" value="1">1
+                                <input type="radio" id="mediosPago" name="mediosPago" value="1">Efectivo
                             </label>
                             <label id="pagoLabel">
-                                <input type="radio" id="mediosPago" name="mediosPago" value="2">2
+                                <input type="radio" id="mediosPago" name="mediosPago" value="2">Débito
                             </label>
                             <label id="pagoLabel">
-                                <input type="radio" id="mediosPago" name="mediosPago" value="3">3
+                                <input type="radio" id="mediosPago" name="mediosPago" value="3">Crédito
                             </label>
-                            <label id="pagoLabel">
-                                <input type="radio" id="mediosPago" name="mediosPago" value="4">4
-                            </label>
-
-                            <!-- <button id="mediosPago" name="mediosPago" type="button" value="1" ><input type="radio" name="mediosPago" id="mediosPago" value="1" checked>1</button>
-                            <button id="mediosPago" name="mediosPago" type="button" value="2"><input type="radio" name="mediosPago" id="mediosPago" value="2">2</button>
-                            <button id="mediosPago" name="mediosPago" type="button" value="3"><input type="radio" name="mediosPago" id="mediosPago" value="3">3</button>
-                            <button id="mediosPago" name="mediosPago" type="button" value="1"><input type="radio" name="mediosPago" id="mediosPago" value="4">4</button> -->
                         </div>
                     </div>
+
                     <div class="mediosEnvio">
                         <p class="categoria">Medio de envío: </p>
-                        <div class="botontesSelect">
+                        <div class="botontesSelect formaEnvioPago">
                             <label id="envioLabel">
-                                <input type="radio" name="mediosEnvio" value="1">1
+                                <input type="radio" name="mediosEnvio" value="1">Retiro por local
                             </label>
                             <label id="envioLabel">
-                                <input type="radio" name="mediosEnvio" value="2">2
+                                <input type="radio" name="mediosEnvio" value="2">Envío a domicilio
                             </label>
                             <label id="envioLabel">
-                                <input type="radio" name="mediosEnvio" value="3">3
+                                <input type="radio" name="mediosEnvio" value="3">Envío a punto fijo
                             </label>
-                            <label id="envioLabel">
-                                <input type="radio" id="mediosEnvio" name="mediosEnvio" value="4">4
-                            </label>
-
-                            <!-- <button id="mediosEnvio" name="envio" type="button" value="1"><input type="radio" name="mediosEnvio" id="mediosEnvio" value="1" checked>1</button>
-                            <button id="mediosEnvio"  name="envio" type="button" value="2"><input type="radio" name="mediosEnvio" id="mediosEnvio" value="2">2</button>
-                            <button id="mediosEnvio"  name="envio" type="button" value="3"><input type="radio" name="mediosEnvio" id="mediosEnvio" value="3">3</button>
-                            <button id="mediosEnvio"  name="envio" type="button" value="4"><input type="radio" name="mediosEnvio" id="mediosEnvio" value="4">4</button> -->
                         </div>
                     </div>
 

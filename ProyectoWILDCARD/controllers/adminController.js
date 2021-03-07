@@ -475,7 +475,7 @@ const adminController = {
 
     usuarioFilter = req.body.persona
     if ( req.body.persona == 'todos' ) {
-        usuarioWhere = { [Op.ne]: 'powerñlkajsdfjhxbcv' };
+        usuarioWhere = { [Op.ne]: 'sinFiltro' };
     } else {
         usuarioWhere = { [Op.eq]: req.body.persona };
     }
@@ -490,7 +490,7 @@ const adminController = {
             categoriaFilter = req.body.categoria;
         }
     } else {
-        categoriaWhere = { [Op.ne]: 'powerñlkajsdfjhxbcv' };
+        categoriaWhere = { [Op.ne]: 'sinFiltro' };
         categoriaFilter = 'null';
     }
 
@@ -506,7 +506,7 @@ const adminController = {
             talleFilter = req.body.talles
         }
     } else {
-        talleWhere = { [Op.ne]: 'powerñlkajsdfjhxbcv' };
+        talleWhere = { [Op.ne]: 'sinFiltro' };
         talleFilter = 'null'
     }
 
@@ -519,7 +519,7 @@ const adminController = {
             colorFilter = req.body.color
         }
     } else {
-        colorWhere = { [Op.ne]: 'powerñlkajsdfjhxbcv' };
+        colorWhere = { [Op.ne]: 'sinFiltro' };
         colorFilter = 'null'
     }
 
@@ -532,7 +532,7 @@ const adminController = {
             marcasFilter = req.body.marcas
         }
     } else {
-        marcasWhere = { [Op.ne]: 'powerñlkajsdfjhxbcv' }; 
+        marcasWhere = { [Op.ne]: 'sinFiltro' }; 
         marcasFilter = 'null'
     }
     if(req.query.page){

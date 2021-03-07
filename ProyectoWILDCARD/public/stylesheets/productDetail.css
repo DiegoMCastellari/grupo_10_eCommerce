@@ -143,12 +143,10 @@ main .relacionados{
     border: 1px solid gray;
 }
 #pagoLabel {
-    padding: 15px;
-    border: 1px solid gray;
+    padding: 5px 15px;
 }
 #envioLabel {
-    padding: 15px;
-    border: 1px solid gray;
+    padding: 5px 15px;
 }
 
 .talles, .colores, .cantidad, .mediosPago, .mediosEnvio{
@@ -200,6 +198,10 @@ main .relacionados{
     margin-top: 30px;
 }
 
+.formaEnvioPago {
+    display: flex;
+    flex-direction: column;
+}
 
 /* ----------------- || PRODUCTOS RELACIONADOS    ------------- */
 

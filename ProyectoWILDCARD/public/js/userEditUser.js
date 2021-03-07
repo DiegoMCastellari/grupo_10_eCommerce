@@ -4,6 +4,7 @@ window.onload = function (e) {
     var fullName = document.querySelector('#fullname')
     var email = document.querySelector('#email')
     var telefono = document.querySelector('#telefono')
+    var oldpassword = document.querySelector('#oldpassword')
     var password = document.querySelector('#password')
     var confirmPassword = document.querySelector('#confirmpassword')
 
@@ -68,9 +69,6 @@ window.onload = function (e) {
             }
     })
 
-
-
-
     password.addEventListener('blur', function(event){
         if(password.value!="")
         {password.style.backgroundColor = "#FFF";
@@ -80,6 +78,9 @@ window.onload = function (e) {
         confirmPassword.style.backgroundColor = "#929090"
         }
     });
+
+
+
     formulario.addEventListener('submit', function(event){
         //NOMBRE
         if(fullName.value == ""){
@@ -115,21 +116,31 @@ window.onload = function (e) {
         if(oldpassword.value == ""){
             event.preventDefault();
                 var oldpasswordError = document.querySelector('#oldpasswordError');
-                passwordError.innerHTML = "<li>" + "El campo Contraseña no puede estar vacio." + "</li>"
+                oldpasswordError.innerHTML = "<li>" + "El campo Contraseña no puede estar vacio." + "</li>"
             }else if(oldpassword.value.length<6){
+                event.preventDefault();
                 var oldpasswordError = document.querySelector('#oldpasswordError');
                 oldpasswordError.innerHTML = "<li>" + "La contraseña debe tener un minimo de 6 caracteres." + "</li>"
    
             }
 
+        // NUEVA CONTRASEÑA
+        if ( password.value != "" ){
 
-        //CONFIRMAR CONTRASEÑA
-        if (confirmPassword.value != password.value){
+            // Nueva contraseña mayor a 6 caracteres
+            if ( password.value.length < 6 ){
+                event.preventDefault();
+                var passwordError = document.querySelector('#passwordError');
+                passwordError.innerHTML = "<li>" + "La nueva contraseña debe tener un minimo de 6 caracteres." + "</li>"
+            }
+    
+            //CONFIRMAR CONTRASEÑA
+            if (confirmPassword.value != password.value){
                 event.preventDefault();
                 var confirmError = document.querySelector('#confirmError');
                 confirmError.innerHTML = "<li>" + "El campo Confrimar Contraseña debe coincidir con la contraseña." + "</li>"
             }
-        
+        }
     })
 
 }
