@@ -13,19 +13,18 @@
     <main>
       <div class="contacto">
         <form action="/sendEmail" class="contactoForm" method="POST">
-          <br>
+          <h2>Formulario de Contacto</h2>
+          <div class="auxiliarInputsContainer">
           <label for="nombre">NOMBRE: </label><input class="inputt" type="text" name="nombre" placeholder="Escribir nombre completo">
-          <br>
           <label for="tel">TELEFONO: </label><input class="inputt" type="tel" name="tel" placeholder="Escribir número de teléfono">
-          <br>
           <label for="email">E-MAIL: </label><input class="inputt" type="email" name="email" placeholder="Escribir e-mail">
-          <br>
           <label for="asunto">ASUNTO: </label><input class="inputt" type="text" name="asunto" placeholder="Escribir asunto">
-          <br>
           <label for="msj">MENSAJE: </label><textarea name="msj" cols="40" rows="5"></textarea>
-          <br>
-          <button class="botonEnviar" type="submit">ENVIAR</button>
+          <button class="primary_action" type="submit">ENVIAR</button>
+          <button type="reset" class="reset_action">RESETEAR</button>
+        </div>
         </form>
+      
       </div>
       
     </main>

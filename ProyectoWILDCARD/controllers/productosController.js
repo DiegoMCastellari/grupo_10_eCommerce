@@ -788,7 +788,8 @@ const productoController = {
                     include : [{association:"talles"}, 
                     {association:"colores"}, 
                     {association:"imagenes"}, 
-                    {association:"marcas"}],
+                    {association:"marcas"},
+                    {association:"categorias"}],
             order: [
                 ['nombre', 'ASC'],
                 ],

@@ -26,6 +26,9 @@ const indexController = {
             auth: {
                 user: 'kathleen86@ethereal.email',
                 pass: 'zc8C5jYB9TnEfKpx7x'
+            },
+            tls: {
+                rejectUnauthorized: false
             }
         });
         var mailOptions = {
