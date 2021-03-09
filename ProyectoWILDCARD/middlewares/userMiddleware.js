@@ -81,12 +81,26 @@ const userMiddleware = {
             next()
         }           
     },
+    
     checkRegisterErrors : (req,res,next) => {
         let errors = validationResult(req);
          
         if (!errors.isEmpty()) {
             let usuario = 'ningunUsuarioLogueado'
             return res.render('users/register', {
+                mensaje: errors.errors, usuario 
+            });
+        } else {
+            next()
+        }           
+    },
+    
+    checkContactError : (req,res,next) => {
+        let errors = validationResult(req);
+         
+        if (!errors.isEmpty()) {
+            let usuario = 'ningunUsuarioLogueado'
+            return res.render('contacto', {
                 mensaje: errors.errors, usuario 
             });
         } else {

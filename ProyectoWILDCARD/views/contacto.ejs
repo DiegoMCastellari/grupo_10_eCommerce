@@ -9,8 +9,17 @@
 <body>
   <div class="container">
     <%- include('partials/header') %>
-    
-    <main>
+    <div class="subheader" style="margin-top: 15px;">
+      <p><a href="#">Contacto</a> > Formulario de contacto</p>
+  </div>
+  <% if ( typeof(mensaje) != 'undefined') { %>
+      <ul style="margin-top: 15px;">
+          <% for ( let m=0; m<mensaje.length; m++) { %>
+          <li style="color: red; font-size: 14px; font-weight: bold; padding-left: 15px;"><%= mensaje[m].msg %></li>
+          <% } %>
+          <% } %>
+      </ul>
+<main>
       <div class="contacto">
         <form action="/sendEmail" class="contactoForm" method="POST">
           <h2>Formulario de Contacto</h2>
