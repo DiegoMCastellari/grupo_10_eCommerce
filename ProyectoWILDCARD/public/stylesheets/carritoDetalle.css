@@ -202,10 +202,51 @@ h2:nth-child(2n+0) {
   }
 .container main .estado form .boton{
   border: black 1px solid;
-  width: 10%;
   height: 40px;
   border-radius: 5%;
   background-color: grey;
   }
   
-
+  @media(max-width: 770px){
+    main div h1{
+      font-size: 10px;
+      height: 40px;
+    }
+    h2:nth-child(2n+0) {
+      font-size: 10px;
+      color: #FFFFFF;
+      background-color: #6b6b6b;
+      
+    }
+    main div h2{
+      font-size: 10px;
+      height: 40px;
+    }
+    .container main .estado form select{
+      width: 100px;
+      height: 40px;
+      }
+  }
+  @media(max-width: 425px){
+  .container main .estado form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 245px;
+  }
+  main div h1{
+    font-size: 8px;
+    height: 40px;
+  }
+  main div h2{
+    font-size: 8px;
+    height: 40px;
+  }
+  h2:nth-child(2n+0) {
+    font-size: 8px;
+    color: #FFFFFF;
+    background-color: #6b6b6b;
+    
+  }
+}

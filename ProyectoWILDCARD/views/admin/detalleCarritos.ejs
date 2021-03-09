@@ -23,9 +23,9 @@
             <div class="estado">
                 <%for(i=0; i< carritos.length; i++ ){%>
                 <form action="/admin/carritosLista/estado/<%=carritos[i].id%>" method="POST">
-                    <label for="estado"><h2>Cambiar estado:    </h2></label>
+                    <label for="estado"><h2>Cambiar estado a:    </h2></label>
                 <select name="estado" id="estado">
-                    <option value="abierto" <%= carritos[i].estado=="abierto" ? "selected" : null %>>Abierto</option>
+                <!--<option value="abierto" <%= carritos[i].estado=="abierto" ? "selected" : null %>>Abierto</option>-->
                     <option value="pedido" <%= carritos[i].estado=="pedido" ? "selected" : null %>>Pedido</option>
                     <option value="cerrado"  <%= carritos[i].estado=="cerrado" ? "selected" : null %>>Cerrado</option>
                 </select>
