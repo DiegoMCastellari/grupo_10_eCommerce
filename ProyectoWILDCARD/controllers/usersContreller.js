@@ -70,10 +70,12 @@ const usersController = {
             include : [{association:"carrito_productos"}]})
         let mostrarMarcas = db.Marcas.findAll();//se buscan las marcas
         let mostrarTalles = db.Talles.findAll({//se buscan los talles
+            
             order: [
                 ['id', 'ASC'],
                 ],
         });
+        
         let mostrarCarritoProducto = db.Carrito_producto.findAll({where : {
             id_usuario : usuarioId}
             , 
@@ -85,9 +87,9 @@ const usersController = {
         
         Promise.all ([mostrarCarrito, mostrarCarritoProducto, mostrarMarcas, mostrarTalles, mostrarColores, mostrarProductos])
         .then(function([carrito, carritoProducto, marcas, talles, colores, productos]){
-            console.log(carrito);
-            console.log(carritoProducto);
-            console.log(productos);
+            console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+            console.log(talles);
+            console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
             res.render('users/carrito', {carrito, carritoProducto, marcas, talles, colores, productos, toThousand,
                 usuario: req.usuarioLogueado
             });

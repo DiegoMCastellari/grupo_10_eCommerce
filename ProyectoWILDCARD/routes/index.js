@@ -10,7 +10,7 @@ router.get('/', accesoMiddleware.userSessionLogged, indexController.home);
 router.get('/ayuda', accesoMiddleware.userSessionLogged, indexController.ayuda);
 router.get('/contactanos', accesoMiddleware.userSessionLogged, indexController.contacto);
 
-router.post('/sendEmail',[check('fullname').isLength( {min:3} ).withMessage('Nombre - campo obligatorio mayor a 3 letras'),
+router.post('/sendEmail',[check('nombre').isLength( {min:3} ).withMessage('Nombre - campo obligatorio mayor a 3 letras'),
 check('email').isEmail().withMessage('Email - El formato ingresado no es válido'),
 check('email').isLength( {min:3} ).withMessage('Email- campo obligatorio'),
 check('asunto').isLength( {min:3} ).withMessage('Asunto- campo obligatorio'),

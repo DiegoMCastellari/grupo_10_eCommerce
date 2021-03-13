@@ -119,7 +119,7 @@ const productoController = {
                 nombre : {[Op.substring]: busqueda}
             },
             offset : offsetRecibed,
-            limit : 10,
+            limit : 20,
             order: [
                 ['nombre', 'ASC'],
                 ],
@@ -158,7 +158,7 @@ const productoController = {
         console.log(busqueda);
         if(req.query.page){
             page = Number(req.query.page)
-            offsetRecibed = page*10;
+            offsetRecibed = page*20;
             page=Number(req.query.page)+1;
             console.log(offsetRecibed);
         let contarProductos = db.Productos.count({
@@ -177,7 +177,7 @@ const productoController = {
                 nombre : {[Op.substring]: busqueda}
             },
             offset : offsetRecibed,
-            limit : 10,
+            limit : 20,
             order: [
                 ['nombre', 'ASC'],
                 ],
@@ -225,7 +225,7 @@ const productoController = {
                 nombre : {[Op.substring]: busqueda}
             },
             offset : offsetRecibed,
-            limit : 10,
+            limit : 20,
             order: [
                 ['nombre', 'ASC'],
                 ],
@@ -264,7 +264,7 @@ const productoController = {
         let accesorio =2;
         if(req.query.page){
             page = Number(req.query.page)
-            offsetRecibed = page * 10;
+            offsetRecibed = page * 20;
             page=Number(req.query.page)+1;
         let contarProductos = db.Productos.count({
             where : {
@@ -282,7 +282,7 @@ const productoController = {
                 descuento : { [Op.gt]: 0.5 }
             },
             offset : offsetRecibed,
-            limit : 10,
+            limit : 20,
             order: [
                 ['nombre', 'ASC'],
                 ],
@@ -328,7 +328,7 @@ const productoController = {
             descuento : { [Op.gt]: 0.5 }
         },
         offset : offsetRecibed,
-        limit : 10,
+        limit : 20,
         order: [
             ['nombre', 'ASC'],
             ],
@@ -363,7 +363,7 @@ const productoController = {
         let offsetRecibed = 0;
         if(req.query.page){
             page = Number(req.query.page)
-            offsetRecibed = page*10;
+            offsetRecibed = page*20;
             page=Number(req.query.page)+1;
         let contarProductos = db.Productos.count({  
             where : {
@@ -380,7 +380,7 @@ const productoController = {
                 activo: 1
             },        
             offset : offsetRecibed,
-            limit : 10,
+            limit : 20,
             order: [
                 ['nombre', 'ASC'],
                 ],
@@ -423,7 +423,7 @@ const productoController = {
             activo: 1
         },        
         offset : offsetRecibed,
-        limit : 10,
+        limit : 20,
         order: [
             ['nombre', 'ASC'],
             ],
@@ -463,7 +463,7 @@ const productoController = {
             order: [
                 ['createdAt', 'ASC'],
                 ],
-            limit : 10
+            limit : 20
         });
         let mostrarMarcas = db.Marcas.findAll();
         let mostrarTalles = db.Talles.findAll({
@@ -611,7 +611,7 @@ const productoController = {
 
         let mostrarProductos = db.Productos.findAll({
             offset : offsetRecibed,
-            limit : 10,
+            limit : 20,
             include :[ 
             {association : "imagenes"},
             {association : "colores",
@@ -707,7 +707,7 @@ const productoController = {
 
         let mostrarProductos = db.Productos.findAll({
             offset : offsetRecibed,
-            limit : 10,
+            limit : 20,
             include :[ 
             {association : "imagenes"},
             {association : "colores",

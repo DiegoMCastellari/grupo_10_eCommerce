@@ -74,6 +74,7 @@ var APIController = {
     },
     productosUltimo: (req, res, next) => {
         db.Productos.findAll({
+            where: {activo: 1},
             order :[['createdAt', 'DESC']],
             limit: 1,
             include :[ 

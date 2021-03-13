@@ -48,7 +48,7 @@
                                 <a href="/products/?page=<%= page == 0 ? page : page-1 %>" class="btn-arrow btn-arrow-left" title="Previous" style="opacity: 0;">Previous</a>
                             <%}%>
 
-                            <% if ((contarProductos/10) > (page) && contarProductos>1 && (contarProductos/10) > 1){ %>
+                            <% if ((contarProductos/20) > (page) && contarProductos>1 && (contarProductos/20) > 1){ %>
                             <a href="/products/?page=<%= page > 0 ? page : page+1 %>" class="btn-arrow btn-arrow-right" title="Next" >Next</a>
                             </div>
 
@@ -62,7 +62,7 @@
                             <% }else{ %>
                                 <a href="/products/ofertas/?page=<%= page == 0 ? page : page-1 %>" class="btn-arrow btn-arrow-left" title="Previous" style="opacity: 0;">Previous</a>
                             <%}%>
-                            <% if (( Number(contarProductos) / 10) > (page) && contarProductos/10 >1){ %>
+                            <% if (( Number(contarProductos) / 20) > (page) && contarProductos/20 >1){ %>
                                 <a href="/products/ofertas/?page=<%=page > 0 ? page : page+1 %>" class="btn-arrow btn-arrow-right" title="Next" >Next</a></div>
                             <% }else{ %>
                                 <a href="/products/ofertas/?page=<%= page == 0 ? page : page-1%>" class="btn-arrow btn-arrow-right" title="Next" style="opacity: 0;">Next</a></div>
@@ -75,7 +75,7 @@
                             <a href="/products/accesorios/?page=<%= page == 0 ? page : page-1 %>" class="btn-arrow btn-arrow-left" title="Previous" style="opacity: 0;">Previous</a>
                         <%}%>
 
-                        <% if ((contarProductos/10) > (page) && contarProductos>1){ %>
+                        <% if ((contarProductos/20) > (page) && contarProductos>1){ %>
                         <a href="/products/accesorios/?page=<%=page > 0 ? page : page+1 %>" class="btn-arrow btn-arrow-right" title="Next" >Next</a></div>
                         <% }else{ %>
                             <a href="/products/accesorios/?page=<%= page == 0 ? page : page-1%>" class="btn-arrow btn-arrow-right" title="Next" style="opacity: 0;">Next</a></div>

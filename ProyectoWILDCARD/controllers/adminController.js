@@ -360,20 +360,37 @@ const adminController = {
         },{
             where :  {id: req.params.id}
         })
-        
-        .then(resultado => {
+
+        .then(function(){
+
+            db.Producto_talle.destroy({
+                where : {
+                    id_producto : req.params.id
+                }
+            })
+        })
+        .then(function(){
+            for (var i = 0 ; i < req.body.talles.length ; i ++){
+                db.Producto_talle.create({
+                    id_producto : req.params.id,
+                    id_talle : req.body.talles[i]
+                })
+            }
+
+        })
+        /* .then(resultado => {
             for (var i = 0 ; i < req.body.talles.length ; i ++){
                 db.Producto_talle.update({
-                    id_talle : req.body.colores[i]
+                    id_talle : req.body.talles[i]
                 },{
                     where :{id_producto : req.params.id
 
                     }
                 })
             }
-            }) 
-            .then(resultado => {
-                for (var i = 0 ; i < req.body.colores.length ; i ++){
+            })  */
+            /* .then(resultado => {
+                 for (var i = 0 ; i < req.body.colores.length ; i ++){
                     db.Producto_color.update({
                         id_color : req.body.colores[i]
                     },{
@@ -381,18 +398,59 @@ const adminController = {
     
                         }
                     })
-                }
-                }) .then(resultado => {
-                    for (var i = 0 ; i < req.files.length ; i ++){
-                        db.Imagenes.update({
-                            path : req.files[i].filename,
-                           nombre : req.files[i].originalname
-                            }, {
-                            where :{id_producto : req.params.id}
-                                }
-                        )
+                } */
+
+            .then(function(){
+
+                db.Producto_color.destroy({
+                    where : {
+                        id_producto : req.params.id
                     }
-                    }) 
+                })
+            })
+            .then(function(){
+                for (var i = 0 ; i < req.body.colores.length ; i ++){
+                    db.Producto_color.create({
+                        id_producto : req.params.id,
+                        id_color : req.body.colores[i]
+                    })
+                }
+
+            })
+            /* .then(resultado => {
+                for (var i = 0 ; i < req.files.length ; i ++){
+                    db.Imagenes.update({
+                        path : req.files[i].filename,
+                        nombre : req.files[i].originalname
+                        }, {
+                        where :{id_producto : req.params.id}
+                            }
+                    )
+                }
+
+            })  */
+            
+            .then(function(){
+                if( req.files.length > 0 ){
+                    db.Imagenes.destroy({
+                        where : {
+                            id_producto : req.params.id
+                        }
+                    })
+                 }
+            })
+            .then(function(){
+                if ( req.files.length > 0 ){
+                    for (var i = 0 ; i < req.files.length ; i ++){
+                        db.Imagenes.create({
+                            id_producto : req.params.id,
+                            path : req.files[i].filename,
+                            nombre : req.files[i].originalname
+                        })
+                    }
+                }
+            })
+
                 .then(function(productos){
 
                         res.redirect("/admin/products");
